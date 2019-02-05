@@ -479,7 +479,7 @@ Image Symbol Table
     i.WDT1_Init                              0x110009c4   Section        0  wdt1.o(i.WDT1_Init)
     i.WDT1_Service                           0x11000a00   Section        0  wdt1.o(i.WDT1_Service)
     i.main                                   0x11000a2c   Section        0  main.o(i.main)
-    .constdata                               0x11000a3a   Section       48  emoccu_cfg.o(.constdata)
+    .constdata                               0x11000a4c   Section       48  emoccu_cfg.o(.constdata)
     .ARM.__AT_0x1101EFFC                     0x1101effc   Section        4  system_tle987x.o(.ARM.__AT_0x1101EFFC)
     __tagsym$$used                           0x1101effc   Number         0  system_tle987x.o(.ARM.__AT_0x1101EFFC)
     .data                                    0x18000000   Section        1  emo.o(.data)
@@ -644,10 +644,10 @@ Image Symbol Table
     UsageFault_Handler                       0x110009c3   Thumb Code     2  isr.o(i.UsageFault_Handler)
     WDT1_Init                                0x110009c5   Thumb Code    52  wdt1.o(i.WDT1_Init)
     WDT1_Service                             0x11000a01   Thumb Code    34  wdt1.o(i.WDT1_Service)
-    main                                     0x11000a2d   Thumb Code    14  main.o(i.main)
-    EmoCcu_Cfg                               0x11000a3a   Data          48  emoccu_cfg.o(.constdata)
-    Region$$Table$$Base                      0x11000a6c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x11000a8c   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x11000a2d   Thumb Code    24  main.o(i.main)
+    EmoCcu_Cfg                               0x11000a4c   Data          48  emoccu_cfg.o(.constdata)
+    Region$$Table$$Base                      0x11000a7c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x11000a9c   Number         0  anon$$obj.o(Region$$Table)
     p_NACNAD                                 0x1101effc   Data           4  system_tle987x.o(.ARM.__AT_0x1101EFFC)
     Emo_Status                               0x18000000   Data           1  emo.o(.data)
     WD_Counter                               0x18000008   Data           4  wdt1.o(.data)
@@ -664,9 +664,9 @@ Memory Map of the image
 
   Image Entry point : 0x11000081
 
-  Load Region LR_IROM1 (Base: 0x11000000, Size: 0x00000a98, Max: 0x0001effc, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x11000000, Size: 0x00000aa8, Max: 0x0001effc, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x11000000, Load base: 0x11000000, Size: 0x00000a8c, Max: 0x0001effc, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x11000000, Load base: 0x11000000, Size: 0x00000a9c, Max: 0x0001effc, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -764,23 +764,22 @@ Memory Map of the image
     0x110009c2   0x110009c2   0x00000002   Code   RO          606    i.UsageFault_Handler  isr.o
     0x110009c4   0x110009c4   0x0000003c   Code   RO          802    i.WDT1_Init         wdt1.o
     0x11000a00   0x11000a00   0x0000002c   Code   RO          804    i.WDT1_Service      wdt1.o
-    0x11000a2c   0x11000a2c   0x0000000e   Code   RO            6    i.main              main.o
-    0x11000a3a   0x11000a3a   0x00000030   Data   RO          315    .constdata          emoccu_cfg.o
-    0x11000a6a   0x11000a6a   0x00000002   PAD
-    0x11000a6c   0x11000a6c   0x00000020   Data   RO         1023    Region$$Table       anon$$obj.o
+    0x11000a2c   0x11000a2c   0x00000020   Code   RO            6    i.main              main.o
+    0x11000a4c   0x11000a4c   0x00000030   Data   RO          315    .constdata          emoccu_cfg.o
+    0x11000a7c   0x11000a7c   0x00000020   Data   RO         1023    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x18000000, Load base: 0x11000a8c, Size: 0x00000298, Max: 0x00001800, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x18000000, Load base: 0x11000a9c, Size: 0x00000298, Max: 0x00001800, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x18000000   0x11000a8c   0x00000001   Data   RW          178    .data               emo.o
-    0x18000001   0x11000a8d   0x00000003   PAD
-    0x18000004   0x11000a90   0x00000008   Data   RW          806    .data               wdt1.o
+    0x18000000   0x11000a9c   0x00000001   Data   RW          178    .data               emo.o
+    0x18000001   0x11000a9d   0x00000003   PAD
+    0x18000004   0x11000aa0   0x00000008   Data   RW          806    .data               wdt1.o
     0x1800000c        -       0x00000018   Zero   RW          177    .bss                emo.o
     0x18000024        -       0x00000010   Zero   RW          251    .bss                emoccu.o
     0x18000034        -       0x00000060   Zero   RW          897    .bss                c_w.l(libspace.o)
-    0x18000094   0x11000a98   0x00000004   PAD
+    0x18000094   0x11000aa8   0x00000004   PAD
     0x18000098        -       0x00000000   Zero   RW          734    HEAP                startup_tle987x.o
     0x18000098        -       0x00000200   Zero   RW          733    STACK               startup_tle987x.o
 
@@ -802,28 +801,28 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        96          4          0          0          0        448   adc1.o
-        80         22          0          0          0        440   adc2.o
-       108         22          0          0          0       2130   bdrv.o
-       120          6          0          0          0        468   ccu6.o
-       336         52          0          1         24      25085   emo.o
-       430         62          0          0         16      25683   emoccu.o
-         0          0         48          0          0       1477   emoccu_cfg.o
-        48          4          0          0          0        434   gpt12e.o
-       128         18          0          0          0        479   int.o
-       110         10          0          0          0       3614   isr.o
-        94          4          0          0          0      18967   main.o
-        72          6          0          0          0        480   port.o
-       322          0          0          0          0        997   scu.o
-        60         22        128          0        512        796   startup_tle987x.o
-        60         12          4          0          0       1020   system_tle987x.o
-        38          0          0          0          0        487   tle_device.o
-       104         18          0          8          0       1180   wdt1.o
+        96          4          0          0          0        504   adc1.o
+        80         22          0          0          0        496   adc2.o
+       108         22          0          0          0       2290   bdrv.o
+       120          6          0          0          0        524   ccu6.o
+       336         52          0          1         24      25673   emo.o
+       430         62          0          0         16      26283   emoccu.o
+         0          0         48          0          0       1641   emoccu_cfg.o
+        48          4          0          0          0        490   gpt12e.o
+       128         18          0          0          0        531   int.o
+       110         10          0          0          0       4042   isr.o
+       112         12          0          0          0      19355   main.o
+        72          6          0          0          0        536   port.o
+       322          0          0          0          0       1105   scu.o
+        60         22        128          0        512        852   startup_tle987x.o
+        60         12          4          0          0       1180   system_tle987x.o
+        38          0          0          0          0        539   tle_device.o
+       104         18          0          8          0       1336   wdt1.o
 
     ----------------------------------------------------------------------
-      2212        262        214         12        552      84185   Object Totals
+      2230        270        212         12        552      87377   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         6          0          2          3          0          0   (incl. Padding)
+         6          0          0          3          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -870,15 +869,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2490        278        214         12        652      82997   Grand Totals
-      2490        278        214         12        652      82997   ELF Image Totals
-      2490        278        214         12          0          0   ROM Totals
+      2508        286        212         12        652      86189   Grand Totals
+      2508        286        212         12        652      86189   ELF Image Totals
+      2508        286        212         12          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2704 (   2.64kB)
+    Total RO  Size (Code + RO Data)                 2720 (   2.66kB)
     Total RW  Size (RW Data + ZI Data)               664 (   0.65kB)
-    Total ROM Size (Code + RO Data + RW Data)       2716 (   2.65kB)
+    Total ROM Size (Code + RO Data + RW Data)       2732 (   2.67kB)
 
 ==============================================================================
 

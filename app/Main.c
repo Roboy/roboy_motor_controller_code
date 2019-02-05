@@ -89,6 +89,14 @@ int main(void)
   *****************************************************************************/
   TLE_Init();
 	
+	/* We clear the under/overvoltage interrupt status flags that occur if the board
+	 * is started @ 24V. (Reason is the default values loaded at boot in the threshold
+	 * register ADC2->TH0_3_* are designed for operating voltages below 18V. They are
+	 * only overwriten after TLE_Init())
+	 */
+	SCUPM->BDRV_ISCLR.reg = 0x11110000u;
+	SCUPM->BDRV_ISCLR.reg = 0x0u;					// Extra op so that they are correctly set.
+	
   /* Initialize E-Motor application */
   Emo_Init();
 	

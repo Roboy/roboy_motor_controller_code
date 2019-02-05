@@ -21,31 +21,32 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-F:\BLDC_BC_HALL_EXAMPLE_TLE987X\BldcBcHall.uvprojx
+C:\Users\roboy\Documents\Boards\Infineon\TLE9879_EvalKit\BLDC_BC_HALL_EXAMPLE_TLE987X\BldcBcHall.uvprojx
 Project File Date:  01/31/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'TLE9879 EvalKit'
-compiling bdrv.c...
-compiling adc2.c...
+Rebuild target 'TLE9879 EvalKit'
+compiling adc1.c...
 compiling EmoCcu_Cfg.c...
 compiling EmoCcu.c...
-compiling Emo.c...
+compiling bdrv.c...
+compiling adc2.c...
 compiling Main.c...
-compiling adc1.c...
-compiling bootrom.c...
+compiling Emo.c...
 compiling ccu6.c...
+compiling bootrom.c...
+compiling port.c...
 compiling int.c...
 compiling gpt12e.c...
 compiling isr.c...
 compiling scu.c...
-compiling port.c...
+assembling startup_tle987x.s...
 compiling system_tle987x.c...
 compiling tle_device.c...
 compiling wdt1.c...
 linking...
-Program Size: Code=2490 RO-data=214 RW-data=12 ZI-data=652  
+Program Size: Code=2508 RO-data=212 RW-data=12 ZI-data=652  
 ".\Objects\BldcBcHall.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -81,33 +82,33 @@ Package Vendor: Infineon
 <h2>Collection of Component Files used:</h2>
 
    * Component: Infineon::Device:Startup:1.0.0
-      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\bsl_defines.h
-      Include file:  Device\Include\tle987x.h
-      Source file:   Device\Source\tle_device.c
-      Include file:  Device\Include\system_tle987x.h
-      Include file:  Device\Include\eval_board.h
-      Include file:  Device\Include\types.h
-      Source file:   Device\Source\system_tle987x.c
       Source file:   Device\Source\ARM\startup_tle987x.s
+      Include file:  Device\Include\system_tle987x.h
       Source file:   Device\SDK\app\main.c
+      Source file:   Device\Source\system_tle987x.c
+      Include file:  Device\Include\eval_board.h
+      Include file:  Device\Include\tle987x.h
       Include file:  Device\Include\tle_device.h
+      Source file:   Device\Source\tle_device.c
+      Include file:  Device\Include\types.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\bsl_defines.h
 
    * Component: Infineon::Device:SDK:WDT1:0.2.6
-      Include file:  Device\SDK\inc\wdt1.h
       Source file:   Device\SDK\src\wdt1.c
+      Include file:  Device\SDK\inc\wdt1.h
 
    * Component: Infineon::Device:SDK:SCU:0.3.1
-      Source file:   Device\SDK\src\scu.c
       Include file:  Device\SDK\inc\scu.h
       Include file:  Device\SDK\inc\lin.h
+      Source file:   Device\SDK\src\scu.c
 
    * Component: Infineon::Device:SDK:PORT:0.5.2
       Include file:  Device\SDK\inc\port.h
       Source file:   Device\SDK\src\port.c
 
    * Component: Infineon::Device:SDK:ISR:0.2.0
-      Include file:  Device\SDK\inc\isr.h
       Source file:   Device\SDK\src\isr.c
+      Include file:  Device\SDK\inc\isr.h
 
    * Component: Infineon::Device:SDK:INT:0.1.4
       Include file:  Device\SDK\inc\int.h
@@ -122,23 +123,23 @@ Package Vendor: Infineon
       Source file:   Device\SDK\src\ccu6.c
 
    * Component: Infineon::Device:SDK:BOOTROM:0.2.1
-      Include file:  Device\SDK\inc\bootrom.h
       Source file:   Device\SDK\src\bootrom.c
+      Include file:  Device\SDK\inc\bootrom.h
 
    * Component: Infineon::Device:SDK:BDRV:0.3.7
       Include file:  Device\SDK\inc\bdrv.h
       Source file:   Device\SDK\src\bdrv.c
 
    * Component: Infineon::Device:SDK:ADC2:0.1.6
-      Source file:   Device\SDK\src\adc2.c
       Include file:  Device\SDK\inc\adc2.h
+      Source file:   Device\SDK\src\adc2.c
 
    * Component: Infineon::Device:SDK:ADC1:0.1.6
       Include file:  Device\SDK\inc\adc1.h
       Source file:   Device\SDK\src\adc1.c
 
    * Component: ARM::CMSIS:CORE:5.1.2
-Build Time Elapsed:  00:00:27
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

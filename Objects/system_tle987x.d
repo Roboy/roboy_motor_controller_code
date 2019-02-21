@@ -37,4 +37,6 @@
 .\objects\system_tle987x.o: .\RTE\Device\TLE9879QXA40\isr_defines.h
 .\objects\system_tle987x.o: .\RTE\Device\TLE9879QXA40\port.h
 .\objects\system_tle987x.o: .\RTE\Device\TLE9879QXA40\port_defines.h
+.\objects\system_tle987x.o: .\RTE\Device\TLE9879QXA40\ssc.h
+.\objects\system_tle987x.o: .\RTE\Device\TLE9879QXA40\dma.h
 .\objects\system_tle987x.o: .\RTE\Device\TLE9879QXA40\bsl_defines.h

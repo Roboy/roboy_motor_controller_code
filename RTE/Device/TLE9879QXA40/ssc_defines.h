@@ -1,4 +1,4 @@
-/*sha256=5ED5392A145BD4380858AD92043B8CB08F9A4F0A94A9B9572926F662952FEA9B*/
+/*sha256=2D0B3B56C43E0FC27FF1AB7D6E866F07EFA22CA617E03C0D4A7D154463CD7917*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:So Jul 9 21:20:52 2017
+created on:Fri Feb 15 19:53:54 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _SSC_DEFINES_H
@@ -40,9 +40,9 @@ created on:So Jul 9 21:20:52 2017
   #define IFXConfigWizard_Version 1.8.7
 #endif
 
-/* XML Version 1.3.0 */
+/* XML Version 1.3.1 */
 #ifndef SSC_XML_VERSION
-  #define SSC_XML_VERSION 10300
+  #define SSC_XML_VERSION 10301
 #endif
 
 #ifndef SSC1_AUTO_BAUDRATE
@@ -113,11 +113,11 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef SSC2_AUTO_BAUDRATE
-  #define SSC2_AUTO_BAUDRATE 3
+  #define SSC2_AUTO_BAUDRATE 5
 #endif
 
 #ifndef SSC2_AUTO_BAUD_SEL
-  #define SSC2_AUTO_BAUD_SEL 0
+  #define SSC2_AUTO_BAUD_SEL 1
 #endif
 
 /*SSC2_BR: 11*/
@@ -125,10 +125,10 @@ created on:So Jul 9 21:20:52 2017
   #define SSC2_BR (0xBu)
 #endif
 
-/*SSC2_CON: (0<<15)|(0<<14)|1|(0<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<<9)|(0<<10)\
-|(0<<11)|(0<<12)*/
+/*SSC2_CON: (1<<15)|(0<<14)|15|(1<<4)|(1<<5)|(0<<6)|(0<<7)|(0<<8)|(0<<9)|(0<<10\
+)|(0<<11)|(0<<12)*/
 #ifndef SSC2_CON
-  #define SSC2_CON (0x1u)
+  #define SSC2_CON (0x803Fu)
 #endif
 
 #ifndef SSC2_MAN_BAUDRATE
@@ -148,7 +148,7 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef SSC2_TEMP_CIS
-  #define SSC2_TEMP_CIS 2
+  #define SSC2_TEMP_CIS 0
 #endif
 
 #ifndef SSC2_TEMP_CLK
@@ -172,11 +172,11 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef SSC2_TEMP_SIS
-  #define SSC2_TEMP_SIS 2
+  #define SSC2_TEMP_SIS 0
 #endif
 
 #ifndef SSC2_TEMP_SOS
-  #define SSC2_TEMP_SOS 0
+  #define SSC2_TEMP_SOS 1
 #endif
 
 

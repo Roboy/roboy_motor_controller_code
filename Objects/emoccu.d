@@ -38,6 +38,8 @@
 .\objects\emoccu.o: .\RTE\Device\TLE9879QXA40\isr_defines.h
 .\objects\emoccu.o: .\RTE\Device\TLE9879QXA40\port.h
 .\objects\emoccu.o: .\RTE\Device\TLE9879QXA40\port_defines.h
+.\objects\emoccu.o: .\RTE\Device\TLE9879QXA40\ssc.h
+.\objects\emoccu.o: .\RTE\Device\TLE9879QXA40\dma.h
 .\objects\emoccu.o: .\RTE\Device\TLE9879QXA40\bchall_defines.h
 .\objects\emoccu.o: emo\EmoMat.h
 .\objects\emoccu.o: emo\EmoCcu.h

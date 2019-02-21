@@ -29,17 +29,18 @@
 
 /******************************************************************************/
 /** BLDC: Motor Drive with block commutation and Hall sensor                 **/
+/** ROBOY Motor controller board																						 **/
 /******************************************************************************/
-/** use the Poti to start/stop and speedup motor                             **/
-/** Motor connection, QBL4208:                                               **/
-/** Phase 1             : black                                              **/
-/** Phase 2             : yellow                                             **/
-/** Phase 3             : red                                                **/
-/** Hall A - P0.3       : blue                                               **/
-/** Hall B - P0.4       : green                                              **/
-/** Hall C - P1.2       : white                                              **/
-/** Hall Supply - VDDEXT: red                                                **/
-/** Hall Gnd - GND      : black                                              **/
+/** Motor control over SPI on connector 1                                    **/
+/** Motor connection, Maxon 300N                                             **/
+/** Phase 1             : Brown                                              **/
+/** Phase 2             : Red                                                **/
+/** Phase 3             : Orange                                             **/
+/** Hall A - P1.3       : Blue                                               **/
+/** Hall B - P0.4       : Violet                                             **/
+/** Hall C - P2.2       : Grey                                               **/
+/** Hall Supply - VDDEXT: Yellow                                             **/
+/** Hall Gnd - GND      : Green                                              **/
 /******************************************************************************/
 
 /*******************************************************************************
@@ -56,9 +57,8 @@
 /*******************************************************************************
 **                      Private Function Declarations                         **
 *******************************************************************************/
-static void Main_lStartMotor(void);
-static void Main_lStopMotor(void);
 void Poti_Handler(void);
+void SPI_slave_react(void);
 
 /*******************************************************************************
 **                      Global Variable Definitions                           **
@@ -67,6 +67,12 @@ void Poti_Handler(void);
 /*******************************************************************************
 **                      Private Variable Definitions                          **
 *******************************************************************************/
+uint16 spi_tx_data[DMA_CH2_NoOfTrans] = {0xCAFE, 0xBABE, 0xDEAD, 0xBEEF, 0xAAAA, 
+																					0xB00B, 0x0F0F, 0xC0DE, 0xF00D, 0xFADE,
+																					0x0};
+uint16 spi_rx_data[DMA_CH3_NoOfTrans];
+uint16 count = 0;							
+uint16 adc1_result = 0;																					
 
 /*******************************************************************************
 **                      Private Constant Definitions                          **
@@ -83,8 +89,10 @@ void Poti_Handler(void);
  */
 int main(void)
 {
+	int i;
+	
   /*****************************************************************************
-  ** initialization of the hardware modules based on the configuration don e   **
+  ** initialization of the hardware modules based on the configuration done   **
   ** by using the IFXConfigWizard                                             **
   *****************************************************************************/
   TLE_Init();
@@ -100,10 +108,32 @@ int main(void)
   /* Initialize E-Motor application */
   Emo_Init();
 	
+	/*Activate DMA controller*/
+	DMA_Master_En();
+	
+	
+	/*Start motor*/
+	Emo_SetRefSpeed(1000);
+	Emo_StartMotor();
+	
   while (1)
   { 
-    /* Service watch-dog */
-    WDT1_Service();
+		/* Service watch-dog */
+		WDT1_Service();
+		
+		for(i = 0; i < 100; i++)
+		{
+			Delay_us(500000);
+			if(i>=49)
+			{
+				Emo_SetRefSpeed(-2000);
+			}
+			else
+			{
+				Emo_SetRefSpeed(2000);
+			}
+		}
+    
   }
 } /* End of main() */
 
@@ -116,37 +146,12 @@ void Main_HandleSysTick(void)
 /*******************************************************************************
 **                      Private Function Definitions                          **
 *******************************************************************************/
-static void Main_lStartMotor(void)
+void SPI_slave_react(void)
 {
-  uint32 Error;
-  
-  Error = EMO_ERROR_NONE;
-  if(Error == EMO_ERROR_NONE)
-  {
-    /* Start motor with desired positive or negative speed in [rpm] */
-    Error = Emo_StartMotor();
-  }
-  if(Error == EMO_ERROR_NONE)
-  {
-  }  
-  else /* Error */     
-  {
-    
-  }  
-} /* End of Main_lStartMotor */
+	SSC2->TB.reg = count++;
+	
+}
 
-
-static void Main_lStopMotor(void)
-{
-  uint32 Error;
-  
-  Error = Emo_StopMotor(); 
-
-  if(Error != EMO_ERROR_NONE)
-  {
-    
-  }  
-} /* End of Main_lStopMotor */
 
 void Poti_Handler(void)
 {
@@ -156,15 +161,15 @@ void Poti_Handler(void)
 	 * values between 0 and 5000 are possible */
 	if (ADC1_GetChResult_mV(&mV, ADC1_CH4) == true)
 	{	
-		mV=2000;
-    Emo_SetRefSpeed(mV / 2); 
+		spi_tx_data[10] = mV;
+    //Emo_SetRefSpeed(mV / 2); 
     if (mV > 100)
     {
-      Main_lStartMotor();
+      //Emo_StartMotor();
     }
     else
     {
-      Main_lStopMotor();
+      //Emo_StopMotor();
     }
 	}
 }

@@ -37,3 +37,5 @@
 .\objects\bootrom.o: .\RTE\Device\TLE9879QXA40\isr_defines.h
 .\objects\bootrom.o: .\RTE\Device\TLE9879QXA40\port.h
 .\objects\bootrom.o: .\RTE\Device\TLE9879QXA40\port_defines.h
+.\objects\bootrom.o: .\RTE\Device\TLE9879QXA40\ssc.h
+.\objects\bootrom.o: .\RTE\Device\TLE9879QXA40\dma.h

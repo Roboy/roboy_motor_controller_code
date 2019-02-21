@@ -1,4 +1,4 @@
-/*sha256=1D0ED1C9A0A19DB9776534B8CFF6181D02AE3C721311F1A26799A33928F2C5C2*/
+/*sha256=7C09F268EC9207F9ADD58B642494DB86DD5964124C9F3A8C7BDCC06A01EC1AF7*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Mon Feb 4 23:15:10 2019
+created on:Mon Feb 18 22:44:23 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _CONFIG_H
@@ -156,8 +156,8 @@ created on:Mon Feb 4 23:15:10 2019
 #define ADC2_SYS_TEMP_UP_INT_EN 0
 /*ADC2_TH0_3_LOWER: (46<<8)|(46<<16)|(28<<24)*/
 #define ADC2_TH0_3_LOWER (0x1C2E2E00u)
-/*ADC2_TH0_3_UPPER: (226<<8)|(226<<16)|(200<<24)*/
-#define ADC2_TH0_3_UPPER (0xC8E2E200u)
+/*ADC2_TH0_3_UPPER: (226<<8)|(226<<16)|(172<<24)*/
+#define ADC2_TH0_3_UPPER (0xACE2E200u)
 /*ADC2_TH4_5_LOWER: 41|(153<<8)*/
 #define ADC2_TH4_5_LOWER (0x9929u)
 /*ADC2_TH4_5_UPPER: 136|(187<<8)*/
@@ -200,7 +200,7 @@ created on:Mon Feb 4 23:15:10 2019
 #define BCHALL_DELAY_ANGLE 0
 #define BCHALL_DELAY_MINSPEED 500
 #define BCHALL_EN 1
-#define BCHALL_INIT_DUTY 10
+#define BCHALL_INIT_DUTY 5
 #define BCHALL_INPUT_A 1
 #define BCHALL_INPUT_B 1
 #define BCHALL_INPUT_C 2
@@ -211,7 +211,7 @@ created on:Mon Feb 4 23:15:10 2019
 #define BCHALL_SPEED_IMAX 75
 #define BCHALL_SPEED_IMIN 0
 #define BCHALL_SPEED_KI 20
-#define BCHALL_SPEED_KP 40
+#define BCHALL_SPEED_KP 90
 #define BCHALL_SPEED_PIMAX 75
 #define BCHALL_SPEED_PIMIN 8
 #define BDRV_CP_CLK 225
@@ -398,8 +398,8 @@ created on:Mon Feb 4 23:15:10 2019
 /*CPU_NVIC_IPR3: (0<<4)|(0<<12)|(0<<20)|(0<<28)*/
 #define CPU_NVIC_IPR3 (0x0u)
 /*CPU_NVIC_ISER0: 0|(0<<1)|(0<<2)|(1<<3)|(1<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<\
-<9)|(0<<10)|(0<<11)|(0<<12)|(0<<13)|(0<<14)|(0<<15)*/
-#define CPU_NVIC_ISER0 (0x18u)
+<9)|(0<<10)|(1<<11)|(0<<12)|(0<<13)|(0<<14)|(0<<15)*/
+#define CPU_NVIC_ISER0 (0x818u)
 /*CPU_NVIC_SHPR3: (0<<28)*/
 #define CPU_NVIC_SHPR3 (0x0u)
 #define CPU_SYSTICK_CALLBACK Main_HandleSysTick
@@ -410,8 +410,8 @@ created on:Mon Feb 4 23:15:10 2019
 #define CSA_CTRL (0x4u)
 /*DMA_BASE_ADDR: 402654208*/
 #define DMA_BASE_ADDR (0x18000400u)
-/*DMA_CFG: 0*/
-#define DMA_CFG (0x0u)
+/*DMA_CFG: 1*/
+#define DMA_CFG (0x1u)
 #define DMA_CH0_DST enter destination location
 #define DMA_CH0_DST_EXT 0
 #define DMA_CH0_DST_PTR_OFFS 0
@@ -485,34 +485,34 @@ created on:Mon Feb 4 23:15:10 2019
 #define DMA_CH1_TASK_SRC enter source reference
 #define DMA_CH1_TRANS_MODE 0
 #define DMA_CH2_CALLBACK place_your_function_call_back_here
-#define DMA_CH2_DST SSC1->TB.reg
+#define DMA_CH2_DST SSC2->TB.reg
 #define DMA_CH2_DST_EXT 0
 #define DMA_CH2_DST_PTR_OFFS 0
-#define DMA_CH2_DST_SEL 0
-/*DMA_CH2_INC: 0|(0<<1)*/
-#define DMA_CH2_INC (0x0u)
+#define DMA_CH2_DST_SEL 2
+/*DMA_CH2_INC: 1|(0<<1)*/
+#define DMA_CH2_INC (0x1u)
 #define DMA_CH2_INT_EN 0
-#define DMA_CH2_NoOfTrans 1
+#define DMA_CH2_NoOfTrans 11
 #define DMA_CH2_SIZE 1
-#define DMA_CH2_SRC enter source reference
-#define DMA_CH2_SRC_EXT 0
-#define DMA_CH2_SRC_PTR_OFFS 0
+#define DMA_CH2_SRC spi_tx_data
+#define DMA_CH2_SRC_EXT 1
+#define DMA_CH2_SRC_PTR_OFFS 20
 #define DMA_CH2_TASK_NoOfTasks 0
 #define DMA_CH2_TASK_SRC enter source reference
 #define DMA_CH2_TRANS_MODE 0
 #define DMA_CH3_CALLBACK place_your_function_call_back_here
-#define DMA_CH3_DST enter destination reference
-#define DMA_CH3_DST_EXT 0
-#define DMA_CH3_DST_PTR_OFFS 0
-/*DMA_CH3_INC: 0|(0<<1)*/
-#define DMA_CH3_INC (0x0u)
+#define DMA_CH3_DST spi_rx_data
+#define DMA_CH3_DST_EXT 1
+#define DMA_CH3_DST_PTR_OFFS 22
+/*DMA_CH3_INC: 0|(1<<1)*/
+#define DMA_CH3_INC (0x2u)
 #define DMA_CH3_INT_EN 0
-#define DMA_CH3_NoOfTrans 1
+#define DMA_CH3_NoOfTrans 12
 #define DMA_CH3_SIZE 1
-#define DMA_CH3_SRC SSC1->RB.reg
+#define DMA_CH3_SRC SSC2->RB.reg
 #define DMA_CH3_SRC_EXT 0
 #define DMA_CH3_SRC_PTR_OFFS 0
-#define DMA_CH3_SRC_SEL 0
+#define DMA_CH3_SRC_SEL 2
 #define DMA_CH3_TASK_NoOfTasks 0
 #define DMA_CH3_TASK_SRC enter source reference
 #define DMA_CH3_TRANS_MODE 0
@@ -610,9 +610,9 @@ created on:Mon Feb 4 23:15:10 2019
 #define DMA_CH9_TASK_NoOfTasks 0
 #define DMA_CH9_TASK_SRC enter source reference
 #define DMA_CH9_TRANS_MODE 0
-/*DMA_EN: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<<9)|(0<<\
+/*DMA_EN: 0|(0<<1)|(1<<2)|(1<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<<9)|(0<<\
 10)|(0<<11)|(0<<12)*/
-#define DMA_EN (0x0u)
+#define DMA_EN (0xCu)
 #define DMA_GPT12E_CALLBACK place_your_function_call_back_here
 #define DMA_GPT12E_INT_EN 0
 #define DMA_SQ1_RDY_CALLBACK place_your_function_call_back_here
@@ -627,7 +627,7 @@ created on:Mon Feb 4 23:15:10 2019
 #define EXINT0_RISING_CALLBACK place_your_function_call_back_here
 #define EXINT1_FALLING_CALLBACK place_your_function_call_back_here
 #define EXINT1_RISING_CALLBACK place_your_function_call_back_here
-#define EXINT2_FALLING_CALLBACK place_your_function_call_back_here
+#define EXINT2_FALLING_CALLBACK SPI_slave_react
 #define EXINT2_RISING_CALLBACK place_your_function_call_back_here
 /*GPT12E_CAPREL: 65535*/
 #define GPT12E_CAPREL (0xFFFFu)
@@ -758,7 +758,7 @@ created on:Mon Feb 4 23:15:10 2019
 #define MF_TRIM_BEMFx (0x4u)
 /*MF_VMON_SEN_CTRL: 0|(0<<4)|(0<<5)*/
 #define MF_VMON_SEN_CTRL (0x0u)
-/*MON_CNF: 1|(1<<2)|(1<<1)|(0<<5)|(0<<4)|(0<<3)*/
+/*MON_CNF: (0<<3)|1|(1<<2)|(1<<1)|(0<<5)|(0<<4)*/
 #define MON_CNF (0x7u)
 #define MON_FALLING_CALLBACK place_your_function_call_back_here
 #define MON_FALLING_INT_EN 0
@@ -864,8 +864,8 @@ created on:Mon Feb 4 23:15:10 2019
 #define PORT_P1_1_ALT (0x0u)
 /*PORT_P1_1_PUD: 0*/
 #define PORT_P1_1_PUD (0x0u)
-/*PORT_P1_2_ALT: 0*/
-#define PORT_P1_2_ALT (0x0u)
+/*PORT_P1_2_ALT: 1*/
+#define PORT_P1_2_ALT (0x1u)
 /*PORT_P1_2_PUD: 3*/
 #define PORT_P1_2_PUD (0x3u)
 /*PORT_P1_3_ALT: 0*/
@@ -878,8 +878,8 @@ created on:Mon Feb 4 23:15:10 2019
 #define PORT_P1_4_PUD (0x0u)
 /*PORT_P1_DATA: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/
 #define PORT_P1_DATA (0x0u)
-/*PORT_P1_DIR: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/
-#define PORT_P1_DIR (0x0u)
+/*PORT_P1_DIR: 0|(0<<1)|(1<<2)|(0<<3)|(0<<4)*/
+#define PORT_P1_DIR (0x4u)
 /*PORT_P1_OD: (0<<1)|(0<<2)|(0<<3)|(0<<4)*/
 #define PORT_P1_OD (0x0u)
 /*PORT_P2_0_PUD: 0*/
@@ -920,8 +920,8 @@ created on:Mon Feb 4 23:15:10 2019
 #define SCU_BCON1 (0x0u)
 /*SCU_BCON2: (0<<1)|0*/
 #define SCU_BCON2 (0x0u)
-/*SCU_BDRV_IRQ_CTRL: (0<<16)|(0<<12)|(0<<10)|(0<<13)|(0<<11)|(0<<15)|(0<<14)|(0\
-<<2)|0|(0<<3)|(0<<1)|(0<<5)|(0<<4)|(0<<20)|(0<<19)|(0<<18)|(0<<17)*/
+/*SCU_BDRV_IRQ_CTRL: (0<<20)|(0<<19)|(0<<18)|(0<<17)|(0<<16)|(0<<12)|(0<<10)|(0\
+<<13)|(0<<11)|(0<<15)|(0<<14)|(0<<2)|0|(0<<3)|(0<<1)|(0<<5)|(0<<4)*/
 #define SCU_BDRV_IRQ_CTRL (0x0u)
 #define SCU_CFLASH_WPROT 0
 #define SCU_CFLASH_WPROT_PW 0
@@ -936,8 +936,8 @@ created on:Mon Feb 4 23:15:10 2019
 #define SCU_DMAIEN1 (0x0u)
 /*SCU_DMAIEN2: (0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)*/
 #define SCU_DMAIEN2 (0x0u)
-/*SCU_DMASRCSEL: (0<<2)|(0<<3)*/
-#define SCU_DMASRCSEL (0x0u)
+/*SCU_DMASRCSEL: 1|(1<<1)|(0<<2)|(0<<3)*/
+#define SCU_DMASRCSEL (0x3u)
 /*SCU_DMASRCSEL2: 0*/
 #define SCU_DMASRCSEL2 (0x0u)
 #define SCU_ECC_NVM_DB_CALLBACK place_your_function_call_back_here
@@ -946,13 +946,13 @@ created on:Mon Feb 4 23:15:10 2019
 #define SCU_ECC_RAM_DB_INT_EN 0
 /*SCU_EDCCON: 0|(0<<2)*/
 #define SCU_EDCCON (0x0u)
-/*SCU_EXICON0: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<7)*/
-#define SCU_EXICON0 (0x0u)
+/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(1<<5)*/
+#define SCU_EXICON0 (0x20u)
 #define SCU_EXINT0_FALLING_INT_EN 0
 #define SCU_EXINT0_RISING_INT_EN 0
 #define SCU_EXINT1_FALLING_INT_EN 0
 #define SCU_EXINT1_RISING_INT_EN 0
-#define SCU_EXINT2_FALLING_INT_EN 0
+#define SCU_EXINT2_FALLING_INT_EN 1
 #define SCU_EXINT2_RISING_INT_EN 0
 #define SCU_FSYS 2.4e+07
 /*SCU_GPT12IEN: 0|(0<<1)|(0<<2)|(0<<3)|(0<<5)|(0<<4)*/
@@ -965,16 +965,16 @@ created on:Mon Feb 4 23:15:10 2019
 #define SCU_INT_OSC_OVERRIDE_EN 0
 /*SCU_LINST: (3<<1)|(0<<6)*/
 #define SCU_LINST (0x6u)
-/*SCU_MODIEN1: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)*/
+/*SCU_MODIEN1: (0<<6)|(0<<7)|(0<<2)|(0<<1)|0*/
 #define SCU_MODIEN1 (0x0u)
-/*SCU_MODIEN2: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)|(0<<5)*/
-#define SCU_MODIEN2 (0x0u)
-/*SCU_MODIEN3: 0|(0<<4)*/
+/*SCU_MODIEN2: (0<<6)|(0<<7)|(0<<2)|(0<<1)|0|(1<<5)*/
+#define SCU_MODIEN2 (0x20u)
+/*SCU_MODIEN3: (0<<4)|0*/
 #define SCU_MODIEN3 (0x0u)
 /*SCU_MODIEN4: 0*/
 #define SCU_MODIEN4 (0x0u)
-/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(3<<2)|(0<<4)*/
-#define SCU_MODPISEL (0xFu)
+/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(3<<2)|(1<<4)*/
+#define SCU_MODPISEL (0x1Fu)
 /*SCU_MODPISEL1: (0<<6)|(0<<7)|0*/
 #define SCU_MODPISEL1 (0x0u)
 /*SCU_MODPISEL2: 1|(0<<4)|(0<<2)|(2<<6)*/
@@ -1040,13 +1040,13 @@ created on:Mon Feb 4 23:15:10 2019
 #define SSC1_TEMP_SOS 0
 #define SSC1_TX_CALLBACK place_your_function_call_back_here
 #define SSC1_TX_INT_EN 0
-#define SSC2_AUTO_BAUDRATE 3
-#define SSC2_AUTO_BAUD_SEL 0
+#define SSC2_AUTO_BAUDRATE 5
+#define SSC2_AUTO_BAUD_SEL 1
 /*SSC2_BR: 11*/
 #define SSC2_BR (0xBu)
-/*SSC2_CON: (0<<15)|(0<<14)|1|(0<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<<9)|(0<<10)\
-|(0<<11)|(0<<12)*/
-#define SSC2_CON (0x1u)
+/*SSC2_CON: (1<<15)|(0<<14)|15|(1<<4)|(1<<5)|(0<<6)|(0<<7)|(0<<8)|(0<<9)|(0<<10\
+)|(0<<11)|(0<<12)*/
+#define SSC2_CON (0x803Fu)
 #define SSC2_ERR_CALLBACK place_your_function_call_back_here
 #define SSC2_ERR_INT_EN 0
 #define SSC2_MAN_BAUDRATE 1000
@@ -1055,14 +1055,14 @@ created on:Mon Feb 4 23:15:10 2019
 #define SSC2_RX_INT_EN 0
 #define SSC2_TEMP_BR 1000
 #define SSC2_TEMP_BRG 0
-#define SSC2_TEMP_CIS 2
+#define SSC2_TEMP_CIS 0
 #define SSC2_TEMP_CLK 24
 #define SSC2_TEMP_COS 0
 #define SSC2_TEMP_MIS 4
 #define SSC2_TEMP_MOS 0
 #define SSC2_TEMP_MS 0
-#define SSC2_TEMP_SIS 2
-#define SSC2_TEMP_SOS 0
+#define SSC2_TEMP_SIS 0
+#define SSC2_TEMP_SOS 1
 #define SSC2_TX_CALLBACK place_your_function_call_back_here
 #define SSC2_TX_INT_EN 0
 #define TIMER21_CLK 2
@@ -1071,10 +1071,12 @@ created on:Mon Feb 4 23:15:10 2019
 #define TIMER21_EXF2_CALLBACK place_your_function_call_back_here
 #define TIMER21_EXF2_INT_EN 0
 #define TIMER21_MAX_PERIOD 32767.5
-#define TIMER21_RC2 65535
+/*TIMER21_RC2: 65535*/
+#define TIMER21_RC2 (0xFFFFu)
 #define TIMER21_RC2H 255
 #define TIMER21_RC2L 255
-#define TIMER21_T2 65535
+/*TIMER21_T2: 65535*/
+#define TIMER21_T2 (0xFFFFu)
 #define TIMER21_T21IN_EN 0
 /*TIMER21_T2CON: (0<<3)|(0<<1)|0*/
 #define TIMER21_T2CON (0x0u)
@@ -1100,10 +1102,12 @@ created on:Mon Feb 4 23:15:10 2019
 #define TIMER2_EXF2_INT_EN 0
 #define TIMER2_EXF2_PINSEL 0
 #define TIMER2_MAX_PERIOD 32767.5
-#define TIMER2_RC2 65535
+/*TIMER2_RC2: 65535*/
+#define TIMER2_RC2 (0xFFFFu)
 #define TIMER2_RC2H 255
 #define TIMER2_RC2L 255
-#define TIMER2_T2 65535
+/*TIMER2_T2: 65535*/
+#define TIMER2_T2 (0xFFFFu)
 /*TIMER2_T2CON: (0<<3)|(0<<1)|0*/
 #define TIMER2_T2CON (0x0u)
 /*TIMER2_T2CON1: 0|(0<<1)*/

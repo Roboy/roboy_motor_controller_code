@@ -1,4 +1,4 @@
-/*sha256=F9FF1247482268F045AC92229BB6D38698E7C82292687C44AA415A5153B856A3*/
+/*sha256=9B755F70C4AC63FE558AFBB14CD4ED5C77F2184F5B80ED4CF380167B6A335A6C*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:So Jul 9 21:20:52 2017
+created on:Fri Feb 15 00:15:45 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _DMA_DEFINES_H
@@ -40,9 +40,9 @@ created on:So Jul 9 21:20:52 2017
   #define IFXConfigWizard_Version 1.8.7
 #endif
 
-/* XML Version 1.3.0 */
+/* XML Version 1.3.1 */
 #ifndef DMA_XML_VERSION
-  #define DMA_XML_VERSION 10300
+  #define DMA_XML_VERSION 10301
 #endif
 
 /*DMA_BASE_ADDR: 402654208*/
@@ -50,9 +50,9 @@ created on:So Jul 9 21:20:52 2017
   #define DMA_BASE_ADDR (0x18000400u)
 #endif
 
-/*DMA_CFG: 0*/
+/*DMA_CFG: 1*/
 #ifndef DMA_CFG
-  #define DMA_CFG (0x0u)
+  #define DMA_CFG (0x1u)
 #endif
 
 #ifndef DMA_CH0_DST
@@ -321,7 +321,7 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef DMA_CH2_DST
-#define DMA_CH2_DST SSC1->TB.reg
+#define DMA_CH2_DST SSC2->TB.reg
 #endif
 
 #ifndef DMA_CH2_DST_EXT
@@ -333,16 +333,16 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef DMA_CH2_DST_SEL
-  #define DMA_CH2_DST_SEL 0
+  #define DMA_CH2_DST_SEL 2
 #endif
 
-/*DMA_CH2_INC: 0|(0<<1)*/
+/*DMA_CH2_INC: 1|(0<<1)*/
 #ifndef DMA_CH2_INC
-  #define DMA_CH2_INC (0x0u)
+  #define DMA_CH2_INC (0x1u)
 #endif
 
 #ifndef DMA_CH2_NoOfTrans
-  #define DMA_CH2_NoOfTrans 1
+  #define DMA_CH2_NoOfTrans 11
 #endif
 
 #ifndef DMA_CH2_SIZE
@@ -350,15 +350,15 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef DMA_CH2_SRC
-#define DMA_CH2_SRC enter source reference
+#define DMA_CH2_SRC spi_tx_data
 #endif
 
 #ifndef DMA_CH2_SRC_EXT
-  #define DMA_CH2_SRC_EXT 0
+  #define DMA_CH2_SRC_EXT 1
 #endif
 
 #ifndef DMA_CH2_SRC_PTR_OFFS
-  #define DMA_CH2_SRC_PTR_OFFS 0
+  #define DMA_CH2_SRC_PTR_OFFS 20
 #endif
 
 #ifndef DMA_CH2_TASK_NoOfTasks
@@ -374,24 +374,24 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef DMA_CH3_DST
-#define DMA_CH3_DST enter destination reference
+#define DMA_CH3_DST spi_rx_data
 #endif
 
 #ifndef DMA_CH3_DST_EXT
-  #define DMA_CH3_DST_EXT 0
+  #define DMA_CH3_DST_EXT 1
 #endif
 
 #ifndef DMA_CH3_DST_PTR_OFFS
-  #define DMA_CH3_DST_PTR_OFFS 0
+  #define DMA_CH3_DST_PTR_OFFS 22
 #endif
 
-/*DMA_CH3_INC: 0|(0<<1)*/
+/*DMA_CH3_INC: 0|(1<<1)*/
 #ifndef DMA_CH3_INC
-  #define DMA_CH3_INC (0x0u)
+  #define DMA_CH3_INC (0x2u)
 #endif
 
 #ifndef DMA_CH3_NoOfTrans
-  #define DMA_CH3_NoOfTrans 1
+  #define DMA_CH3_NoOfTrans 12
 #endif
 
 #ifndef DMA_CH3_SIZE
@@ -399,7 +399,7 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef DMA_CH3_SRC
-#define DMA_CH3_SRC SSC1->RB.reg
+#define DMA_CH3_SRC SSC2->RB.reg
 #endif
 
 #ifndef DMA_CH3_SRC_EXT
@@ -411,7 +411,7 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef DMA_CH3_SRC_SEL
-  #define DMA_CH3_SRC_SEL 0
+  #define DMA_CH3_SRC_SEL 2
 #endif
 
 #ifndef DMA_CH3_TASK_NoOfTasks
@@ -744,10 +744,10 @@ created on:So Jul 9 21:20:52 2017
   #define DMA_CH9_TRANS_MODE 0
 #endif
 
-/*DMA_EN: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<<9)|(0<<\
+/*DMA_EN: 0|(0<<1)|(1<<2)|(1<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<<9)|(0<<\
 10)|(0<<11)|(0<<12)*/
 #ifndef DMA_EN
-  #define DMA_EN (0x0u)
+  #define DMA_EN (0xCu)
 #endif
 
 

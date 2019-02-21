@@ -5,12 +5,14 @@ Component: ARM Compiler 5.06 update 5 (build 528) Tool: armlink [4d35e2]
 Section Cross References
 
     main.o(i.Main_HandleSysTick) refers to emo.o(i.Emo_CtrlSpeed) for Emo_CtrlSpeed
-    main.o(i.Poti_Handler) refers to emo.o(i.Emo_SetRefSpeed) for Emo_SetRefSpeed
-    main.o(i.Poti_Handler) refers to emo.o(i.Emo_StartMotor) for Emo_StartMotor
-    main.o(i.Poti_Handler) refers to emo.o(i.Emo_StopMotor) for Emo_StopMotor
+    main.o(i.Poti_Handler) refers to main.o(.data) for .data
+    main.o(i.SPI_slave_react) refers to main.o(.data) for .data
     main.o(i.main) refers to tle_device.o(i.TLE_Init) for TLE_Init
     main.o(i.main) refers to emo.o(i.Emo_Init) for Emo_Init
+    main.o(i.main) refers to emo.o(i.Emo_SetRefSpeed) for Emo_SetRefSpeed
+    main.o(i.main) refers to emo.o(i.Emo_StartMotor) for Emo_StartMotor
     main.o(i.main) refers to wdt1.o(i.WDT1_Service) for WDT1_Service
+    main.o(i.main) refers to wdt1.o(i.Delay_us) for Delay_us
     emo.o(i.Emo_CtrlSpeed) refers to emo.o(.data) for .data
     emo.o(i.Emo_CtrlSpeed) refers to emo.o(.bss) for .bss
     emo.o(i.Emo_CtrlSpeed) refers to emoccu.o(.bss) for EmoCcu_HallStatus
@@ -44,6 +46,8 @@ Section Cross References
     bootrom.o(i.GetCustomerID) refers to wdt1.o(i.WDT1_Service) for WDT1_Service
     bootrom.o(i.ProgramPage) refers to wdt1.o(i.WDT1_SOW_Service) for WDT1_SOW_Service
     bootrom.o(i.ProgramPage) refers to wdt1.o(i.WDT1_Service) for WDT1_Service
+    dma.o(i.DMA_Init) refers to main.o(.data) for spi_tx_data
+    dma.o(i.DMA_Init) refers to main.o(.bss) for spi_rx_data
     gpt12e.o(i.GPT12E_T3_Interval_Timer_Setup) refers to lludivv7m.o(.text) for __aeabi_uldivmod
     gpt12e.o(i.GPT12E_T3_Interval_Timer_Setup) refers to scu.o(.data) for SystemFrequency
     gpt12e.o(i.GPT12E_T6_Interval_Timer_Setup) refers to lludivv7m.o(.text) for __aeabi_uldivmod
@@ -52,6 +56,7 @@ Section Cross References
     isr.o(i.CCU6SR0_IRQHandler) refers to emoccu.o(i.EmoCcu_HandleHallEvent) for EmoCcu_HandleHallEvent
     isr.o(i.SysTick_Handler) refers to main.o(i.Main_HandleSysTick) for Main_HandleSysTick
     isr.o(i.SysTick_Handler) refers to wdt1.o(.data) for WD_Counter
+    isr.o(i.UART2_IRQHandler) refers to main.o(i.SPI_slave_react) for SPI_slave_react
     scu.o(i.SCU_EnterSlowMode) refers to wdt1.o(i.WDT1_Stop) for WDT1_Stop
     scu.o(i.SCU_EnterSlowMode) refers to wdt1.o(i.WDT1_SOW_Service) for WDT1_SOW_Service
     scu.o(i.SCU_EnterSlowMode) refers to wdt1.o(i.WDT1_Init) for WDT1_Init
@@ -70,6 +75,7 @@ Section Cross References
     startup_tle987x.o(RESET) refers to isr.o(i.SysTick_Handler) for SysTick_Handler
     startup_tle987x.o(RESET) refers to isr.o(i.ADC1_IRQHandler) for ADC1_IRQHandler
     startup_tle987x.o(RESET) refers to isr.o(i.CCU6SR0_IRQHandler) for CCU6SR0_IRQHandler
+    startup_tle987x.o(RESET) refers to isr.o(i.UART2_IRQHandler) for UART2_IRQHandler
     startup_tle987x.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_tle987x.o(.text) refers to system_tle987x.o(i.SystemInit) for SystemInit
     startup_tle987x.o(.text) refers to __main.o(!!!main) for __main
@@ -84,6 +90,9 @@ Section Cross References
     tle_device.o(i.TLE_Init) refers to ccu6.o(i.CCU6_Init) for CCU6_Init
     tle_device.o(i.TLE_Init) refers to gpt12e.o(i.GPT12E_Init) for GPT12E_Init
     tle_device.o(i.TLE_Init) refers to port.o(i.PORT_Init) for PORT_Init
+    tle_device.o(i.TLE_Init) refers to ssc.o(i.SSC1_Init) for SSC1_Init
+    tle_device.o(i.TLE_Init) refers to ssc.o(i.SSC2_Init) for SSC2_Init
+    tle_device.o(i.TLE_Init) refers to dma.o(i.DMA_Init) for DMA_Init
     tle_device.o(i.TLE_Init) refers to int.o(i.INT_Init) for INT_Init
     wdt1.o(i.WDT1_Init) refers to wdt1.o(.data) for .data
     wdt1.o(i.WDT1_SOW_Service) refers to wdt1.o(.data) for .data
@@ -201,13 +210,16 @@ Removing Unused input sections from the image.
     Removing main.o(.rev16_text), (4 bytes).
     Removing main.o(.revsh_text), (4 bytes).
     Removing main.o(.rrx_text), (6 bytes).
+    Removing main.o(.data), (2 bytes).
     Removing emo.o(.rev16_text), (4 bytes).
     Removing emo.o(.revsh_text), (4 bytes).
     Removing emo.o(.rrx_text), (6 bytes).
     Removing emo.o(i.Emo_GetAbsSpeed), (12 bytes).
+    Removing emo.o(i.Emo_StopMotor), (52 bytes).
     Removing emoccu.o(.rev16_text), (4 bytes).
     Removing emoccu.o(.revsh_text), (4 bytes).
     Removing emoccu.o(.rrx_text), (6 bytes).
+    Removing emoccu.o(i.Ccu6_Stop), (48 bytes).
     Removing emoccu_cfg.o(.rev16_text), (4 bytes).
     Removing emoccu_cfg.o(.revsh_text), (4 bytes).
     Removing emoccu_cfg.o(.rrx_text), (6 bytes).
@@ -256,6 +268,15 @@ Removing Unused input sections from the image.
     Removing ccu6.o(.rev16_text), (4 bytes).
     Removing ccu6.o(.revsh_text), (4 bytes).
     Removing ccu6.o(.rrx_text), (6 bytes).
+    Removing dma.o(.rev16_text), (4 bytes).
+    Removing dma.o(.revsh_text), (4 bytes).
+    Removing dma.o(.rrx_text), (6 bytes).
+    Removing dma.o(i.DMA_Channel_MemSctGth_Set), (108 bytes).
+    Removing dma.o(i.DMA_Channel_PerSctGth_Set), (108 bytes).
+    Removing dma.o(i.DMA_Reset_Channel), (44 bytes).
+    Removing dma.o(i.DMA_Setup_Channel), (136 bytes).
+    Removing dma.o(i.DMA_Task_SctGth_Set), (100 bytes).
+    Removing dma.o(i.DMA_Task_Set), (126 bytes).
     Removing gpt12e.o(.rev16_text), (4 bytes).
     Removing gpt12e.o(.revsh_text), (4 bytes).
     Removing gpt12e.o(.rrx_text), (6 bytes).
@@ -276,6 +297,9 @@ Removing Unused input sections from the image.
     Removing scu.o(i.SCU_EnterSlowMode), (44 bytes).
     Removing scu.o(i.SCU_ExitSlowMode), (60 bytes).
     Removing scu.o(.data), (4 bytes).
+    Removing ssc.o(.rev16_text), (4 bytes).
+    Removing ssc.o(.revsh_text), (4 bytes).
+    Removing ssc.o(.rrx_text), (6 bytes).
     Removing system_tle987x.o(.rev16_text), (4 bytes).
     Removing system_tle987x.o(.revsh_text), (4 bytes).
     Removing system_tle987x.o(.rrx_text), (6 bytes).
@@ -285,11 +309,10 @@ Removing Unused input sections from the image.
     Removing wdt1.o(.rev16_text), (4 bytes).
     Removing wdt1.o(.revsh_text), (4 bytes).
     Removing wdt1.o(.rrx_text), (6 bytes).
-    Removing wdt1.o(i.Delay_us), (64 bytes).
     Removing wdt1.o(i.WDT1_SOW_Service), (24 bytes).
     Removing wdt1.o(i.WDT1_Stop), (14 bytes).
 
-90 unused section(s) (total 1646 bytes) removed from the image.
+104 unused section(s) (total 2334 bytes) removed from the image.
 
 ==============================================================================
 
@@ -301,19 +324,19 @@ Image Symbol Table
 
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
-    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
@@ -323,10 +346,10 @@ Image Symbol Table
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
@@ -334,22 +357,22 @@ Image Symbol Table
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/longlong.s                       0x00000000   Number         0  lludivv7m.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
@@ -358,11 +381,13 @@ Image Symbol Table
     RTE\Device\TLE9879QXA40\bdrv.c           0x00000000   Number         0  bdrv.o ABSOLUTE
     RTE\Device\TLE9879QXA40\bootrom.c        0x00000000   Number         0  bootrom.o ABSOLUTE
     RTE\Device\TLE9879QXA40\ccu6.c           0x00000000   Number         0  ccu6.o ABSOLUTE
+    RTE\Device\TLE9879QXA40\dma.c            0x00000000   Number         0  dma.o ABSOLUTE
     RTE\Device\TLE9879QXA40\gpt12e.c         0x00000000   Number         0  gpt12e.o ABSOLUTE
     RTE\Device\TLE9879QXA40\int.c            0x00000000   Number         0  int.o ABSOLUTE
     RTE\Device\TLE9879QXA40\isr.c            0x00000000   Number         0  isr.o ABSOLUTE
     RTE\Device\TLE9879QXA40\port.c           0x00000000   Number         0  port.o ABSOLUTE
     RTE\Device\TLE9879QXA40\scu.c            0x00000000   Number         0  scu.o ABSOLUTE
+    RTE\Device\TLE9879QXA40\ssc.c            0x00000000   Number         0  ssc.o ABSOLUTE
     RTE\Device\TLE9879QXA40\system_tle987x.c 0x00000000   Number         0  system_tle987x.o ABSOLUTE
     RTE\Device\TLE9879QXA40\tle_device.c     0x00000000   Number         0  tle_device.o ABSOLUTE
     RTE\Device\TLE9879QXA40\wdt1.c           0x00000000   Number         0  wdt1.o ABSOLUTE
@@ -371,11 +396,13 @@ Image Symbol Table
     RTE\\Device\\TLE9879QXA40\\bdrv.c        0x00000000   Number         0  bdrv.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\bootrom.c     0x00000000   Number         0  bootrom.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\ccu6.c        0x00000000   Number         0  ccu6.o ABSOLUTE
+    RTE\\Device\\TLE9879QXA40\\dma.c         0x00000000   Number         0  dma.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\gpt12e.c      0x00000000   Number         0  gpt12e.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\int.c         0x00000000   Number         0  int.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\isr.c         0x00000000   Number         0  isr.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\port.c        0x00000000   Number         0  port.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\scu.c         0x00000000   Number         0  scu.o ABSOLUTE
+    RTE\\Device\\TLE9879QXA40\\ssc.c         0x00000000   Number         0  ssc.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\startup_tle987x.s 0x00000000   Number         0  startup_tle987x.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\system_tle987x.c 0x00000000   Number         0  system_tle987x.o ABSOLUTE
     RTE\\Device\\TLE9879QXA40\\tle_device.c  0x00000000   Number         0  tle_device.o ABSOLUTE
@@ -452,47 +479,57 @@ Image Symbol Table
     i.CCU6SR0_IRQHandler                     0x11000310   Section        0  isr.o(i.CCU6SR0_IRQHandler)
     i.CCU6_Init                              0x11000344   Section        0  ccu6.o(i.CCU6_Init)
     i.Ccu6_Start                             0x110003bc   Section        0  emoccu.o(i.Ccu6_Start)
-    i.Ccu6_Stop                              0x1100042c   Section        0  emoccu.o(i.Ccu6_Stop)
-    i.EmoCcu_HandleHallEvent                 0x1100045c   Section        0  emoccu.o(i.EmoCcu_HandleHallEvent)
-    i.EmoCcu_InitHallPar                     0x1100051c   Section        0  emoccu.o(i.EmoCcu_InitHallPar)
-    i.EmoCcu_InitHallVar                     0x11000530   Section        0  emoccu.o(i.EmoCcu_InitHallVar)
-    i.Emo_CtrlSpeed                          0x11000548   Section        0  emo.o(i.Emo_CtrlSpeed)
-    i.Emo_Init                               0x110005c4   Section        0  emo.o(i.Emo_Init)
-    i.Emo_SetRefSpeed                        0x11000608   Section        0  emo.o(i.Emo_SetRefSpeed)
-    i.Emo_StartMotor                         0x11000624   Section        0  emo.o(i.Emo_StartMotor)
-    i.Emo_StopMotor                          0x11000664   Section        0  emo.o(i.Emo_StopMotor)
-    i.GPT12E_Init                            0x11000698   Section        0  gpt12e.o(i.GPT12E_Init)
-    i.HardFault_Handler                      0x110006c8   Section        0  isr.o(i.HardFault_Handler)
-    i.INT_Init                               0x110006cc   Section        0  int.o(i.INT_Init)
-    i.Main_HandleSysTick                     0x1100074c   Section        0  main.o(i.Main_HandleSysTick)
-    i.Mat_ExeSimpleLp                        0x11000750   Section        0  emoccu.o(i.Mat_ExeSimpleLp)
-    Mat_ExeSimpleLp                          0x11000751   Thumb Code    34  emoccu.o(i.Mat_ExeSimpleLp)
-    i.MemManage_Handler                      0x11000772   Section        0  isr.o(i.MemManage_Handler)
-    i.PORT_Init                              0x11000774   Section        0  port.o(i.PORT_Init)
-    i.Poti_Handler                           0x110007bc   Section        0  main.o(i.Poti_Handler)
-    i.SCU_ClkInit                            0x11000808   Section        0  scu.o(i.SCU_ClkInit)
-    i.SCU_Init                               0x11000918   Section        0  scu.o(i.SCU_Init)
-    i.SysTick_Handler                        0x1100094c   Section        0  isr.o(i.SysTick_Handler)
-    i.SystemInit                             0x11000960   Section        0  system_tle987x.o(i.SystemInit)
-    i.TLE_Init                               0x1100099c   Section        0  tle_device.o(i.TLE_Init)
-    i.UsageFault_Handler                     0x110009c2   Section        0  isr.o(i.UsageFault_Handler)
-    i.WDT1_Init                              0x110009c4   Section        0  wdt1.o(i.WDT1_Init)
-    i.WDT1_Service                           0x11000a00   Section        0  wdt1.o(i.WDT1_Service)
-    i.main                                   0x11000a2c   Section        0  main.o(i.main)
-    .constdata                               0x11000a4c   Section       48  emoccu_cfg.o(.constdata)
+    i.DMA_Init                               0x1100042c   Section        0  dma.o(i.DMA_Init)
+    i.Delay_us                               0x110004d0   Section        0  wdt1.o(i.Delay_us)
+    i.EmoCcu_HandleHallEvent                 0x11000510   Section        0  emoccu.o(i.EmoCcu_HandleHallEvent)
+    i.EmoCcu_InitHallPar                     0x110005d0   Section        0  emoccu.o(i.EmoCcu_InitHallPar)
+    i.EmoCcu_InitHallVar                     0x110005e4   Section        0  emoccu.o(i.EmoCcu_InitHallVar)
+    i.Emo_CtrlSpeed                          0x110005fc   Section        0  emo.o(i.Emo_CtrlSpeed)
+    i.Emo_Init                               0x11000678   Section        0  emo.o(i.Emo_Init)
+    i.Emo_SetRefSpeed                        0x110006bc   Section        0  emo.o(i.Emo_SetRefSpeed)
+    i.Emo_StartMotor                         0x110006d8   Section        0  emo.o(i.Emo_StartMotor)
+    i.GPT12E_Init                            0x11000718   Section        0  gpt12e.o(i.GPT12E_Init)
+    i.HardFault_Handler                      0x11000748   Section        0  isr.o(i.HardFault_Handler)
+    i.INT_Init                               0x1100074c   Section        0  int.o(i.INT_Init)
+    i.Main_HandleSysTick                     0x110007d0   Section        0  main.o(i.Main_HandleSysTick)
+    i.Mat_ExeSimpleLp                        0x110007d4   Section        0  emoccu.o(i.Mat_ExeSimpleLp)
+    Mat_ExeSimpleLp                          0x110007d5   Thumb Code    34  emoccu.o(i.Mat_ExeSimpleLp)
+    i.MemManage_Handler                      0x110007f6   Section        0  isr.o(i.MemManage_Handler)
+    i.PORT_Init                              0x110007f8   Section        0  port.o(i.PORT_Init)
+    i.Poti_Handler                           0x11000840   Section        0  main.o(i.Poti_Handler)
+    i.SCU_ClkInit                            0x1100087c   Section        0  scu.o(i.SCU_ClkInit)
+    i.SCU_Init                               0x1100098c   Section        0  scu.o(i.SCU_Init)
+    i.SPI_slave_react                        0x110009c0   Section        0  main.o(i.SPI_slave_react)
+    i.SSC1_Init                              0x110009d8   Section        0  ssc.o(i.SSC1_Init)
+    i.SSC2_Init                              0x110009f4   Section        0  ssc.o(i.SSC2_Init)
+    i.SysTick_Handler                        0x11000a10   Section        0  isr.o(i.SysTick_Handler)
+    i.SystemInit                             0x11000a24   Section        0  system_tle987x.o(i.SystemInit)
+    i.TLE_Init                               0x11000a60   Section        0  tle_device.o(i.TLE_Init)
+    i.UART2_IRQHandler                       0x11000a92   Section        0  isr.o(i.UART2_IRQHandler)
+    i.UsageFault_Handler                     0x11000ab2   Section        0  isr.o(i.UsageFault_Handler)
+    i.WDT1_Init                              0x11000ab4   Section        0  wdt1.o(i.WDT1_Init)
+    i.WDT1_Service                           0x11000af0   Section        0  wdt1.o(i.WDT1_Service)
+    i.main                                   0x11000b1c   Section        0  main.o(i.main)
+    .constdata                               0x11000b80   Section       48  emoccu_cfg.o(.constdata)
     .ARM.__AT_0x1101EFFC                     0x1101effc   Section        4  system_tle987x.o(.ARM.__AT_0x1101EFFC)
     __tagsym$$used                           0x1101effc   Number         0  system_tle987x.o(.ARM.__AT_0x1101EFFC)
-    .data                                    0x18000000   Section        1  emo.o(.data)
-    .data                                    0x18000004   Section        8  wdt1.o(.data)
-    bSOWactive                               0x18000004   Data           1  wdt1.o(.data)
-    .bss                                     0x1800000c   Section       24  emo.o(.bss)
-    .bss                                     0x18000024   Section       16  emoccu.o(.bss)
-    .bss                                     0x18000034   Section       96  libspace.o(.bss)
-    HEAP                                     0x18000098   Section        0  startup_tle987x.o(HEAP)
-    STACK                                    0x18000098   Section      512  startup_tle987x.o(STACK)
-    Heap_Mem                                 0x18000098   Data           0  startup_tle987x.o(HEAP)
-    Stack_Mem                                0x18000098   Data         512  startup_tle987x.o(STACK)
-    __initial_sp                             0x18000298   Data           0  startup_tle987x.o(STACK)
+    .data                                    0x18000000   Section       24  main.o(.data)
+    .data                                    0x18000018   Section        1  emo.o(.data)
+    .data                                    0x1800001c   Section        8  wdt1.o(.data)
+    bSOWactive                               0x1800001c   Data           1  wdt1.o(.data)
+    .bss                                     0x18000024   Section       24  main.o(.bss)
+    .bss                                     0x1800003c   Section       24  emo.o(.bss)
+    .bss                                     0x18000054   Section       16  emoccu.o(.bss)
+    .bss                                     0x18000064   Section       96  libspace.o(.bss)
+    HEAP                                     0x180000c8   Section        0  startup_tle987x.o(HEAP)
+    STACK                                    0x180000c8   Section      512  startup_tle987x.o(STACK)
+    Heap_Mem                                 0x180000c8   Data           0  startup_tle987x.o(HEAP)
+    Stack_Mem                                0x180000c8   Data         512  startup_tle987x.o(STACK)
+    __initial_sp                             0x180002c8   Data           0  startup_tle987x.o(STACK)
+    .ARM.__AT_0x18000420                     0x18000420   Section       16  dma.o(.ARM.__AT_0x18000420)
+    __tagsym$$used                           0x18000420   Number         0  dma.o(.ARM.__AT_0x18000420)
+    .ARM.__AT_0x18000430                     0x18000430   Section       16  dma.o(.ARM.__AT_0x18000430)
+    __tagsym$$used                           0x18000430   Number         0  dma.o(.ARM.__AT_0x18000430)
 
     Global Symbols
 
@@ -597,7 +634,6 @@ Image Symbol Table
     SSC1_IRQHandler                          0x11000137   Thumb Code     0  startup_tle987x.o(.text)
     SSC2_IRQHandler                          0x11000137   Thumb Code     0  startup_tle987x.o(.text)
     UART1_IRQHandler                         0x11000137   Thumb Code     0  startup_tle987x.o(.text)
-    UART2_IRQHandler                         0x11000137   Thumb Code     0  startup_tle987x.o(.text)
     __user_initial_stackheap                 0x11000139   Thumb Code     0  startup_tle987x.o(.text)
     __use_two_region_memory                  0x11000159   Thumb Code     2  heapauxi.o(.text)
     __rt_heap_escrow$2region                 0x1100015b   Thumb Code     2  heapauxi.o(.text)
@@ -620,41 +656,50 @@ Image Symbol Table
     CCU6SR0_IRQHandler                       0x11000311   Thumb Code    46  isr.o(i.CCU6SR0_IRQHandler)
     CCU6_Init                                0x11000345   Thumb Code   114  ccu6.o(i.CCU6_Init)
     Ccu6_Start                               0x110003bd   Thumb Code    96  emoccu.o(i.Ccu6_Start)
-    Ccu6_Stop                                0x1100042d   Thumb Code    38  emoccu.o(i.Ccu6_Stop)
-    EmoCcu_HandleHallEvent                   0x1100045d   Thumb Code   168  emoccu.o(i.EmoCcu_HandleHallEvent)
-    EmoCcu_InitHallPar                       0x1100051d   Thumb Code    14  emoccu.o(i.EmoCcu_InitHallPar)
-    EmoCcu_InitHallVar                       0x11000531   Thumb Code    18  emoccu.o(i.EmoCcu_InitHallVar)
-    Emo_CtrlSpeed                            0x11000549   Thumb Code   108  emo.o(i.Emo_CtrlSpeed)
-    Emo_Init                                 0x110005c5   Thumb Code    56  emo.o(i.Emo_Init)
-    Emo_SetRefSpeed                          0x11000609   Thumb Code    20  emo.o(i.Emo_SetRefSpeed)
-    Emo_StartMotor                           0x11000625   Thumb Code    54  emo.o(i.Emo_StartMotor)
-    Emo_StopMotor                            0x11000665   Thumb Code    46  emo.o(i.Emo_StopMotor)
-    GPT12E_Init                              0x11000699   Thumb Code    44  gpt12e.o(i.GPT12E_Init)
-    HardFault_Handler                        0x110006c9   Thumb Code     2  isr.o(i.HardFault_Handler)
-    INT_Init                                 0x110006cd   Thumb Code   110  int.o(i.INT_Init)
-    Main_HandleSysTick                       0x1100074d   Thumb Code     4  main.o(i.Main_HandleSysTick)
-    MemManage_Handler                        0x11000773   Thumb Code     2  isr.o(i.MemManage_Handler)
-    PORT_Init                                0x11000775   Thumb Code    66  port.o(i.PORT_Init)
-    Poti_Handler                             0x110007bd   Thumb Code    72  main.o(i.Poti_Handler)
-    SCU_ClkInit                              0x11000809   Thumb Code   272  scu.o(i.SCU_ClkInit)
-    SCU_Init                                 0x11000919   Thumb Code    50  scu.o(i.SCU_Init)
-    SysTick_Handler                          0x1100094d   Thumb Code    16  isr.o(i.SysTick_Handler)
-    SystemInit                               0x11000961   Thumb Code    48  system_tle987x.o(i.SystemInit)
-    TLE_Init                                 0x1100099d   Thumb Code    38  tle_device.o(i.TLE_Init)
-    UsageFault_Handler                       0x110009c3   Thumb Code     2  isr.o(i.UsageFault_Handler)
-    WDT1_Init                                0x110009c5   Thumb Code    52  wdt1.o(i.WDT1_Init)
-    WDT1_Service                             0x11000a01   Thumb Code    34  wdt1.o(i.WDT1_Service)
-    main                                     0x11000a2d   Thumb Code    24  main.o(i.main)
-    EmoCcu_Cfg                               0x11000a4c   Data          48  emoccu_cfg.o(.constdata)
-    Region$$Table$$Base                      0x11000a7c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x11000a9c   Number         0  anon$$obj.o(Region$$Table)
+    DMA_Init                                 0x1100042d   Thumb Code   142  dma.o(i.DMA_Init)
+    Delay_us                                 0x110004d1   Thumb Code    64  wdt1.o(i.Delay_us)
+    EmoCcu_HandleHallEvent                   0x11000511   Thumb Code   168  emoccu.o(i.EmoCcu_HandleHallEvent)
+    EmoCcu_InitHallPar                       0x110005d1   Thumb Code    14  emoccu.o(i.EmoCcu_InitHallPar)
+    EmoCcu_InitHallVar                       0x110005e5   Thumb Code    18  emoccu.o(i.EmoCcu_InitHallVar)
+    Emo_CtrlSpeed                            0x110005fd   Thumb Code   108  emo.o(i.Emo_CtrlSpeed)
+    Emo_Init                                 0x11000679   Thumb Code    56  emo.o(i.Emo_Init)
+    Emo_SetRefSpeed                          0x110006bd   Thumb Code    20  emo.o(i.Emo_SetRefSpeed)
+    Emo_StartMotor                           0x110006d9   Thumb Code    54  emo.o(i.Emo_StartMotor)
+    GPT12E_Init                              0x11000719   Thumb Code    44  gpt12e.o(i.GPT12E_Init)
+    HardFault_Handler                        0x11000749   Thumb Code     2  isr.o(i.HardFault_Handler)
+    INT_Init                                 0x1100074d   Thumb Code   114  int.o(i.INT_Init)
+    Main_HandleSysTick                       0x110007d1   Thumb Code     4  main.o(i.Main_HandleSysTick)
+    MemManage_Handler                        0x110007f7   Thumb Code     2  isr.o(i.MemManage_Handler)
+    PORT_Init                                0x110007f9   Thumb Code    66  port.o(i.PORT_Init)
+    Poti_Handler                             0x11000841   Thumb Code    50  main.o(i.Poti_Handler)
+    SCU_ClkInit                              0x1100087d   Thumb Code   272  scu.o(i.SCU_ClkInit)
+    SCU_Init                                 0x1100098d   Thumb Code    50  scu.o(i.SCU_Init)
+    SPI_slave_react                          0x110009c1   Thumb Code    14  main.o(i.SPI_slave_react)
+    SSC1_Init                                0x110009d9   Thumb Code    24  ssc.o(i.SSC1_Init)
+    SSC2_Init                                0x110009f5   Thumb Code    24  ssc.o(i.SSC2_Init)
+    SysTick_Handler                          0x11000a11   Thumb Code    16  isr.o(i.SysTick_Handler)
+    SystemInit                               0x11000a25   Thumb Code    48  system_tle987x.o(i.SystemInit)
+    TLE_Init                                 0x11000a61   Thumb Code    50  tle_device.o(i.TLE_Init)
+    UART2_IRQHandler                         0x11000a93   Thumb Code    32  isr.o(i.UART2_IRQHandler)
+    UsageFault_Handler                       0x11000ab3   Thumb Code     2  isr.o(i.UsageFault_Handler)
+    WDT1_Init                                0x11000ab5   Thumb Code    52  wdt1.o(i.WDT1_Init)
+    WDT1_Service                             0x11000af1   Thumb Code    34  wdt1.o(i.WDT1_Service)
+    main                                     0x11000b1d   Thumb Code    80  main.o(i.main)
+    EmoCcu_Cfg                               0x11000b80   Data          48  emoccu_cfg.o(.constdata)
+    Region$$Table$$Base                      0x11000bb0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x11000bd0   Number         0  anon$$obj.o(Region$$Table)
     p_NACNAD                                 0x1101effc   Data           4  system_tle987x.o(.ARM.__AT_0x1101EFFC)
-    Emo_Status                               0x18000000   Data           1  emo.o(.data)
-    WD_Counter                               0x18000008   Data           4  wdt1.o(.data)
-    Emo_Ctrl                                 0x1800000c   Data          24  emo.o(.bss)
-    EmoCcu_HallStatus                        0x18000024   Data          16  emoccu.o(.bss)
-    __libspace_start                         0x18000034   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x18000094   Data           0  libspace.o(.bss)
+    count                                    0x18000000   Data           2  main.o(.data)
+    spi_tx_data                              0x18000002   Data          22  main.o(.data)
+    Emo_Status                               0x18000018   Data           1  emo.o(.data)
+    WD_Counter                               0x18000020   Data           4  wdt1.o(.data)
+    spi_rx_data                              0x18000024   Data          24  main.o(.bss)
+    Emo_Ctrl                                 0x1800003c   Data          24  emo.o(.bss)
+    EmoCcu_HallStatus                        0x18000054   Data          16  emoccu.o(.bss)
+    __libspace_start                         0x18000064   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x180000c4   Data           0  libspace.o(.bss)
+    DMA_Entry_SSC1_Tx                        0x18000420   Data          16  dma.o(.ARM.__AT_0x18000420)
+    DMA_Entry_SSC1_Rx                        0x18000430   Data          16  dma.o(.ARM.__AT_0x18000430)
 
 
 
@@ -664,124 +709,133 @@ Memory Map of the image
 
   Image Entry point : 0x11000081
 
-  Load Region LR_IROM1 (Base: 0x11000000, Size: 0x00000aa8, Max: 0x0001effc, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x11000000, Size: 0x00000bf4, Max: 0x0001effc, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x11000000, Load base: 0x11000000, Size: 0x00000a9c, Max: 0x0001effc, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x11000000, Load base: 0x11000000, Size: 0x00000bd0, Max: 0x0001effc, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x11000000   0x11000000   0x00000080   Data   RO          735    RESET               startup_tle987x.o
-    0x11000080   0x11000080   0x00000008   Code   RO          858  * !!!main             c_w.l(__main.o)
-    0x11000088   0x11000088   0x00000034   Code   RO         1025    !!!scatter          c_w.l(__scatter.o)
-    0x110000bc   0x110000bc   0x0000001a   Code   RO         1027    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x11000000   0x11000000   0x00000080   Data   RO          862    RESET               startup_tle987x.o
+    0x11000080   0x11000080   0x00000008   Code   RO          985  * !!!main             c_w.l(__main.o)
+    0x11000088   0x11000088   0x00000034   Code   RO         1152    !!!scatter          c_w.l(__scatter.o)
+    0x110000bc   0x110000bc   0x0000001a   Code   RO         1154    !!handler_copy      c_w.l(__scatter_copy.o)
     0x110000d6   0x110000d6   0x00000002   PAD
-    0x110000d8   0x110000d8   0x0000001c   Code   RO         1029    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x110000f4   0x110000f4   0x00000002   Code   RO          895    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          908    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          910    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          913    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          915    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          917    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          920    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          922    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          924    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          926    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          928    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          930    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          932    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          934    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          936    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          938    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          940    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          944    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          946    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          948    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000000   Code   RO          950    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x110000f6   0x110000f6   0x00000002   Code   RO          951    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x110000f8   0x110000f8   0x00000002   Code   RO          982    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x110000fa   0x110000fa   0x00000000   Code   RO         1008    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x110000fa   0x110000fa   0x00000000   Code   RO         1010    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x110000fa   0x110000fa   0x00000000   Code   RO         1013    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x110000fa   0x110000fa   0x00000000   Code   RO         1016    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x110000fa   0x110000fa   0x00000000   Code   RO         1018    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x110000fa   0x110000fa   0x00000000   Code   RO         1021    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x110000fa   0x110000fa   0x00000002   Code   RO         1022    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x110000fc   0x110000fc   0x00000000   Code   RO          860    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x110000fc   0x110000fc   0x00000000   Code   RO          866    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x110000fc   0x110000fc   0x00000006   Code   RO          878    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x11000102   0x11000102   0x00000000   Code   RO          868    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x11000102   0x11000102   0x00000004   Code   RO          869    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x11000106   0x11000106   0x00000000   Code   RO          871    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x11000106   0x11000106   0x00000008   Code   RO          872    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x1100010e   0x1100010e   0x00000002   Code   RO          899    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x11000110   0x11000110   0x00000000   Code   RO          955    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x11000110   0x11000110   0x00000004   Code   RO          956    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x11000114   0x11000114   0x00000006   Code   RO          957    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x110000d8   0x110000d8   0x0000001c   Code   RO         1156    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x110000f4   0x110000f4   0x00000002   Code   RO         1022    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1035    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1037    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1040    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1042    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1044    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1047    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1049    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1051    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1053    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1055    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1057    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1059    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1061    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1063    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1065    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1067    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1071    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1073    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1075    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000000   Code   RO         1077    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x110000f6   0x110000f6   0x00000002   Code   RO         1078    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x110000f8   0x110000f8   0x00000002   Code   RO         1109    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x110000fa   0x110000fa   0x00000000   Code   RO         1135    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x110000fa   0x110000fa   0x00000000   Code   RO         1137    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x110000fa   0x110000fa   0x00000000   Code   RO         1140    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x110000fa   0x110000fa   0x00000000   Code   RO         1143    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x110000fa   0x110000fa   0x00000000   Code   RO         1145    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x110000fa   0x110000fa   0x00000000   Code   RO         1148    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x110000fa   0x110000fa   0x00000002   Code   RO         1149    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x110000fc   0x110000fc   0x00000000   Code   RO          987    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x110000fc   0x110000fc   0x00000000   Code   RO          993    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x110000fc   0x110000fc   0x00000006   Code   RO         1005    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x11000102   0x11000102   0x00000000   Code   RO          995    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x11000102   0x11000102   0x00000004   Code   RO          996    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x11000106   0x11000106   0x00000000   Code   RO          998    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x11000106   0x11000106   0x00000008   Code   RO          999    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x1100010e   0x1100010e   0x00000002   Code   RO         1026    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x11000110   0x11000110   0x00000000   Code   RO         1082    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x11000110   0x11000110   0x00000004   Code   RO         1083    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x11000114   0x11000114   0x00000006   Code   RO         1084    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x1100011a   0x1100011a   0x00000002   PAD
-    0x1100011c   0x1100011c   0x0000003c   Code   RO          736    .text               startup_tle987x.o
-    0x11000158   0x11000158   0x00000006   Code   RO          856    .text               c_w.l(heapauxi.o)
-    0x1100015e   0x1100015e   0x0000004a   Code   RO          882    .text               c_w.l(sys_stackheap_outer.o)
-    0x110001a8   0x110001a8   0x00000012   Code   RO          884    .text               c_w.l(exit.o)
+    0x1100011c   0x1100011c   0x0000003c   Code   RO          863    .text               startup_tle987x.o
+    0x11000158   0x11000158   0x00000006   Code   RO          983    .text               c_w.l(heapauxi.o)
+    0x1100015e   0x1100015e   0x0000004a   Code   RO         1009    .text               c_w.l(sys_stackheap_outer.o)
+    0x110001a8   0x110001a8   0x00000012   Code   RO         1011    .text               c_w.l(exit.o)
     0x110001ba   0x110001ba   0x00000002   PAD
-    0x110001bc   0x110001bc   0x00000008   Code   RO          896    .text               c_w.l(libspace.o)
-    0x110001c4   0x110001c4   0x0000000c   Code   RO          952    .text               c_w.l(sys_exit.o)
-    0x110001d0   0x110001d0   0x00000002   Code   RO          971    .text               c_w.l(use_no_semi.o)
-    0x110001d2   0x110001d2   0x00000000   Code   RO          973    .text               c_w.l(indicate_semi.o)
-    0x110001d2   0x110001d2   0x0000001e   Code   RO          600    i.ADC1_IRQHandler   isr.o
-    0x110001f0   0x110001f0   0x00000060   Code   RO          347    i.ADC1_Init         adc1.o
-    0x11000250   0x11000250   0x00000050   Code   RO          377    i.ADC2_Init         adc2.o
-    0x110002a0   0x110002a0   0x00000048   Code   RO          403    i.BDRV_Init         bdrv.o
-    0x110002e8   0x110002e8   0x00000024   Code   RO          404    i.BDRV_Set_Bridge   bdrv.o
-    0x1100030c   0x1100030c   0x00000002   Code   RO          601    i.BusFault_Handler  isr.o
+    0x110001bc   0x110001bc   0x00000008   Code   RO         1023    .text               c_w.l(libspace.o)
+    0x110001c4   0x110001c4   0x0000000c   Code   RO         1079    .text               c_w.l(sys_exit.o)
+    0x110001d0   0x110001d0   0x00000002   Code   RO         1098    .text               c_w.l(use_no_semi.o)
+    0x110001d2   0x110001d2   0x00000000   Code   RO         1100    .text               c_w.l(indicate_semi.o)
+    0x110001d2   0x110001d2   0x0000001e   Code   RO          691    i.ADC1_IRQHandler   isr.o
+    0x110001f0   0x110001f0   0x00000060   Code   RO          367    i.ADC1_Init         adc1.o
+    0x11000250   0x11000250   0x00000050   Code   RO          397    i.ADC2_Init         adc2.o
+    0x110002a0   0x110002a0   0x00000048   Code   RO          423    i.BDRV_Init         bdrv.o
+    0x110002e8   0x110002e8   0x00000024   Code   RO          424    i.BDRV_Set_Bridge   bdrv.o
+    0x1100030c   0x1100030c   0x00000002   Code   RO          692    i.BusFault_Handler  isr.o
     0x1100030e   0x1100030e   0x00000002   PAD
-    0x11000310   0x11000310   0x00000034   Code   RO          602    i.CCU6SR0_IRQHandler  isr.o
-    0x11000344   0x11000344   0x00000078   Code   RO          516    i.CCU6_Init         ccu6.o
-    0x110003bc   0x110003bc   0x00000070   Code   RO          245    i.Ccu6_Start        emoccu.o
-    0x1100042c   0x1100042c   0x00000030   Code   RO          246    i.Ccu6_Stop         emoccu.o
-    0x1100045c   0x1100045c   0x000000c0   Code   RO          247    i.EmoCcu_HandleHallEvent  emoccu.o
-    0x1100051c   0x1100051c   0x00000014   Code   RO          248    i.EmoCcu_InitHallPar  emoccu.o
-    0x11000530   0x11000530   0x00000018   Code   RO          249    i.EmoCcu_InitHallVar  emoccu.o
-    0x11000548   0x11000548   0x0000007c   Code   RO          171    i.Emo_CtrlSpeed     emo.o
-    0x110005c4   0x110005c4   0x00000044   Code   RO          173    i.Emo_Init          emo.o
-    0x11000608   0x11000608   0x0000001c   Code   RO          174    i.Emo_SetRefSpeed   emo.o
-    0x11000624   0x11000624   0x00000040   Code   RO          175    i.Emo_StartMotor    emo.o
-    0x11000664   0x11000664   0x00000034   Code   RO          176    i.Emo_StopMotor     emo.o
-    0x11000698   0x11000698   0x00000030   Code   RO          540    i.GPT12E_Init       gpt12e.o
-    0x110006c8   0x110006c8   0x00000002   Code   RO          603    i.HardFault_Handler  isr.o
-    0x110006ca   0x110006ca   0x00000002   PAD
-    0x110006cc   0x110006cc   0x00000080   Code   RO          576    i.INT_Init          int.o
-    0x1100074c   0x1100074c   0x00000004   Code   RO            4    i.Main_HandleSysTick  main.o
-    0x11000750   0x11000750   0x00000022   Code   RO          250    i.Mat_ExeSimpleLp   emoccu.o
-    0x11000772   0x11000772   0x00000002   Code   RO          604    i.MemManage_Handler  isr.o
-    0x11000774   0x11000774   0x00000048   Code   RO          664    i.PORT_Init         port.o
-    0x110007bc   0x110007bc   0x0000004c   Code   RO            5    i.Poti_Handler      main.o
-    0x11000808   0x11000808   0x00000110   Code   RO          688    i.SCU_ClkInit       scu.o
-    0x11000918   0x11000918   0x00000032   Code   RO          691    i.SCU_Init          scu.o
-    0x1100094a   0x1100094a   0x00000002   PAD
-    0x1100094c   0x1100094c   0x00000014   Code   RO          605    i.SysTick_Handler   isr.o
-    0x11000960   0x11000960   0x0000003c   Code   RO          743    i.SystemInit        system_tle987x.o
-    0x1100099c   0x1100099c   0x00000026   Code   RO          773    i.TLE_Init          tle_device.o
-    0x110009c2   0x110009c2   0x00000002   Code   RO          606    i.UsageFault_Handler  isr.o
-    0x110009c4   0x110009c4   0x0000003c   Code   RO          802    i.WDT1_Init         wdt1.o
-    0x11000a00   0x11000a00   0x0000002c   Code   RO          804    i.WDT1_Service      wdt1.o
-    0x11000a2c   0x11000a2c   0x00000020   Code   RO            6    i.main              main.o
-    0x11000a4c   0x11000a4c   0x00000030   Data   RO          315    .constdata          emoccu_cfg.o
-    0x11000a7c   0x11000a7c   0x00000020   Data   RO         1023    Region$$Table       anon$$obj.o
+    0x11000310   0x11000310   0x00000034   Code   RO          693    i.CCU6SR0_IRQHandler  isr.o
+    0x11000344   0x11000344   0x00000078   Code   RO          536    i.CCU6_Init         ccu6.o
+    0x110003bc   0x110003bc   0x00000070   Code   RO          265    i.Ccu6_Start        emoccu.o
+    0x1100042c   0x1100042c   0x000000a4   Code   RO          562    i.DMA_Init          dma.o
+    0x110004d0   0x110004d0   0x00000040   Code   RO          928    i.Delay_us          wdt1.o
+    0x11000510   0x11000510   0x000000c0   Code   RO          267    i.EmoCcu_HandleHallEvent  emoccu.o
+    0x110005d0   0x110005d0   0x00000014   Code   RO          268    i.EmoCcu_InitHallPar  emoccu.o
+    0x110005e4   0x110005e4   0x00000018   Code   RO          269    i.EmoCcu_InitHallVar  emoccu.o
+    0x110005fc   0x110005fc   0x0000007c   Code   RO          188    i.Emo_CtrlSpeed     emo.o
+    0x11000678   0x11000678   0x00000044   Code   RO          190    i.Emo_Init          emo.o
+    0x110006bc   0x110006bc   0x0000001c   Code   RO          191    i.Emo_SetRefSpeed   emo.o
+    0x110006d8   0x110006d8   0x00000040   Code   RO          192    i.Emo_StartMotor    emo.o
+    0x11000718   0x11000718   0x00000030   Code   RO          631    i.GPT12E_Init       gpt12e.o
+    0x11000748   0x11000748   0x00000002   Code   RO          694    i.HardFault_Handler  isr.o
+    0x1100074a   0x1100074a   0x00000002   PAD
+    0x1100074c   0x1100074c   0x00000084   Code   RO          667    i.INT_Init          int.o
+    0x110007d0   0x110007d0   0x00000004   Code   RO            4    i.Main_HandleSysTick  main.o
+    0x110007d4   0x110007d4   0x00000022   Code   RO          270    i.Mat_ExeSimpleLp   emoccu.o
+    0x110007f6   0x110007f6   0x00000002   Code   RO          695    i.MemManage_Handler  isr.o
+    0x110007f8   0x110007f8   0x00000048   Code   RO          761    i.PORT_Init         port.o
+    0x11000840   0x11000840   0x0000003c   Code   RO            5    i.Poti_Handler      main.o
+    0x1100087c   0x1100087c   0x00000110   Code   RO          785    i.SCU_ClkInit       scu.o
+    0x1100098c   0x1100098c   0x00000032   Code   RO          788    i.SCU_Init          scu.o
+    0x110009be   0x110009be   0x00000002   PAD
+    0x110009c0   0x110009c0   0x00000018   Code   RO            6    i.SPI_slave_react   main.o
+    0x110009d8   0x110009d8   0x0000001c   Code   RO          833    i.SSC1_Init         ssc.o
+    0x110009f4   0x110009f4   0x0000001c   Code   RO          834    i.SSC2_Init         ssc.o
+    0x11000a10   0x11000a10   0x00000014   Code   RO          696    i.SysTick_Handler   isr.o
+    0x11000a24   0x11000a24   0x0000003c   Code   RO          870    i.SystemInit        system_tle987x.o
+    0x11000a60   0x11000a60   0x00000032   Code   RO          900    i.TLE_Init          tle_device.o
+    0x11000a92   0x11000a92   0x00000020   Code   RO          697    i.UART2_IRQHandler  isr.o
+    0x11000ab2   0x11000ab2   0x00000002   Code   RO          698    i.UsageFault_Handler  isr.o
+    0x11000ab4   0x11000ab4   0x0000003c   Code   RO          929    i.WDT1_Init         wdt1.o
+    0x11000af0   0x11000af0   0x0000002c   Code   RO          931    i.WDT1_Service      wdt1.o
+    0x11000b1c   0x11000b1c   0x00000064   Code   RO            7    i.main              main.o
+    0x11000b80   0x11000b80   0x00000030   Data   RO          335    .constdata          emoccu_cfg.o
+    0x11000bb0   0x11000bb0   0x00000020   Data   RO         1150    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x18000000, Load base: 0x11000a9c, Size: 0x00000298, Max: 0x00001800, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x18000000, Load base: 0x11000bd0, Size: 0x00000440, Max: 0x00001800, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x18000000   0x11000a9c   0x00000001   Data   RW          178    .data               emo.o
-    0x18000001   0x11000a9d   0x00000003   PAD
-    0x18000004   0x11000aa0   0x00000008   Data   RW          806    .data               wdt1.o
-    0x1800000c        -       0x00000018   Zero   RW          177    .bss                emo.o
-    0x18000024        -       0x00000010   Zero   RW          251    .bss                emoccu.o
-    0x18000034        -       0x00000060   Zero   RW          897    .bss                c_w.l(libspace.o)
-    0x18000094   0x11000aa8   0x00000004   PAD
-    0x18000098        -       0x00000000   Zero   RW          734    HEAP                startup_tle987x.o
-    0x18000098        -       0x00000200   Zero   RW          733    STACK               startup_tle987x.o
+    0x18000000   0x11000bd0   0x00000018   Data   RW            9    .data               main.o
+    0x18000018   0x11000be8   0x00000001   Data   RW          195    .data               emo.o
+    0x18000019   0x11000be9   0x00000003   PAD
+    0x1800001c   0x11000bec   0x00000008   Data   RW          933    .data               wdt1.o
+    0x18000024        -       0x00000018   Zero   RW            8    .bss                main.o
+    0x1800003c        -       0x00000018   Zero   RW          194    .bss                emo.o
+    0x18000054        -       0x00000010   Zero   RW          271    .bss                emoccu.o
+    0x18000064        -       0x00000060   Zero   RW         1024    .bss                c_w.l(libspace.o)
+    0x180000c4   0x11000bf4   0x00000004   PAD
+    0x180000c8        -       0x00000000   Zero   RW          861    HEAP                startup_tle987x.o
+    0x180000c8        -       0x00000200   Zero   RW          860    STACK               startup_tle987x.o
+    0x180002c8   0x11000bf4   0x00000158   PAD
+    0x18000420        -       0x00000010   Zero   RW          567    .ARM.__AT_0x18000420  dma.o
+    0x18000430        -       0x00000010   Zero   RW          568    .ARM.__AT_0x18000430  dma.o
 
 
 
@@ -791,7 +845,7 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x1101effc   0x1101effc   0x00000004   Data   RO          744    .ARM.__AT_0x1101EFFC  system_tle987x.o
+    0x1101effc   0x1101effc   0x00000004   Data   RO          871    .ARM.__AT_0x1101EFFC  system_tle987x.o
 
 
 ==============================================================================
@@ -805,24 +859,26 @@ Image component sizes
         80         22          0          0          0        496   adc2.o
        108         22          0          0          0       2290   bdrv.o
        120          6          0          0          0        524   ccu6.o
-       336         52          0          1         24      25673   emo.o
-       430         62          0          0         16      26283   emoccu.o
+       164         22          0          0         32       1363   dma.o
+       284         46          0          1         24      29501   emo.o
+       382         52          0          0         16      25655   emoccu.o
          0          0         48          0          0       1641   emoccu_cfg.o
         48          4          0          0          0        490   gpt12e.o
-       128         18          0          0          0        531   int.o
-       110         10          0          0          0       4042   isr.o
-       112         12          0          0          0      19355   main.o
+       132         18          0          0          0        531   int.o
+       142         10          0          0          0       4569   isr.o
+       188         40          0         24         24      24533   main.o
         72          6          0          0          0        536   port.o
        322          0          0          0          0       1105   scu.o
+        56          8          0          0          0        936   ssc.o
         60         22        128          0        512        852   startup_tle987x.o
         60         12          4          0          0       1180   system_tle987x.o
-        38          0          0          0          0        539   tle_device.o
-       104         18          0          8          0       1336   wdt1.o
+        50          0          0          0          0        551   tle_device.o
+       168         18          0          8          0       2047   wdt1.o
 
     ----------------------------------------------------------------------
-      2230        270        212         12        552      87377   Object Totals
+      2538        312        212         36        952      99304   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         6          0          0          3          0          0   (incl. Padding)
+         6          0          0          3        344          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -869,15 +925,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2508        286        212         12        652      86189   Grand Totals
-      2508        286        212         12        652      86189   ELF Image Totals
-      2508        286        212         12          0          0   ROM Totals
+      2816        328        212         36       1052      97908   Grand Totals
+      2816        328        212         36       1052      97908   ELF Image Totals
+      2816        328        212         36          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2720 (   2.66kB)
-    Total RW  Size (RW Data + ZI Data)               664 (   0.65kB)
-    Total ROM Size (Code + RO Data + RW Data)       2732 (   2.67kB)
+    Total RO  Size (Code + RO Data)                 3028 (   2.96kB)
+    Total RW  Size (RW Data + ZI Data)              1088 (   1.06kB)
+    Total ROM Size (Code + RO Data + RW Data)       3064 (   2.99kB)
 
 ==============================================================================
 

@@ -37,6 +37,8 @@
 .\objects\main.o: .\RTE\Device\TLE9879QXA40\isr_defines.h
 .\objects\main.o: .\RTE\Device\TLE9879QXA40\port.h
 .\objects\main.o: .\RTE\Device\TLE9879QXA40\port_defines.h
+.\objects\main.o: .\RTE\Device\TLE9879QXA40\ssc.h
+.\objects\main.o: .\RTE\Device\TLE9879QXA40\dma.h
 .\objects\main.o: app\Main.h
 .\objects\main.o: .\emo\Emo.h
 .\objects\main.o: .\RTE\Device\TLE9879QXA40\bchall_defines.h

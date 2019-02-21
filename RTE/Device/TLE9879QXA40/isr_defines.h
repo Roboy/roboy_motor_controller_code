@@ -1,4 +1,4 @@
-/*sha256=85F9AB18DBA916212D23A0089B7A896B614C091D9EBA4E84DD67E9715CF3D78B*/
+/*sha256=C7805C0E412083A9F1A3777231BBA8A0F3D8E857D9510FAA3BFF5E461CEFC113*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:So Jul 9 21:20:52 2017
+created on:Fri Feb 15 19:53:54 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _ISR_DEFINES_H
@@ -40,9 +40,9 @@ created on:So Jul 9 21:20:52 2017
   #define IFXConfigWizard_Version 1.8.7
 #endif
 
-/* XML Version 1.3.0 */
+/* XML Version 1.3.1 */
 #ifndef ISR_XML_VERSION
-  #define ISR_XML_VERSION 10300
+  #define ISR_XML_VERSION 10301
 #endif
 
 #ifndef ADC1_CH0_CALLBACK
@@ -690,7 +690,7 @@ created on:So Jul 9 21:20:52 2017
 #endif
 
 #ifndef EXINT2_FALLING_CALLBACK
-#define EXINT2_FALLING_CALLBACK place_your_function_call_back_here
+#define EXINT2_FALLING_CALLBACK SPI_slave_react
 #endif
 
 #ifndef EXINT2_RISING_CALLBACK

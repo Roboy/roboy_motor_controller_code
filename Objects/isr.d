@@ -37,3 +37,5 @@
 .\objects\isr.o: .\RTE\Device\TLE9879QXA40\isr_defines.h
 .\objects\isr.o: .\RTE\Device\TLE9879QXA40\port.h
 .\objects\isr.o: .\RTE\Device\TLE9879QXA40\port_defines.h
+.\objects\isr.o: .\RTE\Device\TLE9879QXA40\ssc.h
+.\objects\isr.o: .\RTE\Device\TLE9879QXA40\dma.h

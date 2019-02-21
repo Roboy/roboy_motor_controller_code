@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?><!--sha256=20F418D828BE1C2D82EFF4D6EF477C001931D8743EBAA57E9232FB5BFF1BFB38-->
+<?xml version="1.0" encoding="UTF-8" ?><!--sha256=45DCCC3C5C40B4B697770AE9633EDC48810D0763F85FB96686D6283F602A1A11-->
 <!--file ePower.xml                                                                -->
 <!--brief ePower Modules configuration                                             -->
 <!--                                                                                -->
@@ -166,9 +166,15 @@
 <!--*                           DMA.Ch9 user source select added, in case ADC is   *-->
 <!--*                           selected as trigger                                *-->
 <!--*                           DMA Scatter-Gather mode added                      *-->
+<!--* V1.3.1: 2017-07-21, DM:   DMA.Ch2 trigger assignemt corrected, SSC1 and SSC2 *-->
+<!--*                           is available again                                 *-->
+<!--*                           DMA.Ch3 trigger assignemt corrected, SSC1 and SSC2 *-->
+<!--*                           is available again                                 *-->
+<!--*                           Timer2x timer value and reload/capture defined as  *-->
+<!--*                           16bit integer to avoid range overrun               *-->
 <!--********************************************************************************-->
 <ifxmlcfg version="0.3">
-	<version label="V1.3.0"/>
+	<version label="V1.3.1"/>
 	<module label="Boot Strap Loader" desc="Infineon Embedded Power">
 		<header define="bsl_defines.h">
 			<button label="NAC/NAD Configuration" define="NAC_NAD_EN" default="1">
@@ -3430,9 +3436,9 @@
 							<edit label="Time [us]" define="TIMER2_TEMP_TIME_TIME" default="1"/>
 						</button>
 					</radio>
-					<math label="Timer Value" role="hex" unit="ticks" define="TIMER2_T2" formula="TIMER2_TEMP_TIMER2_TIME_SEL?floor(0x10000-TIMER2_TEMP_TIME_TIME*TIMER2_CLK):(0x10000-TIMER2_TEMP_TIME_TICK[15:0])"/>
-					<math label="" role="hex" define="TIMER2_T2L" formula="TIMER2_T2.*0xFF"/>
-					<math label="" role="hex" define="TIMER2_T2H" formula="(TIMER2_T2/0x100).*0xFF"/>
+					<math label="Timer Value" role="hex" unit="ticks" define="TIMER2_T2[15:0]" formula="TIMER2_TEMP_TIMER2_TIME_SEL?floor(0x10000-TIMER2_TEMP_TIME_TIME*TIMER2_CLK):(0x10000-TIMER2_TEMP_TIME_TICK[15:0])"/>
+					<math label="" role="hex" define="TIMER2_T2L" formula="TIMER2_T2[15:0].*0xFF"/>
+					<math label="" role="hex" define="TIMER2_T2H" formula="(TIMER2_T2[15:0]/0x100).*0xFF"/>
 				</branch>
 				<branch label="Reload / Capture Register">
 					<radio define="TIMER2_TEMP_TIMER2_SEL">
@@ -3443,9 +3449,9 @@
 							<edit label="Time [us]" define="TIMER2_TEMP_TIMER2_TIME" default="1"/>
 						</button>
 					</radio>
-					<math label="Reload Value" role="hex" unit="ticks" define="TIMER2_RC2" formula="TIMER2_TEMP_TIMER2_SEL?floor(0x10000-TIMER2_TEMP_TIMER2_TIME*TIMER2_CLK):(0x10000-TIMER2_TEMP_TIMER2_TICK[15:0])"/>
-					<math label="" role="hex" define="TIMER2_RC2L" formula="TIMER2_RC2.*0xFF"/>
-					<math label="" role="hex" define="TIMER2_RC2H" formula="(TIMER2_RC2/0x100).*0xFF"/>
+					<math label="Reload Value" role="hex" unit="ticks" define="TIMER2_RC2[15:0]" formula="TIMER2_TEMP_TIMER2_SEL?floor(0x10000-TIMER2_TEMP_TIMER2_TIME*TIMER2_CLK):(0x10000-TIMER2_TEMP_TIMER2_TICK[15:0])"/>
+					<math label="" role="hex" define="TIMER2_RC2L" formula="TIMER2_RC2[15:0].*0xFF"/>
+					<math label="" role="hex" define="TIMER2_RC2H" formula="(TIMER2_RC2[15:0]/0x100).*0xFF"/>
 				</branch>
 				<branch label="Interrupt">
 					<button label="External" define="TIMER2_EXF2_INT_EN" header="isr_defines.h" lockon="CPU_NVIC_ISER0[10]=1">			
@@ -3533,9 +3539,9 @@
 							<edit label="Time [us]" define="TIMER21_TEMP_TIME_TIME" default="1"/>
 						</button>
 					</radio>
-					<math label="Timer Value" role="hex" unit="ticks" define="TIMER21_T2" formula="TIMER21_TEMP_TIMER2_TIME_SEL?floor(0x10000-TIMER21_TEMP_TIME_TIME*TIMER21_CLK):(0x10000-TIMER21_TEMP_TIME_TICK[15:0])"/>
-					<math label="" role="hex" define="TIMER21_T2L" formula="TIMER21_T2.*0xFF"/>
-					<math label="" role="hex" define="TIMER21_T2H" formula="(TIMER21_T2/0x100).*0xFF"/>
+					<math label="Timer Value" role="hex" unit="ticks" define="TIMER21_T2[15:0]" formula="TIMER21_TEMP_TIMER2_TIME_SEL?floor(0x10000-TIMER21_TEMP_TIME_TIME*TIMER21_CLK):(0x10000-TIMER21_TEMP_TIME_TICK[15:0])"/>
+					<math label="" role="hex" define="TIMER21_T2L" formula="TIMER21_T2[15:0].*0xFF"/>
+					<math label="" role="hex" define="TIMER21_T2H" formula="(TIMER21_T2[15:0]/0x100).*0xFF"/>
 				</branch>
 				<branch label="Reload / Capture Register">
 					<radio define="TIMER21_TEMP_TIMER2_SEL">
@@ -3546,9 +3552,9 @@
 							<edit label="Time [us]" define="TIMER21_TEMP_TIMER2_TIME" default="1"/>
 						</button>
 					</radio>
-					<math label="Reload Value" role="hex" unit="ticks" define="TIMER21_RC2" formula="TIMER21_TEMP_TIMER2_SEL?floor(0x10000-TIMER21_TEMP_TIMER2_TIME*TIMER21_CLK):(0x10000-TIMER21_TEMP_TIMER2_TICK[15:0])"/>
-					<math label="" role="hex" define="TIMER21_RC2L" formula="TIMER21_RC2.*0xFF"/>
-					<math label="" role="hex" define="TIMER21_RC2H" formula="(TIMER21_RC2/0x100).*0xFF"/>
+					<math label="Reload Value" role="hex" unit="ticks" define="TIMER21_RC2[15:0]" formula="TIMER21_TEMP_TIMER2_SEL?floor(0x10000-TIMER21_TEMP_TIMER2_TIME*TIMER21_CLK):(0x10000-TIMER21_TEMP_TIMER2_TICK[15:0])"/>
+					<math label="" role="hex" define="TIMER21_RC2L" formula="TIMER21_RC2[15:0].*0xFF"/>
+					<math label="" role="hex" define="TIMER21_RC2H" formula="(TIMER21_RC2[15:0]/0x100).*0xFF"/>
 				</branch>
 				<branch label="Interrupt">
 					<button label="External" define="TIMER21_EXF2_INT_EN" header="isr_defines.h" lockon="CPU_NVIC_ISER0[11]=1">			
@@ -4279,7 +4285,11 @@
 						<edit label="Call Back" define="DMA_SQ2_RDY_CALLBACK" header="isr_defines.h" role="string" default="place_your_function_call_back_here"/>
 					</button>
 				</button>
-				<button label="Ch2 - SSC1 Transmit" define="DMA_EN[2]" header="dma_defines.h">
+				<button label="Ch2 - SSCx Transmit" define="DMA_EN[2]" header="dma_defines.h">
+					<combo label="Trigger Select" define="SCU_DMASRCSEL[0]" default="0" header="scu_defines.h">
+						<item label="SSC1"/>
+						<item label="SSC2"/>
+					</combo>
 					<radio label="DMA Transfer Mode" define="DMA_CH2_TRANS_MODE" default="0" header="dma_defines.h">
 						<button label="Basic Mode">
 							<branch label="Source">
@@ -4289,8 +4299,9 @@
 							</branch>
 							<branch label="Destination">
 								<radio define="DMA_CH2_DST_SEL">
-									<button label="SSC1 Transmit Buffer" lockon="DMA_CH2_DST=SSC1->TB.reg;DMA_CH2_INC[1]=0"/>
-									<button label="user defined source">
+									<button label="SSC1 Transmit Buffer" lockon="DMA_CH2_DST=SSC1->TB.reg;DMA_CH2_INC[1]=0" value = "0"/>
+									<button label="SSC2 Transmit Buffer" lockon="DMA_CH2_DST=SSC2->TB.reg;DMA_CH2_INC[1]=0" value = "2"/>
+									<button label="user defined source" value = "1">
 										<edit label="enter destination reference" role="string" define="DMA_CH2_DST" default="SSC1->TB.reg" header="dma_defines.h"/>
 										<button label="declare as 'extern' in C-code" define="DMA_CH2_DST_EXT" dafault="0" header="dma_defines.h"/>
 									</button>
@@ -4316,13 +4327,18 @@
 						<edit label="Call Back" define="DMA_SSC_TX_CALLBACK" header="isr_defines.h" role="string" default="place_your_function_call_back_here"/>
 					</button>
 				</button>
-				<button label="Ch3 - SSC1 Receive" define="DMA_EN[3]" header="dma_defines.h">
+				<button label="Ch3 - SSCx Receive" define="DMA_EN[3]" header="dma_defines.h">
+					<combo label="Trigger Select" define="SCU_DMASRCSEL[1]" default="0" header="scu_defines.h">
+						<item label="SSC1"/>
+						<item label="SSC2"/>
+					</combo>
 					<radio label="DMA Transfer Mode" define="DMA_CH3_TRANS_MODE" default="0" header="dma_defines.h">
 						<button label="Basic Mode">
 							<branch label="Source">
 								<radio define="DMA_CH3_SRC_SEL">
-									<button label="SSC1 Receive Buffer" lockon="DMA_CH3_SRC=SSC1->RB.reg;DMA_CH3_INC[0]=0"/>
-									<button label="user defined source">
+									<button label="SSC1 Receive Buffer" lockon="DMA_CH3_SRC=SSC1->RB.reg;DMA_CH3_INC[0]=0" value="0"/>
+									<button label="SSC2 Receive Buffer" lockon="DMA_CH3_SRC=SSC2->RB.reg;DMA_CH3_INC[0]=0" value="2"/>
+									<button label="user defined source" value="1">
 										<edit label="enter source reference" role="string" define="DMA_CH3_SRC" default="SSC1->RB.reg" header="dma_defines.h"/>
 										<button label="declare as 'extern' in C-code" define="DMA_CH3_SRC_EXT" dafault="0" header="dma_defines.h"/>
 									</button>

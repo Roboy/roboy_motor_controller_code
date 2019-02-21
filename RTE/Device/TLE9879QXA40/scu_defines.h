@@ -1,4 +1,4 @@
-/*sha256=60B410739E42F1B65C66A0148F00F968854738C9B046BABCDA2D221E575F8100*/
+/*sha256=FB769F0758D403B32EEC662860A710E0D3790122738AE4D886749FC5872C9F77*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Thu Jan 31 17:23:26 2019
+created on:Fri Feb 15 19:52:33 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _SCU_DEFINES_H
@@ -40,9 +40,9 @@ created on:Thu Jan 31 17:23:26 2019
   #define IFXConfigWizard_Version 1.8.7
 #endif
 
-/* XML Version 1.3.0 */
+/* XML Version 1.3.1 */
 #ifndef SCU_XML_VERSION
-  #define SCU_XML_VERSION 10300
+  #define SCU_XML_VERSION 10301
 #endif
 
 #ifndef SCUPM_WDT1_PERIOD
@@ -72,7 +72,7 @@ created on:Thu Jan 31 17:23:26 2019
   #define SCU_APCLK2 (0xBu)
 #endif
 
-/*SCU_APCLK_CTRL1: (1<<2)|(0<<7)|(0<<6)*/
+/*SCU_APCLK_CTRL1: (0<<7)|(0<<6)|(1<<2)*/
 #ifndef SCU_APCLK_CTRL1
   #define SCU_APCLK_CTRL1 (0x4u)
 #endif
@@ -139,9 +139,9 @@ created on:Thu Jan 31 17:23:26 2019
   #define SCU_DFLASH_WPROT_PW 0
 #endif
 
-/*SCU_DMASRCSEL: (0<<2)|(0<<3)*/
+/*SCU_DMASRCSEL: 1|(1<<1)|(0<<2)|(0<<3)*/
 #ifndef SCU_DMASRCSEL
-  #define SCU_DMASRCSEL (0x0u)
+  #define SCU_DMASRCSEL (0x3u)
 #endif
 
 /*SCU_DMASRCSEL2: 0*/
@@ -158,7 +158,7 @@ created on:Thu Jan 31 17:23:26 2019
 #endif
 
 #ifndef SCU_EXINT2_FALLING_INT_EN
-  #define SCU_EXINT2_FALLING_INT_EN 0
+  #define SCU_EXINT2_FALLING_INT_EN 1
 #endif
 
 #ifndef SCU_EXINT2_RISING_INT_EN
@@ -197,14 +197,9 @@ created on:Thu Jan 31 17:23:26 2019
   #define SCU_MODIEN4 (0x0u)
 #endif
 
-/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(3<<2)|(0<<4)*/
+/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(3<<2)|(1<<4)*/
 #ifndef SCU_MODPISEL
-  #define SCU_MODPISEL (0xFu)
-#endif
-
-/*SCU_MODPISEL1: (0<<6)|(0<<7)|0*/
-#ifndef SCU_MODPISEL1
-  #define SCU_MODPISEL1 (0x0u)
+  #define SCU_MODPISEL (0x1Fu)
 #endif
 
 /*SCU_MODPISEL2: 1|(0<<4)|(0<<2)|(2<<6)*/

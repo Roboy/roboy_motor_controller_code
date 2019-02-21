@@ -1,4 +1,4 @@
-/*sha256=EE3F5D1EBF696BC30F6DB8938ED76C57E5D2CAE77B9D21C2F7115A8B30D6F1EC*/
+/*sha256=138DAEA783C338FD609051C2CE475DFE5154C9BD7CB9342CAEE74610268B6AB3*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Thu Jan 31 17:24:10 2019
+created on:Tue Feb 5 20:50:28 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _BCHALL_DEFINES_H
@@ -62,7 +62,7 @@ created on:Thu Jan 31 17:24:10 2019
 #endif
 
 #ifndef BCHALL_INIT_DUTY
-  #define BCHALL_INIT_DUTY 10
+  #define BCHALL_INIT_DUTY 5
 #endif
 
 #ifndef BCHALL_INPUT_A

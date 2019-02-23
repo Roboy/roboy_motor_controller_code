@@ -1,4 +1,4 @@
-/*sha256=7016344E12BE2CCC084AF6E0E5436519B8E24E57F693EC459E753432BC3FFF10*/
+/*sha256=AC9328D616E0C7DFAA463BF99BCF9A5EF37F95B4E0F3E41B88EA01D956949090*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Thu Jan 31 17:24:10 2019
+created on:Sat Feb 23 17:08:23 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _CCU6_DEFINES_H
@@ -40,9 +40,9 @@ created on:Thu Jan 31 17:24:10 2019
   #define IFXConfigWizard_Version 1.8.7
 #endif
 
-/* XML Version 1.3.0 */
+/* XML Version 1.3.1 */
 #ifndef CCU6_XML_VERSION
-  #define CCU6_XML_VERSION 10300
+  #define CCU6_XML_VERSION 10301
 #endif
 
 #ifndef CCU6_CC60SR

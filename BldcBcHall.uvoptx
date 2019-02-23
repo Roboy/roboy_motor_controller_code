@@ -151,24 +151,7 @@
           <Name>UL2CM3(-S0 -C0 -P0 -FD18000000 -FC1000 -FN1 -FF0TLE9879 -FS011000000 -FL020000 -FP0($$Device:TLE9879QXA40$Flash\TLE9879.FLM))</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>2931</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>285214372</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>RTE\Device\TLE9879QXA40\isr.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\BldcBcHall\RTE/Device/TLE9879QXA40/isr.c\2931</Expression>
-        </Bp>
-      </Breakpoint>
+      <Breakpoint/>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -220,19 +203,7 @@
       <pMultCmdsp></pMultCmdsp>
       <SystemViewers>
         <Entry>
-          <Name>System Viewer\ADC2</Name>
-          <WinId>35902</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\BDRV</Name>
-          <WinId>35904</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\SCU</Name>
-          <WinId>35903</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\SCUPM</Name>
+          <Name>System Viewer\SSC2</Name>
           <WinId>35905</WinId>
         </Entry>
       </SystemViewers>

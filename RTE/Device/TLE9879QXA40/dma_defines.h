@@ -1,4 +1,4 @@
-/*sha256=9B755F70C4AC63FE558AFBB14CD4ED5C77F2184F5B80ED4CF380167B6A335A6C*/
+/*sha256=614A8AFF337882160BC58AFB7625A33E9AF2C4526E56C1646021D54EDEC5FEA6*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Fri Feb 15 00:15:45 2019
+created on:Sat Feb 23 18:33:17 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _DMA_DEFINES_H
@@ -342,7 +342,7 @@ created on:Fri Feb 15 00:15:45 2019
 #endif
 
 #ifndef DMA_CH2_NoOfTrans
-  #define DMA_CH2_NoOfTrans 11
+  #define DMA_CH2_NoOfTrans 5
 #endif
 
 #ifndef DMA_CH2_SIZE
@@ -358,7 +358,7 @@ created on:Fri Feb 15 00:15:45 2019
 #endif
 
 #ifndef DMA_CH2_SRC_PTR_OFFS
-  #define DMA_CH2_SRC_PTR_OFFS 20
+  #define DMA_CH2_SRC_PTR_OFFS 8
 #endif
 
 #ifndef DMA_CH2_TASK_NoOfTasks

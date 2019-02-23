@@ -59,6 +59,9 @@
 *******************************************************************************/
 void Poti_Handler(void);
 void SPI_slave_react(void);
+void HardFaultHdlr(void);
+void DMA_complete_handler(void);
+void encoder_B_pos(void);
 
 /*******************************************************************************
 **                      Global Variable Definitions                           **
@@ -67,12 +70,13 @@ void SPI_slave_react(void);
 /*******************************************************************************
 **                      Private Variable Definitions                          **
 *******************************************************************************/
-uint16 spi_tx_data[DMA_CH2_NoOfTrans] = {0xCAFE, 0xBABE, 0xDEAD, 0xBEEF, 0xAAAA, 
+uint16 spi_tx_data[11] = {0xCAFE, 0xBABE, 0xDEAD, 0xBEEF, 0xAAAA, 
 																					0xB00B, 0x0F0F, 0xC0DE, 0xF00D, 0xFADE,
-																					0x0};
+																					0x1};
 uint16 spi_rx_data[DMA_CH3_NoOfTrans];
 uint16 count = 0;							
-uint16 adc1_result = 0;																					
+uint16 adc1_result = 0;	
+int64 eticks = 0;																					
 
 /*******************************************************************************
 **                      Private Constant Definitions                          **
@@ -121,18 +125,18 @@ int main(void)
 		/* Service watch-dog */
 		WDT1_Service();
 		
-		for(i = 0; i < 100; i++)
-		{
-			Delay_us(500000);
-			if(i>=49)
-			{
-				Emo_SetRefSpeed(-2000);
-			}
-			else
-			{
-				Emo_SetRefSpeed(2000);
-			}
-		}
+//		for(i = 0; i < 100; i++)
+//		{
+//			Delay_us(500000);
+//			if(i>=49)
+//			{
+//				Emo_SetRefSpeed(-2000);
+//			}
+//			else
+//			{
+//				Emo_SetRefSpeed(2000);
+//			}
+//		}
     
   }
 } /* End of main() */
@@ -148,10 +152,33 @@ void Main_HandleSysTick(void)
 *******************************************************************************/
 void SPI_slave_react(void)
 {
-	SSC2->TB.reg = count++;
-	
+	if (SSC2->TB.reg != 0xC001u)
+	{
+		SSC2->TB.reg = count++;
+	}
 }
 
+void HardFaultHdlr(void)
+{
+
+}
+
+void DMA_complete_handler(void)
+{
+	spi_tx_data[9] = 0xC001u;
+}
+	
+void encoder_B_pos(void)
+{
+	if ((PORT->P2_DATA.reg & 0b1) == 1)				// Check P2.0, if high increment, if low decrement
+	{
+		eticks++;
+	}
+	else
+	{
+		eticks--;
+	}
+}
 
 void Poti_Handler(void)
 {
@@ -161,7 +188,7 @@ void Poti_Handler(void)
 	 * values between 0 and 5000 are possible */
 	if (ADC1_GetChResult_mV(&mV, ADC1_CH4) == true)
 	{	
-		spi_tx_data[10] = mV;
+		//spi_tx_data[10] = mV;
     //Emo_SetRefSpeed(mV / 2); 
     if (mV > 100)
     {

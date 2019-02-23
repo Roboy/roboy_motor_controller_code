@@ -1,4 +1,4 @@
-/*sha256=C7805C0E412083A9F1A3777231BBA8A0F3D8E857D9510FAA3BFF5E461CEFC113*/
+/*sha256=F1DFBE636DAF98BD72DF5ED580CCE3890799FCADFC9B280C11D9F303A841A6E4*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Fri Feb 15 19:53:54 2019
+created on:Sat Feb 23 19:01:08 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _ISR_DEFINES_H
@@ -554,7 +554,7 @@ created on:Fri Feb 15 19:53:54 2019
 #endif
 
 #ifndef CPU_HARDFAULT_CALLBACK
-#define CPU_HARDFAULT_CALLBACK place_your_function_call_back_here
+#define CPU_HARDFAULT_CALLBACK HardFaultHdlr
 #endif
 
 #ifndef CPU_MEMMANAGE_CALLBACK
@@ -666,11 +666,11 @@ created on:Fri Feb 15 19:53:54 2019
 #endif
 
 #ifndef DMA_SSC_TX_CALLBACK
-#define DMA_SSC_TX_CALLBACK place_your_function_call_back_here
+#define DMA_SSC_TX_CALLBACK DMA_complete_handler
 #endif
 
 #ifndef DMA_SSC_TX_INT_EN
-  #define DMA_SSC_TX_INT_EN 0
+  #define DMA_SSC_TX_INT_EN 1
 #endif
 
 #ifndef EXINT0_FALLING_CALLBACK
@@ -678,7 +678,7 @@ created on:Fri Feb 15 19:53:54 2019
 #endif
 
 #ifndef EXINT0_RISING_CALLBACK
-#define EXINT0_RISING_CALLBACK place_your_function_call_back_here
+#define EXINT0_RISING_CALLBACK encoder_A_pos
 #endif
 
 #ifndef EXINT1_FALLING_CALLBACK
@@ -686,7 +686,7 @@ created on:Fri Feb 15 19:53:54 2019
 #endif
 
 #ifndef EXINT1_RISING_CALLBACK
-#define EXINT1_RISING_CALLBACK place_your_function_call_back_here
+#define EXINT1_RISING_CALLBACK encoder_B_pos
 #endif
 
 #ifndef EXINT2_FALLING_CALLBACK

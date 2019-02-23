@@ -21,35 +21,38 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-C:\Users\roboy\Documents\Boards\Infineon\TLE9879_EvalKit\BLDC_BC_HALL_EXAMPLE_TLE987X\BldcBcHall.uvprojx
-Project File Date:  02/14/2019
+C:\Users\missxa\Documents\roboy_motor_controller_code\BldcBcHall.uvprojx
+Project File Date:  02/23/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'TLE9879 EvalKit'
-compiling EmoCcu_Cfg.c...
-compiling Emo.c...
-compiling adc1.c...
-compiling EmoCcu.c...
-compiling adc2.c...
 compiling Main.c...
+app\Main.c(94): warning:  #177-D: variable "i"  was declared but never referenced
+  	int i;
+app\Main.c: 1 warning, 0 errors
+compiling Emo.c...
+compiling EmoCcu.c...
+compiling EmoCcu_Cfg.c...
+compiling adc1.c...
+compiling adc2.c...
 compiling bdrv.c...
-compiling bootrom.c...
 compiling ccu6.c...
-compiling isr.c...
-compiling int.c...
+compiling bootrom.c...
 compiling gpt12e.c...
+compiling int.c...
 compiling dma.c...
+compiling isr.c...
 compiling port.c...
-assembling startup_tle987x.s...
 compiling scu.c...
+assembling startup_tle987x.s...
 compiling ssc.c...
 compiling system_tle987x.c...
 compiling tle_device.c...
 compiling wdt1.c...
 linking...
-Program Size: Code=2816 RO-data=212 RW-data=36 ZI-data=1052  
-".\Objects\BldcBcHall.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=2768 RO-data=212 RW-data=36 ZI-data=1052  
+".\Objects\BldcBcHall.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -86,29 +89,29 @@ Package Vendor: Infineon
 <h2>Collection of Component Files used:</h2>
 
    * Component: Infineon::Device:Startup:1.0.0
-      Source file:   Device\Source\system_tle987x.c
-      Source file:   Device\Source\tle_device.c
-      Include file:  Device\Include\system_tle987x.h
-      Include file:  Device\Include\types.h
-      Include file:  Device\Include\eval_board.h
       Source file:   Device\Source\ARM\startup_tle987x.s
+      Include file:  Device\Include\system_tle987x.h
+      Source file:   Device\Source\tle_device.c
       Include file:  Device\Include\tle987x.h
-      Source file:   Device\SDK\app\main.c
-      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\bsl_defines.h
+      Source file:   Device\Source\system_tle987x.c
+      Include file:  Device\Include\types.h
       Include file:  Device\Include\tle_device.h
+      Source file:   Device\SDK\app\main.c
+      Include file:  Device\Include\eval_board.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\bsl_defines.h
 
    * Component: Infineon::Device:SDK:WDT1:0.2.6
-      Source file:   Device\SDK\src\wdt1.c
       Include file:  Device\SDK\inc\wdt1.h
+      Source file:   Device\SDK\src\wdt1.c
 
    * Component: Infineon::Device:SDK:SSC:0.1.2
-      Source file:   Device\SDK\src\ssc.c
       Include file:  Device\SDK\inc\ssc.h
+      Source file:   Device\SDK\src\ssc.c
 
    * Component: Infineon::Device:SDK:SCU:0.3.1
       Include file:  Device\SDK\inc\lin.h
-      Include file:  Device\SDK\inc\scu.h
       Source file:   Device\SDK\src\scu.c
+      Include file:  Device\SDK\inc\scu.h
 
    * Component: Infineon::Device:SDK:PORT:0.5.2
       Source file:   Device\SDK\src\port.c
@@ -119,28 +122,28 @@ Package Vendor: Infineon
       Source file:   Device\SDK\src\isr.c
 
    * Component: Infineon::Device:SDK:INT:0.1.4
-      Source file:   Device\SDK\src\int.c
       Include file:  Device\SDK\inc\int.h
+      Source file:   Device\SDK\src\int.c
 
    * Component: Infineon::Device:SDK:GPT12E:0.1.4
       Include file:  Device\SDK\inc\gpt12e.h
       Source file:   Device\SDK\src\gpt12e.c
 
    * Component: Infineon::Device:SDK:DMA:0.1.3
-      Source file:   Device\SDK\src\dma.c
       Include file:  Device\SDK\inc\dma.h
+      Source file:   Device\SDK\src\dma.c
 
    * Component: Infineon::Device:SDK:CCU6:0.2.3
-      Source file:   Device\SDK\src\ccu6.c
       Include file:  Device\SDK\inc\ccu6.h
+      Source file:   Device\SDK\src\ccu6.c
 
    * Component: Infineon::Device:SDK:BOOTROM:0.2.1
       Include file:  Device\SDK\inc\bootrom.h
       Source file:   Device\SDK\src\bootrom.c
 
    * Component: Infineon::Device:SDK:BDRV:0.3.7
-      Source file:   Device\SDK\src\bdrv.c
       Include file:  Device\SDK\inc\bdrv.h
+      Source file:   Device\SDK\src\bdrv.c
 
    * Component: Infineon::Device:SDK:ADC2:0.1.6
       Include file:  Device\SDK\inc\adc2.h
@@ -151,7 +154,7 @@ Package Vendor: Infineon
       Include file:  Device\SDK\inc\adc1.h
 
    * Component: ARM::CMSIS:CORE:5.1.2
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

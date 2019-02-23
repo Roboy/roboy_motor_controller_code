@@ -1,4 +1,4 @@
-/*sha256=FB769F0758D403B32EEC662860A710E0D3790122738AE4D886749FC5872C9F77*/
+/*sha256=305B11EEA9B74BEEA37CBD6632A4A0562182157EC839A897B46854260CADD561*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Fri Feb 15 19:52:33 2019
+created on:Sat Feb 23 18:58:47 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _SCU_DEFINES_H
@@ -72,7 +72,7 @@ created on:Fri Feb 15 19:52:33 2019
   #define SCU_APCLK2 (0xBu)
 #endif
 
-/*SCU_APCLK_CTRL1: (0<<7)|(0<<6)|(1<<2)*/
+/*SCU_APCLK_CTRL1: (1<<2)|(0<<7)|(0<<6)*/
 #ifndef SCU_APCLK_CTRL1
   #define SCU_APCLK_CTRL1 (0x4u)
 #endif
@@ -154,7 +154,7 @@ created on:Fri Feb 15 19:52:33 2019
 #endif
 
 #ifndef SCU_EXINT1_RISING_INT_EN
-  #define SCU_EXINT1_RISING_INT_EN 0
+  #define SCU_EXINT1_RISING_INT_EN 1
 #endif
 
 #ifndef SCU_EXINT2_FALLING_INT_EN
@@ -192,9 +192,9 @@ created on:Fri Feb 15 19:52:33 2019
   #define SCU_MODIEN3 (0x0u)
 #endif
 
-/*SCU_MODIEN4: 0*/
+/*SCU_MODIEN4: 1*/
 #ifndef SCU_MODIEN4
-  #define SCU_MODIEN4 (0x0u)
+  #define SCU_MODIEN4 (0x1u)
 #endif
 
 /*SCU_MODPISEL: (0<<7)|(0<<6)|3|(3<<2)|(1<<4)*/

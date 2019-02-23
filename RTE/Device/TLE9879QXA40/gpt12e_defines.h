@@ -1,4 +1,4 @@
-/*sha256=C4F600BC1B973468057808839DE40916BCBFDE97A54D501D70B4CE459A21314E*/
+/*sha256=68907B0627DF61A18FC1B140615805AD1FB3501EBEAE9F8B6228932DEB10BB56*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Thu Jan 31 17:23:26 2019
+created on:Sat Feb 23 17:08:23 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _GPT12E_DEFINES_H
@@ -40,9 +40,9 @@ created on:Thu Jan 31 17:23:26 2019
   #define IFXConfigWizard_Version 1.8.7
 #endif
 
-/* XML Version 1.3.0 */
+/* XML Version 1.3.1 */
 #ifndef GPT12E_XML_VERSION
-  #define GPT12E_XML_VERSION 10300
+  #define GPT12E_XML_VERSION 10301
 #endif
 
 /*GPT12E_CAPREL: 65535*/

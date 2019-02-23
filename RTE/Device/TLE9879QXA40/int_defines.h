@@ -1,4 +1,4 @@
-/*sha256=B436775000A1BB2D3457229B93A03ADEEF7BA55EF57145DDBFAE3A63DD0DD259*/
+/*sha256=2CAE1046F07640628C5D9DD7F2A0FCA1C7FD12431340D07A412DA9A978AF24E6*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Fri Feb 15 19:52:33 2019
+created on:Sat Feb 23 18:58:47 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _INT_DEFINES_H
@@ -50,16 +50,16 @@ created on:Fri Feb 15 19:52:33 2019
 #endif
 
 #ifndef CPU_HARDFAULT_EN
-  #define CPU_HARDFAULT_EN 0
+  #define CPU_HARDFAULT_EN 1
 #endif
 
 #ifndef CPU_MEMMANAGE_EN
   #define CPU_MEMMANAGE_EN 0
 #endif
 
-/*CPU_NVIC_IPR0: (0<<4)|(0<<12)|(0<<20)|(15<<28)*/
+/*CPU_NVIC_IPR0: (0<<4)|(0<<12)|(5<<20)|(15<<28)*/
 #ifndef CPU_NVIC_IPR0
-  #define CPU_NVIC_IPR0 (0xF0000000u)
+  #define CPU_NVIC_IPR0 (0xF0500000u)
 #endif
 
 /*CPU_NVIC_IPR1: (1<<4)|(0<<12)|(0<<20)|(0<<28)*/
@@ -67,9 +67,9 @@ created on:Fri Feb 15 19:52:33 2019
   #define CPU_NVIC_IPR1 (0x10u)
 #endif
 
-/*CPU_NVIC_IPR2: (0<<4)|(0<<12)|(0<<20)|(0<<28)*/
+/*CPU_NVIC_IPR2: (0<<4)|(0<<12)|(0<<20)|(2<<28)*/
 #ifndef CPU_NVIC_IPR2
-  #define CPU_NVIC_IPR2 (0x0u)
+  #define CPU_NVIC_IPR2 (0x20000000u)
 #endif
 
 /*CPU_NVIC_IPR3: (0<<4)|(0<<12)|(0<<20)|(0<<28)*/
@@ -78,9 +78,9 @@ created on:Fri Feb 15 19:52:33 2019
 #endif
 
 /*CPU_NVIC_ISER0: 0|(0<<1)|(0<<2)|(1<<3)|(1<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<\
-<9)|(0<<10)|(1<<11)|(0<<12)|(0<<13)|(0<<14)|(0<<15)*/
+<9)|(0<<10)|(1<<11)|(0<<12)|(1<<13)|(0<<14)|(1<<15)*/
 #ifndef CPU_NVIC_ISER0
-  #define CPU_NVIC_ISER0 (0x818u)
+  #define CPU_NVIC_ISER0 (0xA818u)
 #endif
 
 /*CPU_NVIC_SHPR3: (0<<28)*/
@@ -128,9 +128,9 @@ created on:Fri Feb 15 19:52:33 2019
   #define SCU_DMAIEN1 (0x0u)
 #endif
 
-/*SCU_DMAIEN2: (0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)*/
+/*SCU_DMAIEN2: (0<<1)|(0<<2)|(1<<3)|(0<<4)|(0<<5)*/
 #ifndef SCU_DMAIEN2
-  #define SCU_DMAIEN2 (0x0u)
+  #define SCU_DMAIEN2 (0x8u)
 #endif
 
 /*SCU_EDCCON: 0|(0<<2)*/
@@ -138,9 +138,9 @@ created on:Fri Feb 15 19:52:33 2019
   #define SCU_EDCCON (0x0u)
 #endif
 
-/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(1<<5)*/
+/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(1<<2)|(0<<3)|(0<<4)|(1<<5)*/
 #ifndef SCU_EXICON0
-  #define SCU_EXICON0 (0x20u)
+  #define SCU_EXICON0 (0x24u)
 #endif
 
 /*SCU_GPT12IEN: 0|(0<<1)|(0<<2)|(0<<3)|(0<<5)|(0<<4)*/
@@ -163,8 +163,8 @@ created on:Fri Feb 15 19:52:33 2019
   #define SCU_NMICON (0x0u)
 #endif
 
-/*SCU_SYS_IRQ_CTRL: (0<<13)|(0<<12)|(0<<14)|(0<<11)|(0<<10)|(0<<9)|(0<<8)|(0<<7\
-)|(0<<6)|(0<<17)|(0<<16)|(0<<19)|(0<<18)|(0<<21)|(0<<20)|0|(0<<1)|(0<<2)*/
+/*SCU_SYS_IRQ_CTRL: 0|(0<<1)|(0<<2)|(0<<13)|(0<<12)|(0<<14)|(0<<11)|(0<<10)|(0<\
+<9)|(0<<8)|(0<<7)|(0<<6)|(0<<17)|(0<<16)|(0<<19)|(0<<18)|(0<<21)|(0<<20)*/
 #ifndef SCU_SYS_IRQ_CTRL
   #define SCU_SYS_IRQ_CTRL (0x0u)
 #endif

@@ -1,4 +1,4 @@
-/*sha256=15918E8D6CAADFD5D7B9D22FADF26E3A2985463241B338A6E7758C9A77E7BF8E*/
+/*sha256=844B5FE4069E96E8548A6B9AE3CEEF5ACC4DB31B83450BB4056058B35205A87D*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Thu Feb 14 22:06:56 2019
+created on:Sat Feb 23 17:08:23 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _PORT_DEFINES_H
@@ -40,9 +40,9 @@ created on:Thu Feb 14 22:06:56 2019
   #define IFXConfigWizard_Version 1.8.7
 #endif
 
-/* XML Version 1.3.0 */
+/* XML Version 1.3.1 */
 #ifndef PORT_XML_VERSION
-  #define PORT_XML_VERSION 10300
+  #define PORT_XML_VERSION 10301
 #endif
 
 /*PORT_P0_0_ALT: 0*/

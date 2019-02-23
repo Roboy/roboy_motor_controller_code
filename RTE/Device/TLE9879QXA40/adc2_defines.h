@@ -1,4 +1,4 @@
-/*sha256=C6577DC3022D9472373556D1A2493B0A992E963F05CE4A8CC8AF16E01E93DE4F*/
+/*sha256=40829403403C29E6438C8C6663CAA84E0681B1FC7808E07F75A9E83E06250600*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Mon Feb 4 23:15:10 2019
+created on:Sat Feb 23 17:08:23 2019
 ------------------------------------------------------------------------------*/
 
 #ifndef _ADC2_DEFINES_H
@@ -40,9 +40,9 @@ created on:Mon Feb 4 23:15:10 2019
   #define IFXConfigWizard_Version 1.8.7
 #endif
 
-/* XML Version 1.3.0 */
+/* XML Version 1.3.1 */
 #ifndef ADC2_XML_VERSION
-  #define ADC2_XML_VERSION 10300
+  #define ADC2_XML_VERSION 10301
 #endif
 
 #ifndef ADC2_CH1_LOTH_VOLT
@@ -190,9 +190,9 @@ created on:Mon Feb 4 23:15:10 2019
   #define ADC2_TH0_3_LOWER (0x1C2E2E00u)
 #endif
 
-/*ADC2_TH0_3_UPPER: (226<<8)|(226<<16)|(200<<24)*/
+/*ADC2_TH0_3_UPPER: (226<<8)|(226<<16)|(172<<24)*/
 #ifndef ADC2_TH0_3_UPPER
-  #define ADC2_TH0_3_UPPER (0xC8E2E200u)
+  #define ADC2_TH0_3_UPPER (0xACE2E200u)
 #endif
 
 /*ADC2_TH4_5_LOWER: 41|(153<<8)*/

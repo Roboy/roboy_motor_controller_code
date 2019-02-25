@@ -63,6 +63,10 @@ void HardFaultHdlr(void);
 void DMA_complete_handler(void);
 void encoder_B_pos(void);
 
+void Neopx_Write(uint8 *color);
+void T2_Rising_Reload(void);
+void T4_Falling_Reload(void);
+
 /*******************************************************************************
 **                      Global Variable Definitions                           **
 *******************************************************************************/
@@ -76,7 +80,16 @@ uint16 spi_tx_data[11] = {0xCAFE, 0xBABE, 0xDEAD, 0xBEEF, 0xAAAA,
 uint16 spi_rx_data[DMA_CH3_NoOfTrans];
 uint16 count = 0;							
 uint16 adc1_result = 0;	
-int64 eticks = 0;																					
+int64 eticks = 0;						
+
+#define NCOLORS 3
+uint8 npx_data[NCOLORS];
+uint8 npx_index;
+uint8 npx_current_byte;
+uint8 npx_bit_count;                                          
+
+uint16 npx_T3_high_ticks[2] = {3, 6};    //@10MHz GPTclk, 0.3 and 0.6 us
+uint16 npx_T3_low_ticks[2] = {9, 6};    //@10MHz GPTclk, 0.9 and 0.6 us																					
 
 /*******************************************************************************
 **                      Private Constant Definitions                          **
@@ -94,6 +107,7 @@ int64 eticks = 0;
 int main(void)
 {
 	int i;
+	uint8 color1[3] = {0,0,120};
 	
   /*****************************************************************************
   ** initialization of the hardware modules based on the configuration done   **
@@ -110,6 +124,7 @@ int main(void)
 	SCUPM->BDRV_ISCLR.reg = 0x0u;					// Extra op so that they are correctly set.
 	
   /* Initialize E-Motor application */
+
   Emo_Init();
 	
 	/*Activate DMA controller*/
@@ -119,6 +134,8 @@ int main(void)
 	/*Start motor*/
 	Emo_SetRefSpeed(1000);
 	Emo_StartMotor();
+	
+	Neopx_Write(color1);
 	
   while (1)
   { 
@@ -170,7 +187,9 @@ void DMA_complete_handler(void)
 	
 void encoder_B_pos(void)
 {
-	if ((PORT->P2_DATA.reg & 0b1) == 1)				// Check P2.0, if high increment, if low decrement
+	if 
+		
+	((PORT->P2_DATA.reg & 0x1u) == 1)				// Check P2.0, if high increment, if low decrement
 	{
 		eticks++;
 	}
@@ -199,4 +218,66 @@ void Poti_Handler(void)
       //Emo_StopMotor();
     }
 	}
+}
+
+void Neopx_Write(uint8 *color)
+{
+	uint8 i;
+  for (i = 0; i > NCOLORS; i++)
+  {
+    npx_data[i] = color[i];
+  }
+  
+  npx_index = 0;
+  npx_current_byte = color[0];
+  
+  GPT12E->T3.reg = npx_T3_high_ticks[ (color[0] >> (sizeof(*color)*8 - 1)) ];
+  GPT12E->T4.reg = npx_T3_low_ticks[ (color[0] >> (sizeof(*color)*8 - 1)) ];
+  GPT12E_T3_Output_Set();
+  GPT12E_T3_Start();
+}
+
+void T2_Rising_Reload(void)
+{
+  if (npx_index >= 3)
+	{
+		GPT12E->T4.reg = 800;      												//Reset Latch low pulse
+	}
+	else
+	{
+		GPT12E->T4.reg = npx_T3_low_ticks[ (npx_current_byte >> (sizeof(npx_current_byte)*8 - 1)) ];	//Reload next low time
+	}
+  
+}
+
+void T4_Falling_Reload(void)
+{
+	if (npx_bit_count >= 7)										//*1* If we reach end if byte, increase array index and reset data and count
+  {
+    npx_index++;
+		if (npx_index >= 3)														//*2* But if count overflows then configure timers for reset pulse
+		{
+			if (npx_index >= 4)																	//*3* Also if we already executed the reset pulse then stop the timer and leave
+			{
+				GPT12E_T3_Stop();
+				return;
+			}
+			else
+			{
+				GPT12E->T2.reg = 6;      									//Standard high duration preceding reset pulse (maybe needs to be shorter so as to not be interpreted by the neopixel as data)
+			}
+		}
+		else																					//*2* Else we carry on to the next data element and reset count
+		{    
+			npx_current_byte = npx_data[npx_index];
+			npx_bit_count = 0;
+		}
+  }
+	else																			//*1* Else we just increment and shift
+  {  
+		npx_bit_count++;
+		npx_current_byte <<= 1;
+	}
+		
+  GPT12E->T2.reg = npx_T3_high_ticks[ (npx_current_byte >> (sizeof(npx_current_byte)*8 - 1)) ];	//Reload next high time
 }

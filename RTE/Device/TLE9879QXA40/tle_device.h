@@ -1,209 +1,139 @@
-/****************************************************************************
+/*
+ ***********************************************************************************************************************
  *
- * @file     tle_device.h
- *           Infineon TLE Device Series
- * @version  V1.0.5
- * @date     23 Jun 2017
+ * Copyright (c) 2015, Infineon Technologies AG
+ * All rights reserved.
  *
-   Copyright (C) 2015 Infineon Technologies AG. All rights reserved.
+ * Redistribution and use in source and binary forms, with or without modification,are permitted provided that the
+ * following conditions are met:
  *
+ *   Redistributions of source code must retain the above copyright notice, this list of conditions and the  following
+ *   disclaimer.
  *
- * @par
- * Infineon Technologies AG (Infineon) is supplying this software for use with 
- * Infineon's microcontrollers.  This file can be freely distributed
- * within development tools that are supporting such microcontrollers.
+ *   Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *   following disclaimer in the documentation and/or other materials provided with the distribution.
  *
- * @par
- * THIS SOFTWARE IS PROVIDED AS IS.  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
- * OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
- * ARM SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR
- * CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+ *   Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote
+ *   products derived from this software without specific prior written permission.
  *
- ******************************************************************************/
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT  OF THE
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ **********************************************************************************************************************/
+/**
+ * \file     tle_device.h
+ *
+ * \brief    SDK initialization
+ *
+ * \version  V1.0.9
+ * \date     10. Dec 2018
+ */
+
+/*******************************************************************************
+**                      Author(s) Identity                                    **
+********************************************************************************
+**                                                                            **
+** Initials     Name                                                          **
+** ---------------------------------------------------------------------------**
+** DM           Daniel Mysliwitz                                              **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      Revision Control History                              **
+*******************************************************************************/
+/*
+ * V1.0.9: 2018-12-10, JO:   moved memory layout and defines for the device variant to new file tle_variants.h
+ * V1.0.8: 2018-12-05, DM:   revision history for tle_device.c/.h files merged together
+ * V0.1.1: 2017-11-21, DM:   SDADC added
+ *                           MISRA 2012 compliance, the following PC-Lint rules are globally deactivated:
+ *                             Info 793: ANSI/ISO limit of 6 'significant characters in an external identifier
+ *                             Info 718: Symbol '...' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]
+ *                             Info 746: call to function '...' not made in the presence of a prototype [MISRA Rule 71]
+ *                           void CMSIS_Irq_Dis(void) added
+ *                           void CMSIS_Irq_En(void) added
+ *                           void CMSIS_NOP(void) added
+ * V0.1.0: 2017-04-18, DM:   initial version
+ */
 
 #ifndef _TLE_DEVICE_H
 #define _TLE_DEVICE_H
 
-/* Family definitions  */
-#define TLE98      (98)
-
-/* Series definitions  */
-#define TLE987     (987)
-
-/* Device definitions  */
-#define TLE9871    (9871)
-#define TLE9873    (9873)
-#define TLE9877    (9877)
-#define TLE9879    (9879)
-
-/* Package definitions */
-#define BGA144     (1)
-#define LQFP144    (2)
-#define LQFP100    (3)
-#define BGA64      (4)
-#define LQFP64     (5)
-#define VQFN48     (6)
-#define TSSOP38    (7)
-#define TSSOP28    (8)
-#define TSSOP16    (9) 
-#define VQFN24     (10)
-#define VQFN40     (11)
-
-#if defined(TLE9871QXA20)	
-#define UC_FAMILY       TLE98
-#define UC_SERIES       TLE987
-#define UC_DEVICE       TLE9871
-#define UC_PACKAGE      VQFN48
-#define UC_FLASH        (36UL)
-#define ProgFlashSize   (0x8000U)
-#define RAMSize         (0xC00U)
-
-#elif defined(TLE9873QXW40)	
-#define UC_FAMILY       TLE98
-#define UC_SERIES       TLE987
-#define UC_DEVICE       TLE9873
-#define UC_PACKAGE      VQFN48
-#define UC_FLASH        (48UL)
-#define ProgFlashSize   (0xB000U)
-#define RAMSize         (0xC00U)
-
-#elif defined(TLE9877QXA20)
-#define UC_FAMILY       TLE98
-#define UC_SERIES       TLE987
-#define UC_DEVICE       TLE9877
-#define UC_PACKAGE      VQFN48
-#define UC_FLASH        (64UL)
-#define ProgFlashSize   (0xF000U)
-#define RAMSize         (0x1800U)
-
-#elif defined(TLE9877QXA40)
-#define UC_FAMILY       TLE98
-#define UC_SERIES       TLE987
-#define UC_DEVICE       TLE9877
-#define UC_PACKAGE      VQFN48
-#define UC_FLASH        (64UL)
-#define ProgFlashSize   (0xF000U)
-#define RAMSize         (0x1800U)
-
-#elif defined(TLE9877QXW40)
-#define UC_FAMILY       TLE98
-#define UC_SERIES       TLE987
-#define UC_DEVICE       TLE9877
-#define UC_PACKAGE      VQFN48
-#define UC_FLASH        (64UL)
-#define ProgFlashSize   (0xF000U)
-#define RAMSize         (0x1800U)
-
-#elif defined(TLE9879QXA20)
-#define UC_FAMILY       TLE98
-#define UC_SERIES       TLE987
-#define UC_DEVICE       TLE9879
-#define UC_PACKAGE      VQFN48
-#define UC_FLASH        (128UL)
-#define ProgFlashSize   (0x1F000U)
-#define RAMSize         (0x1800U)
-
-#elif defined(TLE9879QXA40)
-#define UC_FAMILY       TLE98
-#define UC_SERIES       TLE987
-#define UC_DEVICE       TLE9879
-#define UC_PACKAGE      VQFN48
-#define UC_FLASH        (128UL)
-#define ProgFlashSize   (0x1F000U)
-#define RAMSize         (0x1800U)
-
-#elif defined(TLE9879QXW40)
-#define UC_FAMILY       TLE98
-#define UC_SERIES       TLE987
-#define UC_DEVICE       TLE9879
-#define UC_PACKAGE      VQFN48
-#define UC_FLASH        (128UL)
-#define ProgFlashSize   (0x1F000U)
-#define RAMSize         (0x1800U)
-
-#else
-/*lint -e309 */
-#error "tle_device.h: device not supported"
-/*lint -e309 */
-#endif 	    
-/*----------------------------------------------------------------------------
-  Define Memory
- *----------------------------------------------------------------------------*/
-#define ProgFlashStart  (0x11000000U)      /* Start Address of the flash      */
-#define DataFlashStart  (ProgFlashStart + ProgFlashSize)
-#define DataFlashSize   (0x1000U)          /* 4KB Data Flash                  */
-#define NACStart        (DataFlashStart - 4U)
-#define NADStart        (DataFlashStart - 2U)
-#define RAMStart        (0x18000000UL)     /* Start Address of the SRAM       */
-
-#include <TLE987x.h>
-#include <Types.h>
-#include <RTE_Components.h>
+#include "tle_variants.h"
+#include "RTE_Components.h"
 
 #ifdef RTE_DEVICE_SDK_BROM
-  #include <bootrom.h>
+  #include "bootrom.h"
 #endif
 #ifdef RTE_DEVICE_SDK_WDT1
-  #include <wdt1.h>
+  #include "wdt1.h"
 #endif
 #ifdef RTE_DEVICE_SDK_SCU
-  #include <scu.h>
+  #include "scu.h"
 #endif
 #ifdef RTE_DEVICE_SDK_PMU
-  #include <pmu.h>
+  #include "pmu.h"
 #endif
 #ifdef RTE_DEVICE_SDK_ADC1
-  #include <adc1.h>
+  #include "adc1.h"
 #endif
 #ifdef RTE_DEVICE_SDK_ADC2
-  #include <adc2.h>
+  #include "adc2.h"
+#endif
+#ifdef RTE_DEVICE_SDK_ADC34
+  #include "sdadc.h"
 #endif
 #ifdef RTE_DEVICE_SDK_BDRV
-  #include <bdrv.h>
+  #include "bdrv.h"
 #endif
 #ifdef RTE_DEVICE_SDK_CCU6
-  #include <ccu6.h>
+  #include "ccu6.h"
 #endif
 #ifdef RTE_DEVICE_SDK_CSA
-  #include <csa.h>
+  #include "csa.h"
 #endif
 #ifdef RTE_DEVICE_SDK_GPT12E
-  #include <gpt12e.h>
+  #include "gpt12e.h"
 #endif
 #ifdef RTE_DEVICE_SDK_INT
-  #include <int.h>
+  #include "int.h"
 #endif
 #ifdef RTE_DEVICE_SDK_ISR
-  #include <isr.h>
+  #include "isr.h"
 #endif
 #ifdef RTE_DEVICE_SDK_LIN
-  #include <lin.h>
+  #include "lin.h"
 #endif
 #ifdef RTE_DEVICE_SDK_MON
-  #include <mon.h>
+  #include "mon.h"
 #endif
 #ifdef RTE_DEVICE_SDK_PORT
-  #include <port.h>
+  #include "port.h"
 #endif
 #ifdef RTE_DEVICE_SDK_SSC
-  #include <ssc.h>
+  #include "ssc.h"
 #endif
 #ifdef RTE_DEVICE_SDK_TIMER2X
-  #include <timer2x.h>
+  #include "timer2x.h"
 #endif
 #ifdef RTE_DEVICE_SDK_TIMER3
-  #include <timer3.h>
+  #include "timer3.h"
 #endif
 #ifdef RTE_DEVICE_SDK_UART
-  #include <uart.h>
+  #include "uart.h"
 #endif
 #ifdef RTE_DEVICE_SDK_DMA
-  #include <dma.h>
+  #include "dma.h"
 #endif
 
-extern uint32 SystemFrequency;
-
+/** \brief Initializes the TLE modules.
+ *
+ * \ingroup tle_api
+ */
 void TLE_Init(void);
 
 #endif

@@ -19,6 +19,8 @@
 ".\objects\system_tle987x.o"
 ".\objects\tle_device.o"
 ".\objects\wdt1.o"
+".\objects\lin.o"
+".\objects\pmu.o"
 --strict --scatter ".\Objects\BldcBcHall.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

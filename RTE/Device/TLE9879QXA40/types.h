@@ -1,5 +1,4 @@
-/**
- * @cond
+/*
  ***********************************************************************************************************************
  *
  * Copyright (c) 2015, Infineon Technologies AG
@@ -26,6 +25,15 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  **********************************************************************************************************************/
+/**
+ * \file     types.h
+ *
+ * \brief    General type declarations
+ *
+ * \version  V0.2.2
+ * \date     14. Feb 2018
+ *
+ */
 
 /*******************************************************************************
 **                      Author(s) Identity                                    **
@@ -34,7 +42,7 @@
 ** Initials     Name                                                          **
 ** ---------------------------------------------------------------------------**
 ** SS           Steffen Storandt                                              **
-**                                                                            **
+** DM           Daniel Mysliwitz                                              **
 **                                                                            **
 *******************************************************************************/
 
@@ -42,6 +50,12 @@
 **                      Revision Control History                              **
 *******************************************************************************/
 /* 
+ * V0.2.2: 2018-02-14, DM:   MISRA 2012 compliance, the following PC-Lint rules are globally deactivated:
+ *                           Info 793: ANSI/ISO limit of 6 'significant characters in an external identifier
+ *                           Info 835: A zero has been given as right argument to operator
+ *                           Info 845: The left argument to operator '&' is certain to be 0
+ *                           Field_Rd1() return typecase changed to (uint8)
+ * V0.2.1: 2017-11-13, DM:   Register access macros added
  * V0.2.0: 2012-12-13, SS:   Formal changes
  * V0.1.0: 2012-11-12, SS:   Initial version
  */
@@ -109,6 +123,12 @@
 #define STD_REAL_SHIFT_Q32_y ( 32 - 1) /**< \brief Range=[-2^31  , 2^31[;   Q16.0=>             Q32.0 =>Step=1      */
 
 #define NULL_PTR ((void*)0)
+
+#if (__CC_ARM == 1)
+  #define INLINE static __forceinline
+#else
+  #define INLINE inline
+#endif /* (__CC_ARM == 1) */
 
 /*******************************************************************************
 **                      Global Type Definitions                               **

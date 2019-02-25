@@ -10,13 +10,13 @@
       <TargetName>TLE9879 EvalKit</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>TLE9879QXA40</Device>
           <Vendor>Infineon</Vendor>
-          <PackID>Infineon.TLE987x_DFP.1.3.2</PackID>
+          <PackID>Infineon.TLE987x_DFP.1.4.0</PackID>
           <PackURL>http://dave.infineon.com/Libraries/CMSIS_PACK/</PackURL>
           <Cpu>IROM(0x11000000,0x1EFFC) IROM2(0x1101EFFC,4) IRAM(0x18000000,0x1800) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -184,6 +184,7 @@
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
+            <RvdsMve>0</RvdsMve>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>1</hadIROM2>
             <StupSel>8</StupSel>
@@ -324,6 +325,7 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>0</uC99>
+            <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>0</v6Lang>
             <v6LangP>0</v6LangP>
@@ -426,376 +428,618 @@
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cvendor="Infineon" Cversion="0.1.6" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cvendor="Infineon" Cversion="0.1.6" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cvendor="Infineon" Cversion="0.2.4" condition="ADC">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="BDRV" Cvendor="Infineon" Cversion="0.3.7" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cvendor="Infineon" Cversion="0.1.9" condition="ADC">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cvendor="Infineon" Cversion="0.2.1" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="BDRV" Cvendor="Infineon" Cversion="0.4.3" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cvendor="Infineon" Cversion="0.2.3" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cvendor="Infineon" Cversion="0.2.4" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="DMA" Cvendor="Infineon" Cversion="0.1.3" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cvendor="Infineon" Cversion="0.2.7" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cvendor="Infineon" Cversion="0.1.4" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="DMA" Cvendor="Infineon" Cversion="0.1.6" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="INT" Cvendor="Infineon" Cversion="0.1.4" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cvendor="Infineon" Cversion="0.1.8" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cvendor="Infineon" Cversion="0.2.0" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="INT" Cvendor="Infineon" Cversion="0.1.8" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cvendor="Infineon" Cversion="0.5.2" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cvendor="Infineon" Cversion="0.2.4" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cvendor="Infineon" Cversion="0.3.1" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="LIN" Cvendor="Infineon" Cversion="0.1.7" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cvendor="Infineon" Cversion="0.1.2" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="PMU" Cvendor="Infineon" Cversion="0.1.7" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cvendor="Infineon" Cversion="0.2.6" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+      <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cvendor="Infineon" Cversion="0.5.5" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cvendor="Infineon" Cversion="0.3.6" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cvendor="Infineon" Cversion="0.1.5" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cvendor="Infineon" Cversion="0.2.8" condition="TLE987x CMSIS Device">
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device">
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://media.infineon.com/mdk/" vendor="Infineon" version="1.2.1"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </component>
     </components>
     <files>
-      <file attr="config" category="source" name="Device\SDK\src\adc1.c" version="0.1.6">
+      <file attr="config" category="doc" condition="TLE987x no -2QXA40" name="Device\SDK\cfgwiz\script\v2\ICW_TLE987x.xml" version="2.0.2">
+        <instance index="0">RTE\Device\TLE9879QXA40\ICW_TLE987x.xml</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="doc" condition="TLE987x no -2QXA40" name="Device\SDK\cfgwiz\script\v2\TLE987x.mig" version="2.0.2">
+        <instance index="0">RTE\Device\TLE9879QXA40\TLE987x.mig</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="doc" condition="TLE987x no -2QXA40" name="SVD\TLE987x.svd" version="3.5.0">
+        <instance index="0">RTE\Device\TLE9879QXA40\TLE987x.svd</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\adc1.c" version="0.2.4">
         <instance index="0">RTE\Device\TLE9879QXA40\adc1.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cvendor="Infineon" Cversion="0.1.6" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cvendor="Infineon" Cversion="0.2.4" condition="ADC"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\adc1.h" version="0.1.6">
+      <file attr="config" category="header" name="Device\SDK\inc\adc1.h" version="0.2.4">
         <instance index="0">RTE\Device\TLE9879QXA40\adc1.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cvendor="Infineon" Cversion="0.1.6" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cvendor="Infineon" Cversion="0.2.4" condition="ADC"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\adc2.c" version="0.1.6">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\adc1_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\adc1_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\adc2.c" version="0.1.9">
         <instance index="0">RTE\Device\TLE9879QXA40\adc2.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cvendor="Infineon" Cversion="0.1.6" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cvendor="Infineon" Cversion="0.1.9" condition="ADC"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\adc2.h" version="0.1.6">
+      <file attr="config" category="header" name="Device\SDK\inc\adc2.h" version="0.1.9">
         <instance index="0">RTE\Device\TLE9879QXA40\adc2.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cvendor="Infineon" Cversion="0.1.6" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cvendor="Infineon" Cversion="0.1.9" condition="ADC"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\bdrv.c" version="0.3.6">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\adc2_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\adc2_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\bdrv.c" version="0.4.3">
         <instance index="0">RTE\Device\TLE9879QXA40\bdrv.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="BDRV" Cvendor="Infineon" Cversion="0.3.7" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BDRV" Cvendor="Infineon" Cversion="0.4.3" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\bdrv.h" version="0.3.6">
+      <file attr="config" category="header" name="Device\SDK\inc\bdrv.h" version="0.4.3">
         <instance index="0">RTE\Device\TLE9879QXA40\bdrv.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="BDRV" Cvendor="Infineon" Cversion="0.3.7" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BDRV" Cvendor="Infineon" Cversion="0.4.3" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\bootrom.c" version="0.2.1">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\bdrv_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\bdrv_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\bootrom.c" version="0.2.4">
         <instance index="0">RTE\Device\TLE9879QXA40\bootrom.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cvendor="Infineon" Cversion="0.2.1" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cvendor="Infineon" Cversion="0.2.4" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\bootrom.h" version="0.2.1">
+      <file attr="config" category="header" name="Device\SDK\inc\bootrom.h" version="0.2.4">
         <instance index="0">RTE\Device\TLE9879QXA40\bootrom.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cvendor="Infineon" Cversion="0.2.1" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cvendor="Infineon" Cversion="0.2.4" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" condition="TLE9879QXA40" name="Device\SDK\cfgwiz\TLE9879QXA40\bsl_defines.h" version="1.8.6">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\bsl_defines.h" version="1.8.6">
         <instance index="0">RTE\Device\TLE9879QXA40\bsl_defines.h</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\ccu6.c" version="0.2.3">
+      <file attr="config" category="source" name="Device\SDK\src\ccu6.c" version="0.2.7">
         <instance index="0">RTE\Device\TLE9879QXA40\ccu6.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cvendor="Infineon" Cversion="0.2.3" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cvendor="Infineon" Cversion="0.2.7" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\ccu6.h" version="0.2.3">
+      <file attr="config" category="header" name="Device\SDK\inc\ccu6.h" version="0.2.7">
         <instance index="0">RTE\Device\TLE9879QXA40\ccu6.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cvendor="Infineon" Cversion="0.2.3" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cvendor="Infineon" Cversion="0.2.7" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\dma.c" version="0.1.3">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\ccu6_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\ccu6_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="Device\Include\cmsis_misra.h" version="0.1.0">
+        <instance index="0">RTE\Device\TLE9879QXA40\cmsis_misra.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="doc" condition="TLE987x_40 no -2QXA40" name="Device\SDK\cfgwiz\TLE987x_40\v2\config.icwp" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\config.icwp</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\csa_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\csa_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\dma.c" version="0.1.6">
         <instance index="0">RTE\Device\TLE9879QXA40\dma.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="DMA" Cvendor="Infineon" Cversion="0.1.3" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="DMA" Cvendor="Infineon" Cversion="0.1.6" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\dma.h" version="0.1.3">
+      <file attr="config" category="header" name="Device\SDK\inc\dma.h" version="0.1.6">
         <instance index="0">RTE\Device\TLE9879QXA40\dma.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="DMA" Cvendor="Infineon" Cversion="0.1.3" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="DMA" Cvendor="Infineon" Cversion="0.1.6" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" condition="TLE987x" name="Device\Include\eval_board.h" version="0.2.0">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\dma_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\dma_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="Device\Include\eval_board.h" version="0.2.0">
         <instance index="0">RTE\Device\TLE9879QXA40\eval_board.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\gpt12e.c" version="0.1.4">
+      <file attr="config" category="source" name="Device\SDK\src\gpt12e.c" version="0.1.8">
         <instance index="0">RTE\Device\TLE9879QXA40\gpt12e.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cvendor="Infineon" Cversion="0.1.4" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cvendor="Infineon" Cversion="0.1.8" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\gpt12e.h" version="0.1.4">
+      <file attr="config" category="header" name="Device\SDK\inc\gpt12e.h" version="0.1.8">
         <instance index="0">RTE\Device\TLE9879QXA40\gpt12e.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cvendor="Infineon" Cversion="0.1.4" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cvendor="Infineon" Cversion="0.1.8" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\int.c" version="0.1.4">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\gpt12e_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\gpt12e_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\int.c" version="0.1.8">
         <instance index="0">RTE\Device\TLE9879QXA40\int.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="INT" Cvendor="Infineon" Cversion="0.1.4" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT" Cvendor="Infineon" Cversion="0.1.8" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\int.h" version="0.1.4">
+      <file attr="config" category="header" name="Device\SDK\inc\int.h" version="0.1.8">
         <instance index="0">RTE\Device\TLE9879QXA40\int.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="INT" Cvendor="Infineon" Cversion="0.1.4" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT" Cvendor="Infineon" Cversion="0.1.8" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\isr.c" version="0.2.0">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\int_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\int_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\isr.c" version="0.2.4">
         <instance index="0">RTE\Device\TLE9879QXA40\isr.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cvendor="Infineon" Cversion="0.2.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cvendor="Infineon" Cversion="0.2.4" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\isr.h" version="0.2.0">
+      <file attr="config" category="header" name="Device\SDK\inc\isr.h" version="0.2.4">
         <instance index="0">RTE\Device\TLE9879QXA40\isr.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cvendor="Infineon" Cversion="0.2.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cvendor="Infineon" Cversion="0.2.4" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\lin.h" version="0.1.5">
+      <file attr="config" category="header" condition="TLE987x_40 no -2QXA40" name="Device\SDK\cfgwiz\TLE987x_40\v2\isr_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\isr_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\lin.c" version="0.1.7">
+        <instance index="0">RTE\Device\TLE9879QXA40\lin.c</instance>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN" Cvendor="Infineon" Cversion="0.1.7" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="Device\SDK\inc\lin.h" version="0.1.7">
         <instance index="0">RTE\Device\TLE9879QXA40\lin.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cvendor="Infineon" Cversion="0.3.1" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN" Cvendor="Infineon" Cversion="0.1.7" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\port.c" version="0.5.2">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\lin_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\lin_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\mon_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\mon_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\pmu.c" version="0.1.7">
+        <instance index="0">RTE\Device\TLE9879QXA40\pmu.c</instance>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU" Cvendor="Infineon" Cversion="0.1.7" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="Device\SDK\inc\pmu.h" version="0.1.7">
+        <instance index="0">RTE\Device\TLE9879QXA40\pmu.h</instance>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU" Cvendor="Infineon" Cversion="0.1.7" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\pmu_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\pmu_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\port.c" version="0.5.5">
         <instance index="0">RTE\Device\TLE9879QXA40\port.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cvendor="Infineon" Cversion="0.5.2" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cvendor="Infineon" Cversion="0.5.5" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\port.h" version="0.5.2">
+      <file attr="config" category="header" name="Device\SDK\inc\port.h" version="0.5.5">
         <instance index="0">RTE\Device\TLE9879QXA40\port.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cvendor="Infineon" Cversion="0.5.2" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cvendor="Infineon" Cversion="0.5.5" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\scu.c" version="0.3.1">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\port_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\port_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\scu.c" version="0.3.6">
         <instance index="0">RTE\Device\TLE9879QXA40\scu.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cvendor="Infineon" Cversion="0.3.1" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cvendor="Infineon" Cversion="0.3.6" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\scu.h" version="0.3.1">
+      <file attr="config" category="header" name="Device\SDK\inc\scu.h" version="0.3.6">
         <instance index="0">RTE\Device\TLE9879QXA40\scu.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cvendor="Infineon" Cversion="0.3.1" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cvendor="Infineon" Cversion="0.3.6" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\ssc.c" version="0.1.2">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\scu_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\scu_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\Include\sfr_access.h" version="0.1.0">
+        <instance index="0">RTE\Device\TLE9879QXA40\sfr_access.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\ssc.c" version="0.1.5">
         <instance index="0">RTE\Device\TLE9879QXA40\ssc.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cvendor="Infineon" Cversion="0.1.2" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cvendor="Infineon" Cversion="0.1.5" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\ssc.h" version="0.1.2">
+      <file attr="config" category="header" name="Device\SDK\inc\ssc.h" version="0.1.5">
         <instance index="0">RTE\Device\TLE9879QXA40\ssc.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cvendor="Infineon" Cversion="0.1.2" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cvendor="Infineon" Cversion="0.1.5" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" condition="TLE9879 ARM" name="Device\Source\ARM\startup_tle987x.s" version="1.0">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\ssc_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\ssc_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\Source\ARM\startup_tle987x.s" version="1.0">
         <instance index="0">RTE\Device\TLE9879QXA40\startup_tle987x.s</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" condition="TLE9879 ARM" name="Device\Source\system_tle987x.c" version="1.1">
+      <file attr="config" category="source" name="Device\Source\system_tle987x.c" version="0.4.1">
         <instance index="0">RTE\Device\TLE9879QXA40\system_tle987x.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" condition="TLE987x" name="Device\Include\system_tle987x.h" version="0.01">
+      <file attr="config" category="header" name="Device\Include\system_tle987x.h" version="0.4.1">
         <instance index="0">RTE\Device\TLE9879QXA40\system_tle987x.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" condition="TLE987x" name="Device\Include\tle987x.h" version="2.13">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\timer2x_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\timer2x_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\timer3_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\timer3_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="Device\Include\tle987x.h" version="3.0.0">
         <instance index="0">RTE\Device\TLE9879QXA40\tle987x.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" condition="TLE987x" name="Device\Source\tle_device.c" version="0.1.0">
+      <file attr="config" category="source" name="Device\Source\tle_device.c" version="1.0.9">
         <instance index="0">RTE\Device\TLE9879QXA40\tle_device.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" condition="TLE987x" name="Device\Include\tle_device.h" version="1.0.4">
+      <file attr="config" category="header" name="Device\Include\tle_device.h" version="1.0.9">
         <instance index="0">RTE\Device\TLE9879QXA40\tle_device.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" condition="TLE987x" name="Device\Include\types.h" version="0.2.0">
+      <file attr="config" category="header" name="Device\Include\tle_variants.h" version="0.1.0">
+        <instance index="0">RTE\Device\TLE9879QXA40\tle_variants.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="Device\Include\types.h" version="0.2.2">
         <instance index="0">RTE\Device\TLE9879QXA40\types.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Infineon" Cversion="1.0.0" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\SDK\src\wdt1.c" version="0.2.6">
+      <file attr="config" category="header" condition="TLE987x_40" name="Device\SDK\cfgwiz\TLE987x_40\v2\uart_defines.h" version="1.8.6">
+        <instance index="0">RTE\Device\TLE9879QXA40\uart_defines.h</instance>
+        <component Cclass="Device" Cgroup="ConfigWizard_v2" Cvendor="Infineon" Cversion="2.1.12" condition="Only ConfigWizard_v2"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
+        <targetInfos>
+          <targetInfo name="TLE9879 EvalKit"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\SDK\src\wdt1.c" version="0.2.8">
         <instance index="0">RTE\Device\TLE9879QXA40\wdt1.c</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cvendor="Infineon" Cversion="0.2.6" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cvendor="Infineon" Cversion="0.2.8" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" name="Device\SDK\inc\wdt1.h" version="0.2.6">
+      <file attr="config" category="header" name="Device\SDK\inc\wdt1.h" version="0.2.8">
         <instance index="0">RTE\Device\TLE9879QXA40\wdt1.h</instance>
-        <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cvendor="Infineon" Cversion="0.2.6" condition="TLE987x CMSIS Device"/>
-        <package license="Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.2" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.3.2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cvendor="Infineon" Cversion="0.2.8" condition="TLE987x CMSIS Device"/>
+        <package license="Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt" name="TLE987x_DFP" schemaVersion="1.3" supportContact="http://www.infineon.com/cms/en/corporate/company/contact/support/index.html" url="http://dave.infineon.com/Libraries/CMSIS_PACK/" vendor="Infineon" version="1.4.0"/>
         <targetInfos>
           <targetInfo name="TLE9879 EvalKit"/>
         </targetInfos>

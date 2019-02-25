@@ -1,5 +1,4 @@
-/**
- * @cond
+/*
  ***********************************************************************************************************************
  *
  * Copyright (c) 2015, Infineon Technologies AG
@@ -26,8 +25,44 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  **********************************************************************************************************************/
+/**
+ * \file     ssc.h
+ *
+ * \brief    High-Speed Synchronous Serial Interface low level access library
+ *
+ * \version  V0.1.5
+ * \date     27. Nov 2018
+ */
 
+/*******************************************************************************
+**                      Author(s) Identity                                    **
+********************************************************************************
+**                                                                            **
+** Initials     Name                                                          **
+** ---------------------------------------------------------------------------**
+** DM           Daniel Mysliwitz                                              **
+** TA           Thomas Albersinger                                            **
+** JO           Julia Ott                                                     **
+**                                                                            **
+*******************************************************************************/
 
+/*******************************************************************************
+**                      Revision Control History                              **
+*******************************************************************************/
+/* 
+ * V0.1.5: 2018-11-27, JO:   Doxygen update, moved revision history from ssc.c to ssc.h
+ *                           Replaced __STATIC_INLINE by INLINE
+ * V0.1.4: 2017-10-18, DM:   MISRA 2012 compliance, the following PC-Lint rules are globally deactivated:
+ *                           Info 793: ANSI/ISO limit of 6 'significant characters in an external identifier
+ *                           Info 835: A zero has been given as right argument to operator
+ *                           Info 845: The left argument to operator '&' is certain to be 0
+ *                           Replaced macros by INLINE functions
+ *                           Replaced register accesses within functions by function calls * V0.1.3: 2017-05-24, DM:   Interrupt APIs added
+ *                           Replaced __STATIC_INLINE by INLINE
+ * V0.1.2: 2015-06-24, DM:   SendWord functions return received data word
+ * V0.1.1: 2015-02-10, DM:   individual header file added
+ * V0.1.0: 2014-05-15, TA:   Initial version
+ */
 /*******************************************************************************
 **                      Revision Control History                              **
 *******************************************************************************/
@@ -39,97 +74,535 @@
 /*******************************************************************************
 **                      Includes                                              **
 *******************************************************************************/
-#include <tle_device.h>
-#include <Types.h>
-#include "ssc_defines.h"
+#include "tle987x.h"
+#include "types.h"
+#include "sfr_access.h"
 
 /******************************************************************************
 **                      Global Macro Definitions                             **
 *******************************************************************************/
+/**\brief SSC1 Manual Baudrate*/
 #define SSC1_tBit_us (1.0 / (SSC1_MAN_BAUDRATE / 1000.0))
+/**\brief SSC2 Manual Baudrate*/
 #define SSC2_tBit_us (1.0 / (SSC2_MAN_BAUDRATE / 1000.0))
 
-/* SSC Interrupt Clear Macros */
-#define SSC1_TX_Int_Clr()            (SCU->IRCON1CLR.reg = (uint8)1u << 1u)
-#define SSC1_RX_Int_Clr()            (SCU->IRCON1CLR.reg = (uint8)1u << 2u)
-#define SSC1_Err_Int_Clr()           (SCU->IRCON1CLR.reg = (uint8)1u << 0u)
-#define SSC2_TX_Int_Clr()            (SCU->IRCON2CLR.reg = (uint8)1u << 1u)
-#define SSC2_RX_Int_Clr()            (SCU->IRCON2CLR.reg = (uint8)1u << 2u)
-#define SSC2_Err_Int_Clr()           (SCU->IRCON2CLR.reg = (uint8)1u << 0u)
+/*******************************************************************************
+**                      Global INLINE Function Definitions                    **
+*******************************************************************************/
+/** \brief clears transmit interrupt flag for SSC1.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the transmit interrupt for SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC1_TX_Int_En();
+ *   if ((uint8)SCU->IRCON1.bit.TIR == (uint8)1)
+ *   {
+ *     SSC1_TX_CALLBACK();
+ *     SSC1_TX_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC1_TX_Int_Clr(void)
+{
+	Field_Wrt8(&SCU->IRCON1CLR.reg, (uint8)SCU_IRCON1CLR_TIRC_Pos, (uint8)SCU_IRCON1CLR_TIRC_Msk, 1u);
+}
 
-/* SSC Interrupt Enable/Disable Macros */
-#define SSC1_TX_Int_En()            (SCU->MODIEN1.bit.TIREN1 = 1u)
-#define SSC1_TX_Int_Dis()           (SCU->MODIEN1.bit.TIREN1 = 0u)
-#define SSC1_RX_Int_En()            (SCU->MODIEN1.bit.RIREN1 = 1u)
-#define SSC1_RX_Int_Dis()           (SCU->MODIEN1.bit.RIREN1 = 0u)
-#define SSC1_Err_Int_En()           (SCU->MODIEN1.bit.EIREN1 = 1u)
-#define SSC1_Err_Int_Dis()          (SCU->MODIEN1.bit.EIREN1 = 0u)
-#define SSC2_TX_Int_En()            (SCU->MODIEN2.bit.TIREN2 = 1u)
-#define SSC2_TX_Int_Dis()           (SCU->MODIEN2.bit.TIREN2 = 0u)
-#define SSC2_RX_Int_En()            (SCU->MODIEN2.bit.RIREN2 = 1u)
-#define SSC2_RX_Int_Dis()           (SCU->MODIEN2.bit.RIREN2 = 0u)
-#define SSC2_Err_Int_En()           (SCU->MODIEN2.bit.EIREN2 = 1u)
-#define SSC2_Err_Int_Dis()          (SCU->MODIEN2.bit.EIREN2 = 0u)
+/** \brief clears receive interrupt flag for SSC1.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the receive interrupt for SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC1_RX_Int_En();
+ *   if ((uint8)SCU->IRCON1.bit.RIR == (uint8)1)
+ *   {
+ *     SSC1_RX_CALLBACK();
+ *     SSC1_RX_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC1_RX_Int_Clr(void)
+{
+	Field_Wrt8(&SCU->IRCON1CLR.reg, (uint8)SCU_IRCON1CLR_RIRC_Pos, (uint8)SCU_IRCON1CLR_RIRC_Msk, 1u);
+}
+
+/** \brief clears error interrupt flag for SSC1.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the error interrupt for SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC1_Err_Int_En();
+ *   if ((uint8)SCU->IRCON1.bit.EIR == (uint8)1)
+ *   {
+ *     SSC1_ERR_CALLBACK();
+ *     SSC1_Err_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC1_Err_Int_Clr(void)
+{
+	Field_Wrt8(&SCU->IRCON1CLR.reg, (uint8)SCU_IRCON1CLR_EIRC_Pos, (uint8)SCU_IRCON1CLR_EIRC_Msk, 1u);
+}
+
+/** \brief clears transmit interrupt flag for SSC2.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats thd transmit interrupt for SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC2_TX_Int_En();
+ *   if ((uint8)SCU->IRCON2.bit.TIR == (uint8)1)
+ *   {
+ *     SSC2_TX_CALLBACK();
+ *     SSC2_TX_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC2_TX_Int_Clr(void)
+{
+	Field_Wrt8(&SCU->IRCON2CLR.reg, (uint8)SCU_IRCON2CLR_TIRC_Pos, (uint8)SCU_IRCON2CLR_TIRC_Msk, 1u);
+}
+
+/** \brief clears receive interrupt flag for SSC2.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the receive interrupt for SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC2_RX_Int_En();
+ *   if ((uint8)SCU->IRCON2.bit.RIR == (uint8)1)
+ *   {
+ *     SSC2_RX_CALLBACK();
+ *     SSC2_RX_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC2_RX_Int_Clr(void)
+{
+	Field_Wrt8(&SCU->IRCON2CLR.reg, (uint8)SCU_IRCON2CLR_RIRC_Pos, (uint8)SCU_IRCON2CLR_RIRC_Msk, 1u);
+}
+
+/** \brief clears error interrupt flag for SSC2.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the error interrupt for SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC2_Err_Int_En();
+ *   if ((uint8)SCU->IRCON2.bit.EIR == (uint8)1)
+ *   {
+ *     SSC2_ERR_CALLBACK();
+ *     SSC2_Err_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC2_Err_Int_Clr(void)
+{
+	Field_Wrt8(&SCU->IRCON2CLR.reg, (uint8)SCU_IRCON2CLR_EIRC_Pos, (uint8)SCU_IRCON2CLR_EIRC_Msk, 1u);
+}
+
+/** \brief enables transmit interrupt for SSC1.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats thd transmit interrupt for SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC1_TX_Int_En();
+ *   if ((uint8)SCU->IRCON1.bit.TIR == (uint8)1)
+ *   {
+ *     SSC1_TX_CALLBACK();
+ *     SSC1_TX_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC1_TX_Int_En(void)
+{
+	Field_Mod8(&SCU->MODIEN1.reg, (uint8)SCU_MODIEN1_TIREN1_Pos, (uint8)SCU_MODIEN1_TIREN1_Msk, 1u);
+}
+
+/** \brief disables transmit interrupt for SSC1.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats thd transmit interrupt for SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC1_TX_Int_En();
+ *   if ((uint8)SCU->IRCON1.bit.TIR == (uint8)1)
+ *   {
+ *     SSC1_TX_CALLBACK();
+ *     SSC1_TX_Int_Clr();
+ *   }
+ *   SSC1_TX_Int_Dis(); 
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC1_TX_Int_Dis(void)
+{
+	Field_Mod8(&SCU->MODIEN1.reg, (uint8)SCU_MODIEN1_TIREN1_Pos, (uint8)SCU_MODIEN1_TIREN1_Msk, 0u);
+}
+
+/** \brief enables receive interrupt for SSC1.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the receive interrupt for SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC1_RX_Int_En();
+ *   if ((uint8)SCU->IRCON1.bit.RIR == (uint8)1)
+ *   {
+ *     SSC1_RX_CALLBACK();
+ *     SSC1_RX_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~
+ * \ingroup ssc_api
+ */
+INLINE void SSC1_RX_Int_En(void)
+{
+	Field_Mod8(&SCU->MODIEN1.reg, (uint8)SCU_MODIEN1_RIREN1_Pos, (uint8)SCU_MODIEN1_RIREN1_Msk, 1u);
+}
+
+/** \brief disables receive interrupt for SSC1.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the receive interrupt for SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC1_RX_Int_En();
+ *   if ((uint8)SCU->IRCON1.bit.RIR == (uint8)1)
+ *   {
+ *     SSC1_RX_CALLBACK();
+ *     SSC1_RX_Int_Clr();
+ *   }
+ *   SSC1_RX_Int_Dis();
+ * }
+ * ~~~~~~~~~~~~~~~
+ * \ingroup ssc_api
+ */
+INLINE void SSC1_RX_Int_Dis(void)
+{
+	Field_Mod8(&SCU->MODIEN1.reg, (uint8)SCU_MODIEN1_RIREN1_Pos, (uint8)SCU_MODIEN1_RIREN1_Msk, 0u);
+}
+
+/** \brief enables error interrupt for SSC1.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the error interrupt for SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC1_Err_Int_En();
+ *   if ((uint8)SCU->IRCON1.bit.EIR == (uint8)1)
+ *   {
+ *     SSC1_ERR_CALLBACK();
+ *     SSC1_Err_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC1_Err_Int_En(void)
+{
+	Field_Mod8(&SCU->MODIEN1.reg, (uint8)SCU_MODIEN1_EIREN1_Pos, (uint8)SCU_MODIEN1_EIREN1_Msk, 1u);
+}
+
+/** \brief disables error interrupt for SSC1.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the error interrupt for SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC1_Err_Int_En();
+ *   if ((uint8)SCU->IRCON1.bit.EIR == (uint8)1)
+ *   {
+ *     SSC1_ERR_CALLBACK();
+ *     SSC1_Err_Int_Clr();
+ *   }
+ *   SSC1_Err_Int_Dis();
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC1_Err_Int_Dis(void)
+{
+	Field_Mod8(&SCU->MODIEN1.reg, (uint8)SCU_MODIEN1_EIREN1_Pos, (uint8)SCU_MODIEN1_EIREN1_Msk, 0u);
+}
+
+/** \brief enables transmit interrupt for SSC2.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats thd transmit interrupt for SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC2_TX_Int_En();
+ *   if ((uint8)SCU->IRCON2.bit.TIR == (uint8)1)
+ *   {
+ *     SSC2_TX_CALLBACK();
+ *     SSC2_TX_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC2_TX_Int_En(void)
+{
+	Field_Mod8(&SCU->MODIEN2.reg, (uint8)SCU_MODIEN2_TIREN2_Pos, (uint8)SCU_MODIEN2_TIREN2_Msk, 1u);
+}
+
+/** \brief disables transmit interrupt for SSC2.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats thd transmit interrupt for SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC2_TX_Int_En();
+ *   if ((uint8)SCU->IRCON2.bit.TIR == (uint8)1)
+ *   {
+ *     SSC2_TX_CALLBACK();
+ *     SSC2_TX_Int_Clr();
+ *   }
+ *   SSC2_TX_Int_Dis();
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC2_TX_Int_Dis(void)
+{
+	Field_Mod8(&SCU->MODIEN2.reg, (uint8)SCU_MODIEN2_TIREN2_Pos, (uint8)SCU_MODIEN2_TIREN2_Msk, 0u);
+}
+
+/** \brief enables receive interrupt for SSC2.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the receive interrupt for SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC2_RX_Int_En();
+ *   if ((uint8)SCU->IRCON2.bit.RIR == (uint8)1)
+ *   {
+ *     SSC2_RX_CALLBACK();
+ *     SSC2_RX_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC2_RX_Int_En(void)
+{
+	Field_Mod8(&SCU->MODIEN2.reg, (uint8)SCU_MODIEN2_RIREN2_Pos, (uint8)SCU_MODIEN2_RIREN2_Msk, 1u);
+}
+
+/** \brief disables receive interrupt for SSC2.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the receive interrupt for SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC2_RX_Int_En();
+ *   if ((uint8)SCU->IRCON2.bit.RIR == (uint8)1)
+ *   {
+ *     SSC2_RX_CALLBACK();
+ *     SSC2_RX_Int_Clr();
+ *   }
+ *   SSC2_RX_Int_Dis();
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC2_RX_Int_Dis(void)
+{
+	Field_Mod8(&SCU->MODIEN2.reg, (uint8)SCU_MODIEN2_RIREN2_Pos, (uint8)SCU_MODIEN2_RIREN2_Msk, 0u);
+}
+
+/** \brief enables error interrupt for SSC2.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the error interrupt for SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC2_Err_Int_En();
+ *   if ((uint8)SCU->IRCON2.bit.EIR == (uint8)1)
+ *   {
+ *     SSC2_ERR_CALLBACK();
+ *     SSC2_Err_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC2_Err_Int_En(void)
+{
+	Field_Mod8(&SCU->MODIEN2.reg, (uint8)SCU_MODIEN2_EIREN2_Pos, (uint8)SCU_MODIEN2_EIREN2_Msk, 1u);
+}
+
+/** \brief disables error interrupt for SSC2.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the error interrupt for SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   SSC2_Err_Int_En();
+ *   if ((uint8)SCU->IRCON2.bit.EIR == (uint8)1)
+ *   {
+ *     SSC2_ERR_CALLBACK();
+ *     SSC2_Err_Int_Clr();
+ *   }
+ *   SSC2_Err_Int_Dis();
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup ssc_api
+ */
+INLINE void SSC2_Err_Int_Dis(void)
+{
+	Field_Mod8(&SCU->MODIEN2.reg, (uint8)SCU_MODIEN2_EIREN2_Pos, (uint8)SCU_MODIEN2_EIREN2_Msk, 0u);
+}
 
 /*******************************************************************************
 **                      Global Function Declarations                          **
 *******************************************************************************/
+/** \brief Initializes the SSC1 module.
+ *
+ * \ingroup ssc_api
+ */
 void SSC1_Init(void);
+
+/** \brief Initializes the SSC2 module.
+ *
+ * \ingroup ssc_api
+ */
 void SSC2_Init(void);
-__STATIC_INLINE uint16 SSC1_SendWord(uint16 DataWord);
-__STATIC_INLINE uint16 SSC1_ReadWord(void);
-__STATIC_INLINE uint16 SSC2_SendWord(uint16 DataWord);
-__STATIC_INLINE uint16 SSC2_ReadWord(void);
+
+/*******************************************************************************
+**                      Global INLINE Function Declarations                          **
+*******************************************************************************/
+INLINE uint16 SSC1_SendWord(uint16 DataWord);
+INLINE uint16 SSC1_ReadWord(void);
+INLINE uint16 SSC2_SendWord(uint16 DataWord);
+INLINE uint16 SSC2_ReadWord(void);
 
 /*******************************************************************************
 **                      Global INLINE Function Definitions                    **
 *******************************************************************************/
 /** \brief SSC1: Send data word.
  *
- * \param[in] Data to send
+ * \param DataWord Data to send
  * \return Received data
  *
+ * \brief <b>Example</b><br>
+ * \brief This example sends "A" with SSC1 and reads the received data.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     uint16 data;
+ * 
+ *     data = SSC1_SendWord(0x41); 
+ * }
+ * ~~~~~~~~~~~~~~~  
  * \ingroup ssc_api
  */
-__STATIC_INLINE uint16 SSC1_SendWord(uint16 DataWord)
+INLINE uint16 SSC1_SendWord(uint16 DataWord)
 {
-  SSC1->TB.reg = DataWord;
-  return(SSC1->RB.reg);
+	Field_Wrt16(&SSC1->TB.reg, (uint16)SSC1_TB_TB_VALUE_Pos, (uint16)SSC1_TB_TB_VALUE_Msk, DataWord);
+	return u16_Field_Rd16(&SSC1->RB.reg, (uint16)SSC1_RB_RB_VALUE_Pos, (uint16)SSC1_RB_RB_VALUE_Msk);
 }
 
 /** \brief SSC1: Read data word from receive buffer.
  *
  * \return Received data
  *
+ * \brief <b>Example</b><br>
+ * \brief This example receives data with SSC1.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     uint16 data;
+ * 
+ *     data = SSC1_ReadWord(); 
+ * }
+ * ~~~~~~~~~~~~~~~ 
  * \ingroup ssc_api
  */
-__STATIC_INLINE uint16 SSC1_ReadWord(void)
+INLINE uint16 SSC1_ReadWord(void)
 {
-  return SSC1->RB.reg;
+	return u16_Field_Rd16(&SSC1->RB.reg, (uint16)SSC1_RB_RB_VALUE_Pos, (uint16)SSC1_RB_RB_VALUE_Msk);
 }
 
 /** \brief SSC2: Send data word.
  *
- * \param[in] Data to send
+ * \param DataWord Data to send
  * \return Received data
  *
+ * \brief <b>Example</b><br>
+ * \brief This example sends "A" with SSC2 and reads the received data.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     uint16 data;
+ * 
+ *     data = SSC2_SendWord(0x41); 
+ * }
+ * ~~~~~~~~~~~~~~~  
  * \ingroup ssc_api
  */
-__STATIC_INLINE uint16 SSC2_SendWord(uint16 DataWord)
+INLINE uint16 SSC2_SendWord(uint16 DataWord)
 {
-  SSC2->TB.reg = DataWord;
-  return(SSC2->RB.reg);
+	Field_Wrt16(&SSC2->TB.reg, (uint16)SSC2_TB_TB_VALUE_Pos, (uint16)SSC2_TB_TB_VALUE_Msk, DataWord);
+	return u16_Field_Rd16(&SSC2->RB.reg, (uint16)SSC2_RB_RB_VALUE_Pos, (uint16)SSC2_RB_RB_VALUE_Msk);
 }
 
 /** \brief SSC2: Read data word from receive buffer.
  *
  * \return Received data
  *
+ * \brief <b>Example</b><br>
+ * \brief This example receives data with SSC2.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     uint16 data;
+ * 
+ *     data = SSC2_ReadWord(); 
+ * }
+ * ~~~~~~~~~~~~~~~  
  * \ingroup ssc_api
  */
-__STATIC_INLINE uint16 SSC2_ReadWord(void)
+INLINE uint16 SSC2_ReadWord(void)
 {
-  return SSC2->RB.reg;
+	return u16_Field_Rd16(&SSC2->RB.reg, (uint16)SSC2_RB_RB_VALUE_Pos, (uint16)SSC2_RB_RB_VALUE_Msk);
 }
 
 #endif

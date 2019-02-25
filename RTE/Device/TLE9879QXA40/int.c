@@ -1,5 +1,4 @@
-/**
- * @cond
+/*
  ***********************************************************************************************************************
  *
  * Copyright (c) 2015, Infineon Technologies AG
@@ -28,33 +27,12 @@
  **********************************************************************************************************************/
 
 /*******************************************************************************
-**                      Author(s) Identity                                    **
-********************************************************************************
-**                                                                            **
-** Initials     Name                                                          **
-** ---------------------------------------------------------------------------**
-** DM           Daniel Mysliwitz                                              **
-** TA           Thomas Albersinger                                            **
-**                                                                            **
-**                                                                            **
-*******************************************************************************/
-
-/*******************************************************************************
-**                      Revision Control History                              **
-*******************************************************************************/
-/* 
- * V0.1.4: 2016-10-10, DM:   Interrupt Enable/Disable macros added
- *                           CPU->SHPR3 init (SysTick Prio) added
- * V0.1.3: 2015-11-25, DM:   SCU_DMAIENx added, SCU_DMAIRCx clear added
- * V0.1.2: 2015-09-17, DM:   SYS_IRQ_CTRL register init added
- * V0.1.1: 2015-02-10, DM:   individual header file added
- * V0.1.0: 2014-05-11, DM:   Initial version
- */
-
-/*******************************************************************************
 **                      Includes                                              **
 *******************************************************************************/
-#include <int.h>
+#include "int.h"
+#include "int_defines.h"
+#include "scu_defines.h"
+#include "RTE_Components.h"
 
 /*******************************************************************************
 **                      External CallBacks                                    **
@@ -63,13 +41,7 @@
 /*******************************************************************************
 **                      Global Function Definitions                           **
 *******************************************************************************/
-/** \brief Initializes the Interrupt module.
- *
- * \param None
- * \return None
- *
- * \ingroup drv_api
- */
+
 void INT_Init(void)
 {
   /**************************************************************************
@@ -85,19 +57,27 @@ void INT_Init(void)
   SCU->GPT12IEN.reg = (uint8) SCU_GPT12IEN;
   SCUPM->SYS_SUPPLY_IRQ_CLR.reg = (uint32) 0x00FF00FF;
   SCUPM->SYS_ISCLR.reg = (uint32)0x3F3FFFC7;
+#if (CONFIGWIZARD == 1)
   SCUPM->SYS_SUPPLY_IRQ_CTRL.reg = (uint32) SCU_SYS_SUPPLY_IRQ_CTRL;
   SCUPM->SYS_IRQ_CTRL.reg = SCU_SYS_IRQ_CTRL;
+#else /* (CONFIGWIZARD == 1) */
+  SCUPM->SYS_SUPPLY_IRQ_CTRL.reg = (uint32) SCUPM_SYS_SUPPLY_IRQ_CTRL;
+  SCUPM->SYS_IRQ_CTRL.reg = SCUPM_SYS_IRQ_CTRL;
+#endif
   SCU->EDCCON.reg = (uint8) SCU_EDCCON;
+	
 #ifdef SCU_BDRV_IRQ_CTRL
   SCUPM->BDRV_IRQ_CTRL.reg = (uint32) SCU_BDRV_IRQ_CTRL;
 #endif
+	
   CPU->NVIC_IPR0.reg = (uint32) CPU_NVIC_IPR0;
   CPU->NVIC_IPR1.reg = (uint32) CPU_NVIC_IPR1;
   CPU->NVIC_IPR2.reg = (uint32) CPU_NVIC_IPR2;
   CPU->NVIC_IPR3.reg = (uint32) CPU_NVIC_IPR3;
   CPU->NVIC_ISER0.reg = (uint32) CPU_NVIC_ISER0;
   SCU->IEN0.reg = (uint8) SCU_IEN0;
-#if (INT_XML_VERSION >= 10109u)
+	
+#if (INT_XML_VERSION >= 10109)
   SCU->DMAIRC1CLR.reg = (uint8)0xFF;
   SCU->DMAIRC2CLR.reg = (uint8)0xFF;
 #ifdef SCU_DMAIEN1
@@ -107,7 +87,12 @@ void INT_Init(void)
   SCU->DMAIEN2.reg = (uint8) SCU_DMAIEN2;
 #endif
 #endif
-#if (INT_XML_VERSION >= 10300u)
-  CPU->SHPR3.reg = (uint32) CPU_NVIC_SHPR3;
+
+#if (CONFIGWIZARD == 1)
+  #if (INT_XML_VERSION >= 10300)
+    CPU->SHPR3.reg = (uint32) CPU_NVIC_SHPR3;
+  #endif
+#else /* (CONFIGWIZARD == 2) */
+  CPU->SHPR3.reg = (uint32) CPU_SHPR3;
 #endif
 }

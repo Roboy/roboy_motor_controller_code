@@ -1,5 +1,4 @@
-/**
- * @cond
+/*
  ***********************************************************************************************************************
  *
  * Copyright (c) 2015, Infineon Technologies AG
@@ -28,32 +27,9 @@
  **********************************************************************************************************************/
 
 /*******************************************************************************
-**                      Author(s) Identity                                    **
-********************************************************************************
-**                                                                            **
-** Initials     Name                                                          **
-** ---------------------------------------------------------------------------**
-** DM           Daniel Mysliwitz                                              **
-** TA           Thomas Albersinger                                            **
-**                                                                            **
-**                                                                            **
-*******************************************************************************/
-
-/*******************************************************************************
-**                      Revision Control History                              **
-*******************************************************************************/
-/*
- * V0.1.4: 2017-05-26, DM:   API extended
- * V0.1.3: 2015-08-27, DM:   timer readout functions added
- * V0.1.2: 2015-02-10, DM:   individual header file added
- * V0.1.1: 2015-01-20, DM:   GPT12E timer stop API added
- * V0.1.0: 2014-05-13, DM:   Initial version
- */
-
-/*******************************************************************************
 **                      Includes                                              **
 *******************************************************************************/
-#include <gpt12e.h>
+#include "gpt12e.h"
 
 /*******************************************************************************
 **                      External CallBacks                                    **
@@ -62,13 +38,7 @@
 /*******************************************************************************
 **                      Global Function Definitions                           **
 *******************************************************************************/
-/** \brief Initializes the GPT12E module.
- *
- * \param None
- * \return None
- *
- * \ingroup drv_api
- */
+
 void GPT12E_Init(void)
 {
   GPT12E->T2CON.reg = GPT12E_T2CON;
@@ -85,13 +55,7 @@ void GPT12E_Init(void)
   GPT12E->PISEL.reg = GPT12E_PISEL;
 }
 
-/** \brief Initializes the T3 to be reloaded by T2
- *
- * \param timer interval in microseconds
- * \return true = setup done, false = setup failed
- *
- * \ingroup drv_api
- */
+
 bool GPT12E_T3_Interval_Timer_Setup(uint32 timer_interval_us)
 {
   bool res;
@@ -101,15 +65,15 @@ bool GPT12E_T3_Interval_Timer_Setup(uint32 timer_interval_us)
   /* set initial result to false */
   res = false;
   /* get GPT1 clock prescaler */
-  gpt_frequency = SystemFrequency >> (GPT12E_GPT1_Clk_Prescaler_Get() + 2u);
+  gpt_frequency = SystemFrequency >> (GPT12E_GPT1_Clk_Prescaler_Get() + (uint16)2);
   /* calculate timer ticks based on GPT1 frequency */
-  timer_ticks = ((uint64)timer_interval_us * ((uint64)gpt_frequency / 1000)) / 1000;
+  timer_ticks = ((uint64)timer_interval_us * ((uint64)gpt_frequency / (uint64)1000)) / (uint64)1000;
   /* preload t3 clock prescaler with 'div 1' */
   clk_prescaler = (uint32)GPT_Clk_Div_1;
   /* as long as calculated timer ticks is larger than the T3 value register **
   ** can hold (16bit), increase the prescaler by one, and divide the timer  **
   ** ticks by 2                                                             */
-  while (timer_ticks > 0xFFFFu)
+  while (timer_ticks > (uint64)0xFFFFu)
   {
     clk_prescaler++;
     timer_ticks >>= 1u;
@@ -120,17 +84,17 @@ bool GPT12E_T3_Interval_Timer_Setup(uint32 timer_interval_us)
     /* select T3 Mode as Timer */
     GPT12E_T3_Mode_Timer_Sel();
     /* program the calculated prescaler */
-    GPT12E_T3_Mode_Timer_Clk_Prescaler_Sel(clk_prescaler);
+    GPT12E_T3_Mode_Timer_Clk_Prescaler_Sel((uint8)clk_prescaler);
     /* external up/down count control disabled */
     GPT12E_T3_UpDownCount_Ext_Dis();
     /* select down count */
     GPT12E_T3_DownCount_Sel();
     /* set T3 value (timer ticks) */
-    GPT12E_T3_Value_Set(timer_ticks);
+    GPT12E_T3_Value_Set((uint16)timer_ticks);
     /* set T2 to Reload Mode */
     GPT12E_T2_Mode_Reload_Sel();
     /* set T2 value as reload value */
-    GPT12E_T2_Value_Set(timer_ticks);
+    GPT12E_T2_Value_Set((uint16)timer_ticks);
     /* set T2 reload trigger to use T3Our (T3OTL) */
     GPT12E_T2_Mode_Reload_Input_T3Out_Sel();
     /* set T2 to trigger reload every T3Out (T3OTL) toggle */
@@ -142,13 +106,7 @@ bool GPT12E_T3_Interval_Timer_Setup(uint32 timer_interval_us)
   return(res);
 }
 
-/** \brief Initializes the T6 to be reloaded by CAPREL
- *
- * \param timer interval in microseconds
- * \return None
- *
- * \ingroup drv_api
- */
+
 bool GPT12E_T6_Interval_Timer_Setup(uint32 timer_interval_us)
 {
   bool res;
@@ -158,15 +116,15 @@ bool GPT12E_T6_Interval_Timer_Setup(uint32 timer_interval_us)
   /* set initial result to false */
   res = false;
   /* get GPT2 clock prescaler */
-  gpt_frequency = SystemFrequency >> (GPT12E_GPT2_Clk_Prescaler_Get() + 1u);
+  gpt_frequency = SystemFrequency >> (GPT12E_GPT2_Clk_Prescaler_Get() + (uint16)1);
   /* calculate timer ticks based on GPT2 frequency */
-  timer_ticks = ((uint64)timer_interval_us * ((uint64)gpt_frequency / 1000)) / 1000;
+  timer_ticks = ((uint64)timer_interval_us * ((uint64)gpt_frequency / (uint64)1000)) / (uint64)1000;
   /* preload t6 clock prescaler with 'div 1' */
   clk_prescaler = (uint32)GPT_Clk_Div_1;
   /* as long as calculated timer ticks is larger than the T6 value register **
   ** can hold (16bit), increase the prescaler by one, and divide the timer  **
   ** ticks by 2                                                             */
-  while (timer_ticks > 0xFFFFu)
+  while (timer_ticks > (uint64)0xFFFF)
   {
     clk_prescaler++;
     timer_ticks >>= 1u;
@@ -177,15 +135,15 @@ bool GPT12E_T6_Interval_Timer_Setup(uint32 timer_interval_us)
     /* select T6 Mode as Timer */
     GPT12E_T6_Mode_Timer_Sel();
     /* program the calculated prescaler */
-    GPT12E_T6_Mode_Timer_Clk_Prescaler_Sel(clk_prescaler);
+    GPT12E_T6_Mode_Timer_Clk_Prescaler_Sel((uint8)clk_prescaler);
     /* external up/down count control disabled */
     GPT12E_T6_UpDownCount_Ext_Dis();
     /* select down count */
     GPT12E_T6_DownCount_Sel();
     /* set T6 value (timer ticks) */
-    GPT12E_T6_Value_Set(timer_ticks);
+    GPT12E_T6_Value_Set((uint16)timer_ticks);
     /* set T6 reload value (timer ticks) */
-    GPT12E_T6_Reload_Value_Set(timer_ticks);
+    GPT12E_T6_Reload_Value_Set((uint16)timer_ticks);
     /* set T6 reload by CAPREL enable */
     GPT12E_T6_Reload_En();
     /* set result to true */

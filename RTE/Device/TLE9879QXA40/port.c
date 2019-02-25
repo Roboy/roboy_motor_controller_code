@@ -1,5 +1,4 @@
-/**
- * @cond
+/*
  ***********************************************************************************************************************
  *
  * Copyright (c) 2015, Infineon Technologies AG
@@ -28,62 +27,29 @@
  **********************************************************************************************************************/
 
 /*******************************************************************************
-**                      Author(s) Identity                                    **
-********************************************************************************
-**                                                                            **
-** Initials     Name                                                          **
-** ---------------------------------------------------------------------------**
-** SS           Steffen Storandt                                              **
-** DM           Daniel Mysliwitz                                              **
-** TA           Thomas Albersinger                                            **
-**                                                                            **
-**                                                                            **
-*******************************************************************************/
-
-/*******************************************************************************
-**                      Revision Control History                              **
-*******************************************************************************/
-/* 
- * V0.5.2: 2017-02-16, DM:   Port prefix changed to capital letters
- *                           API extended
- * V0.5.1: 2015-02-10, DM:   individual header file added
- * V0.5.0: 2014-04-25, TA:   Port_Init(): use #defines from "IFX Config Wizard"
- * V0.4.0: 2013-10-16, DM:   Port Configuration changed into header file
- *                           with Configuration Wizard
- *                           configuration stored into #defines
- *                           Port_Init() modified 
- * V0.3.0: 2013-02-10, DM:   function Port_ChangePin() enhanced by Port Dir    
- *                           adjustment, ne function added PORT_ChangePinAlt() 
- *                           to set the alternative settings for a Port Pin at 
- *                           runtime                                           
- * V0.2.0: 2012-12-13, SS:   New SFR format                                    
- * V0.1.0: 2012-11-12, SS:   Initial version                                   
- */
-
-/*******************************************************************************
 **                      Includes                                              **
 *******************************************************************************/
-#include <port.h>
+#include "port.h"
+#include "port_defines.h"
+
 
 /*******************************************************************************
 **                      Global Function Definitions                           **
 *******************************************************************************/
-/** \brief Initializes the ports.
- *
- * \param None
- * \return None
- *
- * \ingroup PORT_api
- */
+
 void PORT_Init(void)
 {
   /* Initialize all ports */
+#if(PORT_XML_VERSION < 10303)
   uint8 Value;
 
   /* Port 0 */
   PORT->P0_DIR.reg = (uint8) PORT_P0_DIR;
+
   PORT->P0_OD.reg = (uint8) PORT_P0_OD;
 
+  /*lint complains in case PORT_P0_0_PUD is '0' */
+  /* violation: Excessive shift value (precision 0 shifted right by 1) [MISRA Rule 38]*/
   Value  = (uint8) ((PORT_P0_0_PUD & 0x02u) >> 1u);
   Value |= (uint8) ((PORT_P0_1_PUD & 0x02u));
   Value |= (uint8) ((PORT_P0_2_PUD & 0x02u) << 1u);
@@ -98,58 +64,69 @@ void PORT_Init(void)
   Value |= (uint8) ((PORT_P0_4_PUD & 0x01u) << 4u);
   PORT->P0_PUDSEL.reg = Value;
 
-	Value  = (uint8) ((PORT_P0_0_ALT & 0x01u));
+  Value  = (uint8) ((PORT_P0_0_ALT & 0x01u));
   Value |= (uint8) ((PORT_P0_1_ALT & 0x01u) << 1u);
   Value |= (uint8) ((PORT_P0_2_ALT & 0x01u) << 2u);
   Value |= (uint8) ((PORT_P0_3_ALT & 0x01u) << 3u);
   Value |= (uint8) ((PORT_P0_4_ALT & 0x01u) << 4u);
   PORT->P0_ALTSEL0.reg = Value;
-
-	Value  = (uint8) ((PORT_P0_0_ALT & 0x02u) >> 1u);
+	
+  /*lint complains in case PORT_P0_0_ALT is '0' */
+  /* violation: Excessive shift value (precision 0 shifted right by 1) [MISRA Rule 38]*/
+  Value  = (uint8) ((PORT_P0_0_ALT & 0x02u) >> 1u);
   Value |= (uint8) ((PORT_P0_1_ALT & 0x02u));
   Value |= (uint8) ((PORT_P0_2_ALT & 0x02u) << 1u);
   Value |= (uint8) ((PORT_P0_3_ALT & 0x02u) << 2u);
   Value |= (uint8) ((PORT_P0_4_ALT & 0x02u) << 3u);
   PORT->P0_ALTSEL1.reg = Value;
+	
   PORT->P0_DATA.reg = (uint8) PORT_P0_DATA;
 
   /* Port 1 */
   PORT->P1_DIR.reg = (uint8) PORT_P1_DIR;
+
   PORT->P1_OD.reg = (uint8) PORT_P1_OD;
 
-	Value  = (uint8) ((PORT_P1_0_PUD & 0x02u) >> 1u);
+  /*lint complains in case PORT_P1_0_PUD is '0' */
+  /* violation: Excessive shift value (precision 0 shifted right by 1) [MISRA Rule 38]*/
+  Value  = (uint8) ((PORT_P1_0_PUD & 0x02u) >> 1u);
   Value |= (uint8) ((PORT_P1_1_PUD & 0x02u));
   Value |= (uint8) ((PORT_P1_2_PUD & 0x02u) << 1u);
   Value |= (uint8) ((PORT_P1_3_PUD & 0x02u) << 2u);
   Value |= (uint8) ((PORT_P1_4_PUD & 0x02u) << 3u);
   PORT->P1_PUDEN.reg = Value;
 
-	Value  = (uint8) ((PORT_P1_0_PUD & 0x01u));
+  Value  = (uint8) ((PORT_P1_0_PUD & 0x01u));
   Value |= (uint8) ((PORT_P1_1_PUD & 0x01u) << 1u);
   Value |= (uint8) ((PORT_P1_2_PUD & 0x01u) << 2u);
   Value |= (uint8) ((PORT_P1_3_PUD & 0x01u) << 3u);
   Value |= (uint8) ((PORT_P1_4_PUD & 0x01u) << 4u);
   PORT->P1_PUDSEL.reg = Value;
 
-	Value  = (uint8) ((PORT_P1_0_ALT & 0x01u));
+  Value  = (uint8) ((PORT_P1_0_ALT & 0x01u));
   Value |= (uint8) ((PORT_P1_1_ALT & 0x01u) << 1u);
   Value |= (uint8) ((PORT_P1_2_ALT & 0x01u) << 2u);
   Value |= (uint8) ((PORT_P1_3_ALT & 0x01u) << 3u);
   Value |= (uint8) ((PORT_P1_4_ALT & 0x01u) << 4u);
   PORT->P1_ALTSEL0.reg = Value;
 
-	Value  = (uint8) ((PORT_P1_0_ALT & 0x02u) >> 1u);
+  /*lint complains in case PORT_P1_0_ALT is '0' */
+  /* violation: Excessive shift value (precision 0 shifted right by 1) [MISRA Rule 38]*/
+  Value  = (uint8) ((PORT_P1_0_ALT & 0x02u) >> 1u);
   Value |= (uint8) ((PORT_P1_1_ALT & 0x02u));
   Value |= (uint8) ((PORT_P1_2_ALT & 0x02u) << 1u);
   Value |= (uint8) ((PORT_P1_3_ALT & 0x02u) << 2u);
   Value |= (uint8) ((PORT_P1_4_ALT & 0x02u) << 3u);
   PORT->P1_ALTSEL1.reg = Value;
+
   PORT->P1_DATA.reg = (uint8) PORT_P1_DATA;
 
   /* Port 2 */
   PORT->P2_DIR.reg = (uint8) PORT_P2_DIR;
 
-	Value  = (uint8) ((PORT_P2_0_PUD & 0x02u) >> 1u);
+  /*lint complains in case PORT_P2_0_PUD is '0' */
+  /* violation: Excessive shift value (precision 0 shifted right by 1) [MISRA Rule 38]*/
+  Value  = (uint8) ((PORT_P2_0_PUD & 0x02u) >> 1u);
   Value |= (uint8) ((PORT_P2_1_PUD & 0x02u));
   Value |= (uint8) ((PORT_P2_2_PUD & 0x02u) << 1u);
   Value |= (uint8) ((PORT_P2_3_PUD & 0x02u) << 2u);
@@ -158,7 +135,7 @@ void PORT_Init(void)
   Value |= (uint8) ((PORT_P2_7_PUD & 0x02u) << 6u);
   PORT->P2_PUDEN.reg = Value;
 
-	Value  = (uint8) ((PORT_P2_0_PUD & 0x01u));
+  Value  = (uint8) ((PORT_P2_0_PUD & 0x01u));
   Value |= (uint8) ((PORT_P2_1_PUD & 0x01u) << 1u);
   Value |= (uint8) ((PORT_P2_2_PUD & 0x01u) << 2u);
   Value |= (uint8) ((PORT_P2_3_PUD & 0x01u) << 3u);
@@ -166,4 +143,213 @@ void PORT_Init(void)
   Value |= (uint8) ((PORT_P2_5_PUD & 0x01u) << 5u);
   Value |= (uint8) ((PORT_P2_7_PUD & 0x01u) << 7u);
   PORT->P2_PUDSEL.reg = Value;
+
+#else
+
+  /* Port 0 */
+  PORT->P0_DIR.reg = (uint8)PORT_P0_DIR;
+  PORT->P0_OD.reg = (uint8)PORT_P0_OD;
+  PORT->P0_PUDEN.reg = (uint8)PORT_P0_PUDEN;
+  PORT->P0_PUDSEL.reg = (uint8)PORT_P0_PUDSEL;
+  PORT->P0_ALTSEL0.reg = (uint8)PORT_P0_ALTSEL0;
+  PORT->P0_ALTSEL1.reg = (uint8)PORT_P0_ALTSEL1;
+  PORT->P0_DATA.reg = (uint8)PORT_P0_DATA;
+
+  /* Port 1 */
+  PORT->P1_DIR.reg = (uint8)PORT_P1_DIR;
+  PORT->P1_OD.reg = (uint8)PORT_P1_OD;
+  PORT->P1_PUDEN.reg = (uint8)PORT_P1_PUDEN;
+  PORT->P1_PUDSEL.reg = (uint8)PORT_P1_PUDSEL;
+  PORT->P1_ALTSEL0.reg = (uint8)PORT_P1_ALTSEL0;
+  PORT->P1_ALTSEL1.reg = (uint8)PORT_P1_ALTSEL1;
+  PORT->P1_DATA.reg = (uint8)PORT_P1_DATA;
+
+  /* Port 2 */
+  PORT->P2_DIR.reg = (uint8)PORT_P2_DIR;
+  PORT->P2_PUDEN.reg = (uint8)PORT_P2_PUDEN;
+  PORT->P2_PUDSEL.reg = (uint8)PORT_P2_PUDSEL;	
+
+#endif
+
 }
+
+
+void PORT_ChangePin(uint32 PortPin, uint32 Action)
+{
+  sint32 int_was_mask;
+  volatile uint8 *pSfr;
+  uint8 PinMask, PinPos;
+  uint32 addr;
+  uint16 idx;
+
+  /* Pin pos */
+  PinPos = (uint8)(PortPin & 0x7U);
+  /* Pin mask = 1 shifted left by pin */
+  PinMask = (uint8)(1U << PinPos);
+
+  /* DATA pointer = address of P0_DATA + port * 8 */
+  /* violation: cast from pointer to unsigned int [MISRA Rule 45]*/
+  addr = (uint32)&PORT->P0_DATA.reg;
+  
+  idx = (uint16)((PortPin >> 4U) << 3U);
+  
+  addr += idx;
+  
+  /* violation: cast from unsigned int to pointer [MISRA Rule 45]*/
+  pSfr = (volatile uint8 *) addr;
+
+  /* Change DATA register according to Action */
+  int_was_mask = CMSIS_Irq_Dis();
+  if (Action == PORT_ACTION_CLEAR)
+  {
+    Field_Clr8(pSfr, PinMask);
+  }
+  else if (Action == PORT_ACTION_SET)
+  {
+    Field_Mod8(pSfr, PinPos, PinMask, 1u);
+  }
+  else if (Action == PORT_ACTION_TOGGLE)
+  {
+    Field_Inv8(pSfr, PinMask);
+  }
+  else if (Action == PORT_ACTION_INPUT)
+  {
+    /* violation: cast from pointer to unsigned int [MISRA Rule 45]*/
+    addr = (uint32)&PORT->P0_DIR.reg;
+    
+    idx = (uint16)((PortPin >> 4U) << 3U);
+    
+    addr += idx;
+    
+    /* violation: cast from unsigned int to pointer [MISRA Rule 45]*/
+    pSfr = (volatile uint8 *) addr;
+    Field_Clr8(pSfr, PinMask);
+  }
+  else /* (Action == PORT_ACTION_OUTPUT) */
+  {
+    /* violation: cast from pointer to unsigned int [MISRA Rule 45]*/
+    addr = (uint32)&PORT->P0_DIR.reg;
+    
+    idx = (uint16)((PortPin >> 4U) << 3U);
+    
+    addr += idx;
+    
+    /* violation: cast from unsigned int to pointer [MISRA Rule 45]*/
+    pSfr = (volatile uint8 *) addr;
+    Field_Mod8(pSfr, PinPos, PinMask, 1u);
+  }
+  if (int_was_mask == 0)
+  {
+    CMSIS_Irq_En();
+  }
+} /* End of PORT_ChangePin */
+
+
+uint8 PORT_ReadPin(uint32 PortPin)
+{
+  const volatile uint8 *pSfr;
+  uint8 PinMask, PinPos;
+  uint32 addr;
+  uint16 idx;
+
+  /* Pin pos */
+  PinPos = (uint8)(PortPin & 0x7U);
+  /* Pin mask = 1 shifted left by pin */
+  PinMask = (uint8)(1U << PinPos);
+  /* DATA pointer = address of P0_DATA + port * 8 */
+  /* violation: cast from pointer to unsigned int [MISRA Rule 45]*/
+  addr = (uint32)&PORT->P0_DATA.reg;
+  
+  idx = (uint16)((PortPin >> 4U) << 3U);
+  
+  addr += idx;
+  
+  /* violation: cast from unsigned int to pointer [MISRA Rule 45]*/
+  pSfr = (volatile uint8 *) addr;
+
+  /* Read DATA register, shift right by pin and extract bit 0 */
+  return (u8_Field_Rd8(pSfr, PinPos, PinMask) );
+} /* End of PORT_ReadPin */
+
+/** \brief Reads a port.
+ *
+ * \param[in] Port Port to read, e.g. 2U for Port 2
+ * \return Port data (combination of 0Us and 1Us)
+ *
+ * \ingroup PORT_api
+ */
+uint8 PORT_ReadPort(uint32 Port)
+{
+  const uint8 PortMsk[3] = {0x1F, 0x1F, 0x3D};
+  const volatile uint8 *pSfr;
+  uint32 addr;
+  uint16 idx;
+
+  /* DATA pointer = address of P0_DATA + port * 8 */
+  /*: cast from pointer to unsigned int [MISRA Rule 45]*/
+  addr = (uint32)&PORT->P0_DATA.reg;
+  
+  idx = (uint16)(Port << 3U);
+  
+  addr += idx;
+  
+  /* violation: cast from unsigned int to pointer [MISRA Rule 45]*/
+  pSfr = (volatile uint8 *) addr;
+
+  /* Read DATA register */
+  //return *pSfr;
+  return (u8_Field_Rd8(pSfr, 0, PortMsk[Port]));
+} /* End of PORT_ReadPort */
+
+/** \brief Change Alternative Settings.
+ *
+ * \param[in] Port to change AltSel, e.g. 1U for Port 1
+ * \return AltSel data (combination of 0Us and 1Us)
+ *
+ * \ingroup PORT_api
+ */
+void PORT_ChangePinAlt(uint32 PortPin, uint8 AltSel)
+{
+  sint32 int_was_mask;
+  volatile uint8 *pSfr0, *pSfr1;
+  uint8 PinMask, PinPos;
+  uint32 addr;
+  uint16 idx;
+
+  /* Pin pos */
+  PinPos = (uint8)(PortPin & 0x7U);
+  /* Pin mask = 1 shifted left by pin */
+  PinMask = (uint8)(1U << PinPos);
+
+  /* DATA pointer = address of P0_DATA + port * 8 */
+  /* violation: cast from pointer to unsigned int [MISRA Rule 45]*/
+  addr = (uint32)&PORT->P0_ALTSEL0.reg;
+  
+  idx = (uint16)((PortPin >> 4U) << 3U);
+  
+  addr += idx;
+  
+  /* violation: cast from unsigned int to pointer [MISRA Rule 45]*/
+  pSfr0 = (volatile uint8 *) addr;
+
+  /* violation: cast from pointer to unsigned int [MISRA Rule 45]*/
+  addr = (uint32)&PORT->P0_ALTSEL1.reg;
+  
+  idx = (uint16)((PortPin >> 4U) << 3U);
+  
+  addr += idx;
+  
+  /* violation: cast from unsigned int to pointer [MISRA Rule 45]*/
+  pSfr1 = (volatile uint8 *) addr;
+
+  /* Change DATA register according to Action */
+  int_was_mask = CMSIS_Irq_Dis();
+
+  Field_Mod8(pSfr0, PinPos, PinMask, (AltSel & 1u));
+  Field_Mod8(pSfr1, PinPos, PinMask, ((AltSel >> 1u) & 1u));
+
+  if (int_was_mask == 0)
+  {
+    CMSIS_Irq_En();
+  }
+} /* End of PORT_ChangePinAlt */

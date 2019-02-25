@@ -1,5 +1,4 @@
-/**
- * @cond
+/*
  ***********************************************************************************************************************
  *
  * Copyright (c) 2015, Infineon Technologies AG
@@ -26,11 +25,46 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  **********************************************************************************************************************/
+/**
+ * \file     lin.h
+ *
+ * \brief    LIN low level access library
+ *
+ * \version  V0.1.7
+ * \date     27. Nov 2018
+ */
+
+/*******************************************************************************
+**                      Author(s) Identity                                    **
+********************************************************************************
+**                                                                            **
+** Initials     Name                                                          **
+** ---------------------------------------------------------------------------**
+** DM           Daniel Mysliwitz                                              **
+** JO           Julia Ott                                                     **
+**                                                                            **
+*******************************************************************************/
 
 /*******************************************************************************
 **                      Revision Control History                              **
 *******************************************************************************/
-/* See lin.c */
+/* 
+ * V0.1.7: 2018-11-27, JO:   Doxygen update, moved revision history from lin.c to lin.h
+ * V0.1.6: 2017-10-10, DM:   MISRA 2012 compliance, the following PC-Lint rules are globally deactivated:
+ *                           Info 793: ANSI/ISO limit of 6 'significant characters in an external identifier
+ *                           Info 835: A zero has been given as right argument to operator
+ *                           Info 845: The left argument to operator '&' is certain to be 0
+ *                           Replaced macros by INLINE functions
+ *                           Replaced register accesses within functions by function calls
+ *                           Replaced __STATIC_INLINE by INLINE
+ * V0.1.5: 2016-10-12, DM:   LINST initialization added
+ * V0.1.4: 2016-07-07, DM:   Init function corrected to be able to set corrected
+ *                           slope mode
+ * V0.1.3: 2015-02-10, DM:   individual header file added
+ * V0.1.2: 2014-09-22, DM:   LIN_Get_Mode function added
+ * V0.1.1: 2014-06-17, DM:   Adding functions to change Trx. Mode and Slope
+ * V0.1.0: 2014-06-02, DM:   Initial version
+ */
 
 #ifndef LIN_H
 #define LIN_H
@@ -38,94 +72,545 @@
 /*******************************************************************************
 **                      Includes                                              **
 *******************************************************************************/
-#include <tle_device.h>
-#include <Types.h>
-#include "lin_defines.h"
+#include "tle987x.h"
+#include "types.h"
+#include "sfr_access.h"
 
 /******************************************************************************
 **                      Global Macro Definitions                             **
 *******************************************************************************/
-#define LIN_MODE_SLEEP    (0u)
-#define LIN_MODE_RCV_ONLY (1u)
-#define LIN_MODE_NORMAL   (3u)
+/**\brief LIN MODE, SLEEP MODE */
+#define LIN_MODE_SLEEP        (0u)
+/**\brief LIN MODE, RCV ONLY MODE */
+#define LIN_MODE_RCV_ONLY     (1u)
+/**\brief LIN MODE, NORMAL MODE */
+#define LIN_MODE_NORMAL       (3u)
 
+/**\brief LIN MODE READ, SLEEP MODE */
 #define LIN_GET_MODE_SLEEP    (1u)
+/**\brief LIN MODE READ, RCV ONLY MODE */
 #define LIN_GET_MODE_RCV_ONLY (5u)
+/**\brief LIN MODE READ, NORMAL MODE */
 #define LIN_GET_MODE_NORMAL   (7u)
 
-#define LIN_SLOPE_NORMAL  (0u)
-#define LIN_SLOPE_FAST    (1u)
-#define LIN_SLOPE_LOW     (2u)
-#define LIN_SLOPE_FLASH   (3u)
+/**\brief LIN SLOPE MODE, NORMAL SLOPE */
+#define LIN_SLOPE_NORMAL      (0u)
+/**\brief LIN SLOPE MODE, FAST SLOPE */
+#define LIN_SLOPE_FAST        (1u)
+/**\brief LIN SLOPE MODE, LOW SLOPE */
+#define LIN_SLOPE_LOW         (2u)
+/**\brief LIN SLOPE MODE, FLASH SLOPE */
+#define LIN_SLOPE_FLASH       (3u)
 
-/* LIN Interrupt Clear Macros */
-#define LIN_Over_Curr_Int_Clr()            (SCUPM->SYS_ISCLR.reg = (uint8)1u << 0u)
-#define LIN_Over_Temp_Int_Clr()            (SCUPM->SYS_ISCLR.reg = (uint8)1u << 1u)
-#define LIN_Time_Out_Int_Clr()             (SCUPM->SYS_ISCLR.reg = (uint8)1u << 2u)
-#define LIN_End_Of_Sync_Int_Clr()          (SCU->LINSCLR.reg = (uint8)1u << 4u)
-#define LIN_Err_In_Sync_Int_Clr()          (SCU->LINSCLR.reg = (uint8)1u << 5u)
-#define LIN_Break_Int_Clr()                (SCU->LINSCLR.reg = (uint8)1u << 3u)
+/*******************************************************************************
+**                      Global INLINE Function Definitions                    **
+*******************************************************************************/
+/** \brief reads End of SYN Byte Interrupt Status.
+ *
+ * \return End of SYN Byte Interrupt Status
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN End of SYN Byte interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ * 	 LIN_Sync_Int_En();
+ *   if (LIN_End_Of_Sync_Sts() == (uint8)1)
+ *   {
+ *     LIN_EOF_CALLBACK();
+ *     LIN_End_Of_Sync_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~  
+ * \ingroup lin_api
+ */
+INLINE uint8 LIN_End_Of_Sync_Sts(void)
+{
+	return ( u1_Field_Rd8(&SCU->LINST.reg, (uint8)SCU_LINST_EOFSYN_Pos, (uint8)SCU_LINST_EOFSYN_Msk) );
+}
 
-/* LIN Interrupt Enable/Disable Macros */
-#define LIN_Over_Curr_Int_En()             (SCUPM->SYS_IRQ_CTRL.bit.LIN_OC_IE = 1u)
-#define LIN_Over_Curr_Int_Dis()            (SCUPM->SYS_IRQ_CTRL.bit.LIN_OC_IE = 0u)
-#define LIN_Over_Temp_Int_En()             (SCUPM->SYS_IRQ_CTRL.bit.LIN_OT_IE = 1u)
-#define LIN_Over_Temp_Int_Dis()            (SCUPM->SYS_IRQ_CTRL.bit.LIN_OT_IE = 0u)
-#define LIN_Time_Out_Int_En()              (SCUPM->SYS_IRQ_CTRL.bit.LIN_TMOUT_IE = 1u)
-#define LIN_Time_Out_Int_Dis()             (SCUPM->SYS_IRQ_CTRL.bit.LIN_TMOUT_IE = 0u)
-#define LIN_Sync_Int_En()                  (SCU->LINST.bit.SYNEN = 1u)
-#define LIN_Sync_Int_Dis()                 (SCU->LINST.bit.SYNEN = 0u)
+/** \brief reads SYN Byte Error Interrupt Status.
+ *
+ * \return SYN Byte Error Interrupt Status
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example threats the SYN Byte Error interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ * 	 LIN_Sync_Int_En();
+ *   if (LIN_Err_In_Sync_Sts() == (uint8)1)
+ *   {
+ *     LIN_ERR_CALLBACK();
+ *     LIN_Err_In_Sync_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE uint8 LIN_Err_In_Sync_Sts(void)
+{
+	return ( u1_Field_Rd8(&SCU->LINST.reg, (uint8)SCU_LINST_ERRSYN_Pos, (uint8)SCU_LINST_ERRSYN_Msk) );
+}
+
+/** \brief reads Break Field Status.
+ *
+ * \return Break Field Status
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example reads Break Field Status.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *    uint8 status;
+ * 
+ *    status = LIN_Break_Sts(); 
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE uint8 LIN_Break_Sts(void)
+{
+	return ( u1_Field_Rd8(&SCU->LINST.reg, (uint8)SCU_LINST_BRK_Pos, (uint8)SCU_LINST_BRK_Msk) );
+}
+
+/** \brief enables Baud Rate Detection.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example enables Baud Rate Detection.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     LIN_Break_Detect_En();	 
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Break_Detect_En(void)
+{
+	Field_Mod8(&SCU->LINST.reg, (uint8)SCU_LINST_BRDIS_Pos, (uint8)SCU_LINST_BRDIS_Msk, 0u);
+}
+
+/** \brief disables Baud Rate Detection.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example disables Baud Rate Detection.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     LIN_Break_Detect_Dis();	 
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Break_Detect_Dis(void)
+{
+	Field_Mod8(&SCU->LINST.reg, (uint8)SCU_LINST_BRDIS_Pos, (uint8)SCU_LINST_BRDIS_Msk, 1u);
+}
+
+/** \brief selects Baud Rate Detection.
+ *
+ * \param a BGSEL Value (2 bits)
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example selects the first range of the Baud Rate Detection.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     LIN_BaudRate_Range_Sel(0x00);	 
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_BaudRate_Range_Sel(uint8 a)
+{
+	Field_Mod8(&SCU->LINST.reg, (uint8)SCU_LINST_BGSEL_Pos, (uint8)SCU_LINST_BGSEL_Msk, a);
+}
+
+/** \brief clears LIN Receiver Overcurrent interrupt flag.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN Receiver Overcurrent interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   LIN_Over_Curr_Int_En();
+ *   if ((uint8)LIN->CTRL_STS.bit.OC_STS == (uint8)1)
+ *   {
+ *     LIN_OC_CALLBACK();
+ *     LIN_Over_Curr_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Over_Curr_Int_Clr(void)
+{
+	Field_Wrt32(&SCUPM->SYS_ISCLR.reg, (uint8)SCUPM_SYS_ISCLR_LIN_OC_ICLR_Pos, (uint8)SCUPM_SYS_ISCLR_LIN_OC_ICLR_Msk, 1u);
+}
+
+/** \brief clears LIN Receiver Overtemperature interrupt flag.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN Receiver Overtemperature interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   LIN_Over_Temp_Int_En();
+ *   if ((uint8)LIN->CTRL_STS.bit.OT_STS == (uint8)1)
+ *   {
+ *     LIN_OT_CALLBACK();
+ *     LIN_Over_Temp_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Over_Temp_Int_Clr(void)
+{
+	Field_Wrt32(&SCUPM->SYS_ISCLR.reg, (uint8)SCUPM_SYS_ISCLR_LIN_OT_ICLR_Pos, (uint8)SCUPM_SYS_ISCLR_LIN_OT_ICLR_Msk, 1u);
+}
+
+/** \brief clears LIN TXD time-out interrupt flag.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN TXD time-out interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   LIN_Time_Out_Int_En();
+ *   if ((uint8)LIN->CTRL_STS.bit.TXD_TMOUT_STS == (uint8)1)
+ *   {
+ *     LIN_TMOUT_CALLBACK();
+ *     LIN_Time_Out_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Time_Out_Int_Clr(void)
+{
+	Field_Wrt32(&SCUPM->SYS_ISCLR.reg, (uint8)SCUPM_SYS_ISCLR_LIN_TMOUT_ICLR_Pos, (uint8)SCUPM_SYS_ISCLR_LIN_TMOUT_ICLR_Msk, 1u);
+}
+
+/** \brief clears End of SYN Byte interrupt flag.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN End of SYN Byte interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ * 	 LIN_Sync_Int_En();
+ *   if (LIN_End_Of_Sync_Sts() == (uint8)1)
+ *   {
+ *     LIN_EOF_CALLBACK();
+ *     LIN_End_Of_Sync_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_End_Of_Sync_Int_Clr(void)
+{
+	Field_Wrt8(&SCU->LINSCLR.reg, (uint8)SCU_LINSCLR_EOFSYNC_Pos, (uint8)SCU_LINSCLR_EOFSYNC_Msk, 1u);
+}
+
+/** \brief clears SYN Byte Error interrupt flag.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example threats the SYN Byte Error interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ * 	 LIN_Sync_Int_En();
+ *   if (LIN_Err_In_Sync_Sts() == (uint8)1)
+ *   {
+ *     LIN_ERR_CALLBACK();
+ *     LIN_Err_In_Sync_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Err_In_Sync_Int_Clr(void)
+{
+	Field_Wrt8(&SCU->LINSCLR.reg, (uint8)SCU_LINSCLR_ERRSYNC_Pos, (uint8)SCU_LINSCLR_ERRSYNC_Msk, 1u);
+}
+
+/** \brief clears Break Field flag.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example clears Break Field flag.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     LIN_Break_Int_Clr(); 
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Break_Int_Clr(void)
+{
+	Field_Wrt8(&SCU->LINSCLR.reg, (uint8)SCU_LINSCLR_BRKC_Pos, (uint8)SCU_LINSCLR_BRKC_Msk, 1u);
+}
+
+/** \brief enables LIN Transceiver Overcurrent interrupt.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN Receiver Overcurrent interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   LIN_Over_Curr_Int_En();
+ *   if ((uint8)LIN->CTRL_STS.bit.OC_STS == (uint8)1)
+ *   {
+ *     LIN_OC_CALLBACK();
+ *     LIN_Over_Curr_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Over_Curr_Int_En(void)
+{
+	Field_Mod32(&SCUPM->SYS_IRQ_CTRL.reg, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_OC_IE_Pos, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_OC_IE_Msk, 1u);
+}
+
+/** \brief disables LIN Transceiver Overcurrent interrupt.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN Receiver Overcurrent interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   LIN_Over_Curr_Int_En();
+ *   if ((uint8)LIN->CTRL_STS.bit.OC_STS == (uint8)1)
+ *   {
+ *     LIN_OC_CALLBACK();
+ *     LIN_Over_Curr_Int_Clr();
+ *   }
+ *   LIN_Over_Curr_Int_Dis();
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Over_Curr_Int_Dis(void)
+{
+	Field_Mod32(&SCUPM->SYS_IRQ_CTRL.reg, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_OC_IE_Pos, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_OC_IE_Msk, 0u);
+}
+
+/** \brief enables LIN Transceiver Overtemperature interrupt.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN Receiver Overtemperature interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   LIN_Over_Temp_Int_En();
+ *   if ((uint8)LIN->CTRL_STS.bit.OT_STS == (uint8)1)
+ *   {
+ *     LIN_OT_CALLBACK();
+ *     LIN_Over_Temp_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~ 
+ * \ingroup lin_api
+ */
+INLINE void LIN_Over_Temp_Int_En(void)
+{
+	Field_Mod32(&SCUPM->SYS_IRQ_CTRL.reg, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_OT_IE_Pos, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_OT_IE_Msk, 1u);
+}
+
+/** \brief disables LIN Transceiver Overtemperature interrupt.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN Receiver Overtemperature interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   LIN_Over_Temp_Int_En();
+ *   if ((uint8)LIN->CTRL_STS.bit.OT_STS == (uint8)1)
+ *   {
+ *     LIN_OT_CALLBACK();
+ *     LIN_Over_Temp_Int_Clr();
+ *   }
+ *   LIN_Over_Temp_Int_Dis();
+ * }
+ * ~~~~~~~~~~~~~~~  
+ * \ingroup lin_api
+ */
+INLINE void LIN_Over_Temp_Int_Dis(void)
+{
+	Field_Mod32(&SCUPM->SYS_IRQ_CTRL.reg, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_OT_IE_Pos, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_OT_IE_Msk, 0u);
+}
+
+/** \brief enables LIN Transceiver TxD-Timeout interrupt.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN TXD time-out interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   LIN_Time_Out_Int_En();
+ *   if ((uint8)LIN->CTRL_STS.bit.TXD_TMOUT_STS == (uint8)1) 
+ *   {
+ *     LIN_TMOUT_CALLBACK();
+ *     LIN_Time_Out_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~  
+ * \ingroup lin_api
+ */
+INLINE void LIN_Time_Out_Int_En(void)
+{
+	Field_Mod32(&SCUPM->SYS_IRQ_CTRL.reg, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_TMOUT_IE_Pos, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_TMOUT_IE_Msk, 1u);
+}
+
+/** \brief disables LIN Transceiver TxD-Timeout interrupt.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN TXD time-out interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *   LIN_Time_Out_Int_En();
+ *   if ((uint8)LIN->CTRL_STS.bit.TXD_TMOUT_STS == (uint8)1) 
+ *   {
+ *     LIN_TMOUT_CALLBACK();
+ *     LIN_Time_Out_Int_Clr();
+ *   }
+ *   LIN_Time_Out_Int_Dis();
+ * }
+ * ~~~~~~~~~~~~~~~  
+ * \ingroup lin_api
+ */
+INLINE void LIN_Time_Out_Int_Dis(void)
+{
+	Field_Mod32(&SCUPM->SYS_IRQ_CTRL.reg, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_TMOUT_IE_Pos, (uint8)SCUPM_SYS_IRQ_CTRL_LIN_TMOUT_IE_Msk, 0u);
+}
+
+/** \brief enables End of SYN Byte and SYN Byte Error interrupt.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN End of SYN Byte interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ * 	 LIN_Sync_Int_En();
+ *   if (LIN_End_Of_Sync_Sts() == (uint8)1)
+ *   {
+ *     LIN_EOF_CALLBACK();
+ *     LIN_End_Of_Sync_Int_Clr();
+ *   }
+ * }
+ * ~~~~~~~~~~~~~~~  
+ * \ingroup lin_api
+ */
+INLINE void LIN_Sync_Int_En(void)
+{
+	Field_Mod8(&SCU->LINST.reg, (uint8)SCU_LINST_SYNEN_Pos, (uint8)SCU_LINST_SYNEN_Msk, 1u);
+}
+
+/** \brief disables End of SYN Byte and SYN Byte Error interrupt.
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example treats the LIN End of SYN Byte interrupt.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ * 	 LIN_Sync_Int_En();
+ *   if (LIN_End_Of_Sync_Sts() == (uint8)1)
+ *   {
+ *     LIN_EOF_CALLBACK();
+ *     LIN_End_Of_Sync_Int_Clr();
+ *   }
+ * 	 LIN_Sync_Int_Dis();
+ * }
+ * ~~~~~~~~~~~~~~~  
+ * \ingroup lin_api
+ */
+INLINE void LIN_Sync_Int_Dis(void)
+{
+	Field_Mod8(&SCU->LINST.reg, (uint8)SCU_LINST_SYNEN_Pos, (uint8)SCU_LINST_SYNEN_Msk, 0u);
+}
 
 /*******************************************************************************
 **                      Global Function Declarations                          **
 *******************************************************************************/
+/** \brief Initializes the LIN module.
+ *
+ * \ingroup lin_api
+ */
 void LIN_Init(void);
 
-__STATIC_INLINE void LIN_Set_Mode(uint8 Mode);
-__STATIC_INLINE uint8 LIN_Get_Mode(void);
-__STATIC_INLINE void LIN_Set_Slope(uint8 SlopeMode);
+/*******************************************************************************
+**                      Global INLINE Function Declarations                          **
+*******************************************************************************/
+INLINE void LIN_Set_Mode(uint8 Mode);
+INLINE uint32 LIN_Get_Mode(void);
+INLINE void LIN_Set_Slope(uint8 SlopeMode);
 /*******************************************************************************
 **                      Global INLINE Function Definitions                    **
 *******************************************************************************/
 /** \brief Sets LIN Trx. Mode
  *
- * \param[in] LIN Mode Selection
- * \param[in] none
- * \return None
+ * \param Mode LIN Mode Selection
  *
+ * \brief <b>Example</b><br>
+ * \brief This example sets LIN Transmitter Sleep Mode as Transceiver power mode.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     LIN_Set_Mode(0x00); 
+ * }
+ * ~~~~~~~~~~~~~~~  
  * \ingroup lin_api
  */
-__STATIC_INLINE void LIN_Set_Mode(uint8 Mode)
+INLINE void LIN_Set_Mode(uint8 Mode)
 {
-  LIN->CTRL_STS.bit.MODE = Mode;
+  Field_Mod32(&LIN->CTRL_STS.reg, LIN_CTRL_STS_MODE_Pos, LIN_CTRL_STS_MODE_Msk, Mode);
 }
+
 
 /** \brief Gets LIN Trx. Mode
  *
- * \param[in] none
- * \param[in] none
  * \return Lin Trx Mode
  *
+ * \brief <b>Example</b><br>
+ * \brief This example reads LIN Transmitter Mode.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *    uint32 mode;
+ * 
+ *    mode = LIN_Get_Mode(); 
+ * }
+ * ~~~~~~~~~~~~~~~  
  * \ingroup lin_api
  */
-__STATIC_INLINE uint8 LIN_Get_Mode(void)
+INLINE uint32 LIN_Get_Mode(void)
 {
-  return(LIN->CTRL_STS.bit.MODE_FB);
+	return u32_Field_Rd32(&LIN->CTRL_STS.reg, LIN_CTRL_STS_MODE_FB_Pos, LIN_CTRL_STS_MODE_FB_Msk);
 }
-
 
 /** \brief Sets LIN Trx. Slope Mode
  *
- * \param[in] LIN Trx Slope Mode Selection
- * \param[in] none
- * \return None
+ * \param SlopeMode LIN Trx Slope Mode Selection
  *
+ * \brief <b>Example</b><br>
+ * \brief This example sets LIN Normal Mode as Transmitter Slope mode.
+ * ~~~~~~~~~~~~~~~{.c}
+ * void Example_Function(void)
+ * {
+ *     LIN_Set_Slope(0x00); 
+ * }
+ * ~~~~~~~~~~~~~~~  
  * \ingroup lin_api
  */
-__STATIC_INLINE void LIN_Set_Slope(uint8 SlopeMode)
+INLINE void LIN_Set_Slope(uint8 SlopeMode)
 {
-  LIN->CTRL_STS.bit.MODE = LIN_MODE_SLEEP;
-  LIN->CTRL_STS.bit.SM = SlopeMode;
-  LIN->CTRL_STS.bit.MODE = LIN_MODE_NORMAL;
+  LIN_Set_Mode(LIN_MODE_SLEEP);
+  Field_Mod32(&LIN->CTRL_STS.reg, LIN_CTRL_STS_SM_Pos, LIN_CTRL_STS_SM_Msk, SlopeMode);
+  LIN_Set_Mode(LIN_MODE_NORMAL);
 }
 #endif

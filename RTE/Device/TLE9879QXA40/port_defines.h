@@ -1,9 +1,8 @@
-/*sha256=844B5FE4069E96E8548A6B9AE3CEEF5ACC4DB31B83450BB4056058B35205A87D*/
 /**
  * @cond
  ***********************************************************************************************************************
  *
- * Copyright (c) 2015, Infineon Technologies AG
+ * Copyright (c) 2018, Infineon Technologies AG
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,are permitted provided that the
@@ -27,193 +26,96 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  **********************************************************************************************************************/
+#ifndef PORT_DEFINES_H
+#define PORT_DEFINES_H
 
-/*------------------------------------------------------------------------------
-IFXConfigWizard output file
-created on:Sat Feb 23 17:08:23 2019
-------------------------------------------------------------------------------*/
+/* XML Version 2.0.2 */
+#define PORT_XML_VERSION (20002u)
 
-#ifndef _PORT_DEFINES_H
-#define _PORT_DEFINES_H
+#define PORT_P0_0_ALT (0x1u) /*decimal 1*/
 
-#ifndef IFXConfigWizard_Version
-  #define IFXConfigWizard_Version 1.8.7
-#endif
+#define PORT_P0_0_PUD (0x0u) /*decimal 0*/
 
-/* XML Version 1.3.1 */
-#ifndef PORT_XML_VERSION
-  #define PORT_XML_VERSION 10301
-#endif
+#define PORT_P0_1_ALT (0x0u) /*decimal 0*/
 
-/*PORT_P0_0_ALT: 0*/
-#ifndef PORT_P0_0_ALT
-  #define PORT_P0_0_ALT (0x0u)
-#endif
+#define PORT_P0_1_PUD (0x0u) /*decimal 0*/
 
-/*PORT_P0_0_PUD: 0*/
-#ifndef PORT_P0_0_PUD
-  #define PORT_P0_0_PUD (0x0u)
-#endif
+#define PORT_P0_2_ALT (0x0u) /*decimal 0*/
 
-/*PORT_P0_1_ALT: 0*/
-#ifndef PORT_P0_1_ALT
-  #define PORT_P0_1_ALT (0x0u)
-#endif
+#define PORT_P0_2_PUD (0x0u) /*decimal 0*/
 
-/*PORT_P0_1_PUD: 0*/
-#ifndef PORT_P0_1_PUD
-  #define PORT_P0_1_PUD (0x0u)
-#endif
+#define PORT_P0_3_ALT (0x0u) /*decimal 0*/
 
-/*PORT_P0_2_ALT: 0*/
-#ifndef PORT_P0_2_ALT
-  #define PORT_P0_2_ALT (0x0u)
-#endif
+#define PORT_P0_3_PUD (0x3u) /*decimal 3*/
 
-/*PORT_P0_2_PUD: 0*/
-#ifndef PORT_P0_2_PUD
-  #define PORT_P0_2_PUD (0x0u)
-#endif
+#define PORT_P0_4_ALT (0x0u) /*decimal 0*/
 
-/*PORT_P0_3_ALT: 0*/
-#ifndef PORT_P0_3_ALT
-  #define PORT_P0_3_ALT (0x0u)
-#endif
+#define PORT_P0_4_PUD (0x3u) /*decimal 3*/
 
-/*PORT_P0_3_PUD: 3*/
-#ifndef PORT_P0_3_PUD
-  #define PORT_P0_3_PUD (0x3u)
-#endif
+#define PORT_P0_ALTSEL0 (0x1u) /*decimal 1*/
 
-/*PORT_P0_4_ALT: 0*/
-#ifndef PORT_P0_4_ALT
-  #define PORT_P0_4_ALT (0x0u)
-#endif
+#define PORT_P0_ALTSEL1 (0x0u) /*decimal 0*/
 
-/*PORT_P0_4_PUD: 3*/
-#ifndef PORT_P0_4_PUD
-  #define PORT_P0_4_PUD (0x3u)
-#endif
+#define PORT_P0_DATA (0x1u) /*decimal 1*/
 
-/*PORT_P0_DATA: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/
-#ifndef PORT_P0_DATA
-  #define PORT_P0_DATA (0x0u)
-#endif
+#define PORT_P0_DIR (0x1u) /*decimal 1*/
 
-/*PORT_P0_DIR: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/
-#ifndef PORT_P0_DIR
-  #define PORT_P0_DIR (0x0u)
-#endif
+#define PORT_P0_OD (0x0u) /*decimal 0*/
 
-/*PORT_P0_OD: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/
-#ifndef PORT_P0_OD
-  #define PORT_P0_OD (0x0u)
-#endif
+#define PORT_P0_PUDEN (0x18u) /*decimal 24*/
 
-/*PORT_P1_0_ALT: 0*/
-#ifndef PORT_P1_0_ALT
-  #define PORT_P1_0_ALT (0x0u)
-#endif
+#define PORT_P0_PUDSEL (0x18u) /*decimal 24*/
 
-/*PORT_P1_0_PUD: 0*/
-#ifndef PORT_P1_0_PUD
-  #define PORT_P1_0_PUD (0x0u)
-#endif
+#define PORT_P1_0_ALT (0x0u) /*decimal 0*/
 
-/*PORT_P1_1_ALT: 0*/
-#ifndef PORT_P1_1_ALT
-  #define PORT_P1_1_ALT (0x0u)
-#endif
+#define PORT_P1_0_PUD (0x0u) /*decimal 0*/
 
-/*PORT_P1_1_PUD: 0*/
-#ifndef PORT_P1_1_PUD
-  #define PORT_P1_1_PUD (0x0u)
-#endif
+#define PORT_P1_1_ALT (0x0u) /*decimal 0*/
 
-/*PORT_P1_2_ALT: 1*/
-#ifndef PORT_P1_2_ALT
-  #define PORT_P1_2_ALT (0x1u)
-#endif
+#define PORT_P1_1_PUD (0x0u) /*decimal 0*/
 
-/*PORT_P1_2_PUD: 3*/
-#ifndef PORT_P1_2_PUD
-  #define PORT_P1_2_PUD (0x3u)
-#endif
+#define PORT_P1_2_ALT (0x1u) /*decimal 1*/
 
-/*PORT_P1_3_ALT: 0*/
-#ifndef PORT_P1_3_ALT
-  #define PORT_P1_3_ALT (0x0u)
-#endif
+#define PORT_P1_2_PUD (0x0u) /*decimal 0*/
 
-/*PORT_P1_3_PUD: 3*/
-#ifndef PORT_P1_3_PUD
-  #define PORT_P1_3_PUD (0x3u)
-#endif
+#define PORT_P1_3_ALT (0x0u) /*decimal 0*/
 
-/*PORT_P1_4_ALT: 0*/
-#ifndef PORT_P1_4_ALT
-  #define PORT_P1_4_ALT (0x0u)
-#endif
+#define PORT_P1_3_PUD (0x3u) /*decimal 3*/
 
-/*PORT_P1_4_PUD: 0*/
-#ifndef PORT_P1_4_PUD
-  #define PORT_P1_4_PUD (0x0u)
-#endif
+#define PORT_P1_4_ALT (0x0u) /*decimal 0*/
 
-/*PORT_P1_DATA: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/
-#ifndef PORT_P1_DATA
-  #define PORT_P1_DATA (0x0u)
-#endif
+#define PORT_P1_4_PUD (0x0u) /*decimal 0*/
 
-/*PORT_P1_DIR: 0|(0<<1)|(1<<2)|(0<<3)|(0<<4)*/
-#ifndef PORT_P1_DIR
-  #define PORT_P1_DIR (0x4u)
-#endif
+#define PORT_P1_ALTSEL0 (0x4u) /*decimal 4*/
 
-/*PORT_P1_OD: (0<<1)|(0<<2)|(0<<3)|(0<<4)*/
-#ifndef PORT_P1_OD
-  #define PORT_P1_OD (0x0u)
-#endif
+#define PORT_P1_ALTSEL1 (0x0u) /*decimal 0*/
 
-/*PORT_P2_0_PUD: 0*/
-#ifndef PORT_P2_0_PUD
-  #define PORT_P2_0_PUD (0x0u)
-#endif
+#define PORT_P1_DATA (0x0u) /*decimal 0*/
 
-/*PORT_P2_1_PUD: 0*/
-#ifndef PORT_P2_1_PUD
-  #define PORT_P2_1_PUD (0x0u)
-#endif
+#define PORT_P1_DIR (0x4u) /*decimal 4*/
 
-/*PORT_P2_2_PUD: 3*/
-#ifndef PORT_P2_2_PUD
-  #define PORT_P2_2_PUD (0x3u)
-#endif
+#define PORT_P1_OD (0x0u) /*decimal 0*/
 
-/*PORT_P2_3_PUD: 0*/
-#ifndef PORT_P2_3_PUD
-  #define PORT_P2_3_PUD (0x0u)
-#endif
+#define PORT_P1_PUDEN (0x8u) /*decimal 8*/
 
-/*PORT_P2_4_PUD: 0*/
-#ifndef PORT_P2_4_PUD
-  #define PORT_P2_4_PUD (0x0u)
-#endif
+#define PORT_P1_PUDSEL (0x8u) /*decimal 8*/
 
-/*PORT_P2_5_PUD: 0*/
-#ifndef PORT_P2_5_PUD
-  #define PORT_P2_5_PUD (0x0u)
-#endif
+#define PORT_P2_0_PUD (0x0u) /*decimal 0*/
 
-/*PORT_P2_7_PUD: 0*/
-#ifndef PORT_P2_7_PUD
-  #define PORT_P2_7_PUD (0x0u)
-#endif
+#define PORT_P2_1_PUD (0x0u) /*decimal 0*/
 
-/*PORT_P2_DIR: 0|(1<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)|(1<<7)*/
-#ifndef PORT_P2_DIR
-  #define PORT_P2_DIR (0x82u)
-#endif
+#define PORT_P2_2_PUD (0x0u) /*decimal 0*/
 
+#define PORT_P2_3_PUD (0x0u) /*decimal 0*/
 
-#endif
+#define PORT_P2_4_PUD (0x0u) /*decimal 0*/
+
+#define PORT_P2_5_PUD (0x0u) /*decimal 0*/
+
+#define PORT_P2_DIR (0x0u) /*decimal 0*/
+
+#define PORT_P2_PUDEN (0x0u) /*decimal 0*/
+
+#define PORT_P2_PUDSEL (0x0u) /*decimal 0*/
+
+#endif /* PORT_DEFINES_H */

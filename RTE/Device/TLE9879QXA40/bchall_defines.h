@@ -1,9 +1,8 @@
-/*sha256=138DAEA783C338FD609051C2CE475DFE5154C9BD7CB9342CAEE74610268B6AB3*/
 /**
  * @cond
  ***********************************************************************************************************************
  *
- * Copyright (c) 2015, Infineon Technologies AG
+ * Copyright (c) 2018, Infineon Technologies AG
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,are permitted provided that the
@@ -27,95 +26,46 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  **********************************************************************************************************************/
+#ifndef BCHALL_DEFINES_H
+#define BCHALL_DEFINES_H
 
-/*------------------------------------------------------------------------------
-IFXConfigWizard output file
-created on:Tue Feb 5 20:50:28 2019
-------------------------------------------------------------------------------*/
+/* XML Version 2.0.5 */
+#define BCHALL_XML_VERSION (20005u)
 
-#ifndef _BCHALL_DEFINES_H
-#define _BCHALL_DEFINES_H
+#define BCHALL_ANGLE_DELAY_EN (0x0u) /*decimal 0*/
 
-#ifndef IFXConfigWizard_Version
-  #define IFXConfigWizard_Version 1.8.7
-#endif
+#define BCHALL_DELAY_ANGLE (0x0u) /*decimal 0*/
 
-/* XML Version 0.0.1 */
-#ifndef BCHALL_XML_VERSION
-  #define BCHALL_XML_VERSION 00001
-#endif
+#define BCHALL_DELAY_MINSPEED (0x1F4u) /*decimal 500*/
 
-#ifndef BCHALL_ANGLE_DELAY_EN
-  #define BCHALL_ANGLE_DELAY_EN 0
-#endif
+#define BCHALL_EN (0x1u) /*decimal 1*/
 
-#ifndef BCHALL_DELAY_ANGLE
-  #define BCHALL_DELAY_ANGLE 0
-#endif
+#define BCHALL_INIT_DUTY (0x5u) /*decimal 5*/
 
-#ifndef BCHALL_DELAY_MINSPEED
-  #define BCHALL_DELAY_MINSPEED 500
-#endif
+#define BCHALL_INPUT_A (0x1u) /*decimal 1*/
 
-#ifndef BCHALL_EN
-  #define BCHALL_EN 1
-#endif
+#define BCHALL_INPUT_B (0x1u) /*decimal 1*/
 
-#ifndef BCHALL_INIT_DUTY
-  #define BCHALL_INIT_DUTY 5
-#endif
+#define BCHALL_INPUT_C (0x2u) /*decimal 2*/
 
-#ifndef BCHALL_INPUT_A
-  #define BCHALL_INPUT_A 1
-#endif
+#define BCHALL_OFFSET_60DEGREE_EN (0x1u) /*decimal 1*/
 
-#ifndef BCHALL_INPUT_B
-  #define BCHALL_INPUT_B 1
-#endif
+#define BCHALL_POLE_PAIRS (0x1u) /*decimal 1*/
 
-#ifndef BCHALL_INPUT_C
-  #define BCHALL_INPUT_C 2
-#endif
+#define BCHALL_PWM_FREQ (0x61A8u) /*decimal 25000*/
 
-#ifndef BCHALL_OFFSET_60DEGREE_EN
-  #define BCHALL_OFFSET_60DEGREE_EN 1
-#endif
+#define BCHALL_PWM_PERIOD (0x28u) /*decimal 40*/
 
-#ifndef BCHALL_POLE_PAIRS
-  #define BCHALL_POLE_PAIRS 1
-#endif
+#define BCHALL_SPEED_IMAX (0x4Bu) /*decimal 75*/
 
-#ifndef BCHALL_PWM_FREQ
-  #define BCHALL_PWM_FREQ 20000
-#endif
+#define BCHALL_SPEED_IMIN (0x0u) /*decimal 0*/
 
-#ifndef BCHALL_PWM_PERIOD
-  #define BCHALL_PWM_PERIOD 50
-#endif
+#define BCHALL_SPEED_KI (0x14u) /*decimal 20*/
 
-#ifndef BCHALL_SPEED_IMAX
-  #define BCHALL_SPEED_IMAX 75
-#endif
+#define BCHALL_SPEED_KP (0x5Au) /*decimal 90*/
 
-#ifndef BCHALL_SPEED_IMIN
-  #define BCHALL_SPEED_IMIN 0
-#endif
+#define BCHALL_SPEED_PIMAX (0x4Bu) /*decimal 75*/
 
-#ifndef BCHALL_SPEED_KI
-  #define BCHALL_SPEED_KI 20
-#endif
+#define BCHALL_SPEED_PIMIN (0x8u) /*decimal 8*/
 
-#ifndef BCHALL_SPEED_KP
-  #define BCHALL_SPEED_KP 40
-#endif
-
-#ifndef BCHALL_SPEED_PIMAX
-  #define BCHALL_SPEED_PIMAX 75
-#endif
-
-#ifndef BCHALL_SPEED_PIMIN
-  #define BCHALL_SPEED_PIMIN 8
-#endif
-
-
-#endif
+#endif /* BCHALL_DEFINES_H */

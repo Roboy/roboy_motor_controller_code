@@ -32,7 +32,7 @@
 /* XML Version 2.0.2 */
 #define PORT_XML_VERSION (20002u)
 
-#define PORT_P0_0_ALT (0x1u) /*decimal 1*/
+#define PORT_P0_0_ALT (0x0u) /*decimal 0*/
 
 #define PORT_P0_0_PUD (0x0u) /*decimal 0*/
 
@@ -52,13 +52,13 @@
 
 #define PORT_P0_4_PUD (0x3u) /*decimal 3*/
 
-#define PORT_P0_ALTSEL0 (0x1u) /*decimal 1*/
+#define PORT_P0_ALTSEL0 (0x0u) /*decimal 0*/
 
 #define PORT_P0_ALTSEL1 (0x0u) /*decimal 0*/
 
 #define PORT_P0_DATA (0x1u) /*decimal 1*/
 
-#define PORT_P0_DIR (0x1u) /*decimal 1*/
+#define PORT_P0_DIR (0x0u) /*decimal 0*/
 
 #define PORT_P0_OD (0x0u) /*decimal 0*/
 
@@ -74,7 +74,7 @@
 
 #define PORT_P1_1_PUD (0x0u) /*decimal 0*/
 
-#define PORT_P1_2_ALT (0x1u) /*decimal 1*/
+#define PORT_P1_2_ALT (0x3u) /*decimal 3*/
 
 #define PORT_P1_2_PUD (0x0u) /*decimal 0*/
 
@@ -88,9 +88,9 @@
 
 #define PORT_P1_ALTSEL0 (0x4u) /*decimal 4*/
 
-#define PORT_P1_ALTSEL1 (0x0u) /*decimal 0*/
+#define PORT_P1_ALTSEL1 (0x4u) /*decimal 4*/
 
-#define PORT_P1_DATA (0x0u) /*decimal 0*/
+#define PORT_P1_DATA (0x4u) /*decimal 4*/
 
 #define PORT_P1_DIR (0x4u) /*decimal 4*/
 

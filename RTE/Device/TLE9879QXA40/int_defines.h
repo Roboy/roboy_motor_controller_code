@@ -42,13 +42,13 @@
 
 #define CPU_NVIC_IPR1 (0x10u) /*decimal 16*/
 
-#define CPU_NVIC_IPR2 (0x0u) /*decimal 0*/
+#define CPU_NVIC_IPR2 (0x2000u) /*decimal 8192*/
 
 #define CPU_NVIC_IPR3 (0x0u) /*decimal 0*/
 
 #define CPU_NVIC_ISER0 (0x2819u) /*decimal 10265*/
 
-#define CPU_SHPR3 (0x0u) /*decimal 0*/
+#define CPU_SHPR3 (0x40000000u) /*decimal 1073741824*/
 
 #define CPU_SYSTICK_EN (0x1u) /*decimal 1*/
 

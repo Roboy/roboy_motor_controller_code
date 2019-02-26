@@ -96,13 +96,13 @@
 
 #define CCU6_T12MSEL (0xA333u) /*decimal 41779*/
 
-#define CCU6_T12PERIOD (0x640u) /*decimal 1600*/
+#define CCU6_T12PERIOD (0x7D0u) /*decimal 2000*/
 
-#define CCU6_T12PR (0x63Fu) /*decimal 1599*/
+#define CCU6_T12PR (0x7CFu) /*decimal 1999*/
 
 #define CCU6_T12_CLK (0x28u) /*decimal 40*/
 
-#define CCU6_T12_FREQ (0x61A8u) /*decimal 25000*/
+#define CCU6_T12_FREQ (0x4E20u) /*decimal 20000*/
 
 #define CCU6_T12_MAX_PERIOD (1638.38)
 

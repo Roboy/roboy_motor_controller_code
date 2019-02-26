@@ -70,7 +70,7 @@
 
 #define SSC2_BR (0x13u) /*decimal 19*/
 
-#define SSC2_CON (0x803Fu) /*decimal 32831*/
+#define SSC2_CON (0x3Fu) /*decimal 63*/
 
 #define SSC2_MAN_BAUDRATE (0x3E8u) /*decimal 1000*/
 

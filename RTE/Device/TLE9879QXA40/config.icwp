@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <icwpxml version="2.1.12">
-    <checksum>ec976fd449752d42a29be800bd62ba738ee7e9e242d3447ffc20581d7b5c58f4</checksum>
+    <checksum>48b0b36d38f8cd369405a31324cd351fbde5b6c75b10ad0627daa191d83de564</checksum>
     <XmlFile>BC_Motorcontrol.xml</XmlFile>
     <XmlVersion>V2.0.5</XmlVersion>
     <ActiveElements>
@@ -915,11 +915,6 @@
             <dispValue>0</dispValue>
         </CheckBox>
         <SpinBox>
-            <define>CPU.NVIC_IPR0.PRI_GPT1[7:4]</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </SpinBox>
-        <SpinBox>
             <define>CPU.NVIC_IPR0.PRI_GPT2[7:4]</define>
             <value>0</value>
             <dispValue>0</dispValue>
@@ -955,16 +950,6 @@
             <dispValue>0</dispValue>
         </SpinBox>
         <SpinBox>
-            <define>CPU.NVIC_IPR2.PRI_SSC1[7:4]</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </SpinBox>
-        <SpinBox>
-            <define>CPU.NVIC_IPR2.PRI_SSC2[7:4]</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </SpinBox>
-        <SpinBox>
             <define>CPU.NVIC_IPR2.PRI_UART1[7:4]</define>
             <value>0</value>
             <dispValue>0</dispValue>
@@ -994,16 +979,6 @@
             <value>0</value>
             <dispValue>0</dispValue>
         </SpinBox>
-        <SpinBox>
-            <define>CPU.SHPR3[31:28]</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </SpinBox>
-        <ButtonGroup>
-            <define>PORT.P0_DIR.P0</define>
-            <value>0</value>
-            <dispValue>1</dispValue>
-        </ButtonGroup>
         <ComboBox>
             <define>PORT.P0_0_PUD[1:0]</define>
             <value>0</value>
@@ -1059,26 +1034,6 @@
             <value>0</value>
             <dispValue>0</dispValue>
         </ComboBox>
-        <ButtonGroup>
-            <define>PORT.P0_DIR.P3</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ButtonGroup>
-        <ComboBox>
-            <define>PORT.P0_DATA.P3</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>PORT.P0_OD.P3</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>PORT.P0_3_ALT[1:0]</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
         <ComboBox>
             <define>PORT.P0_3_PUD[1:0]</define>
             <value>3</value>
@@ -1109,11 +1064,6 @@
             <value>3</value>
             <dispValue>3</dispValue>
         </ComboBox>
-        <ButtonGroup>
-            <define>PORT.P1_DIR.P0</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ButtonGroup>
         <ComboBox>
             <define>PORT.P1_DATA.P0</define>
             <value>0</value>
@@ -1134,11 +1084,6 @@
             <value>0</value>
             <dispValue>0</dispValue>
         </ComboBox>
-        <ButtonGroup>
-            <define>PORT.P1_DIR.P1</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ButtonGroup>
         <ComboBox>
             <define>PORT.P1_DATA.P1</define>
             <value>0</value>
@@ -3690,26 +3635,6 @@
             <dispValue>0</dispValue>
         </ComboBox>
         <ComboBox>
-            <define>GPT12E.T6CON.BPS2</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </ComboBox>
-        <ButtonGroup>
-            <define>GPT12E.T5CON.T5M</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ButtonGroup>
-        <ComboBox>
-            <define>GPT12E.T5CON_T5I_TIMER</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>GPT12E.T5CON_T5I_COUNTER</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
             <define>GPT12E.T5CON_T5I_GATED_TIMER_LOW</define>
             <value>0</value>
             <dispValue>0</dispValue>
@@ -3759,11 +3684,6 @@
             <value>0</value>
             <dispValue>0</dispValue>
         </ButtonGroup>
-        <SpinBox>
-            <define>GPT12E.T5_TICK[15:0]</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </SpinBox>
         <DoubleSpinBox>
             <define>GPT12E.T5_TIME</define>
             <value>0</value>
@@ -3830,11 +3750,6 @@
             <dispValue>0</dispValue>
         </ButtonGroup>
         <ComboBox>
-            <define>GPT12E.T6CON_T6I_TIMER</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
             <define>GPT12E.T6CON_T6I_COUNTER</define>
             <value>0</value>
             <dispValue>0</dispValue>
@@ -3879,16 +3794,6 @@
             <value>0</value>
             <dispValue>0</dispValue>
         </CheckBox>
-        <CheckBox>
-            <define>GPT12E.T6CON.T6OE</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <ComboBox>
-            <define>GPT12E.TEMP_T6OUT</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
         <ButtonGroup>
             <define>GPT12E.TEMP_T6_SEL</define>
             <value>0</value>
@@ -5225,21 +5130,6 @@
             <dispValue>place_your_function_call_back_here</dispValue>
         </LineEdit>
         <SpinBox>
-            <define>CCU6.T12_FREQ</define>
-            <value>20000</value>
-            <dispValue>25000</dispValue>
-        </SpinBox>
-        <ButtonGroup>
-            <define>CCU6.T12_PERIOD_SEL</define>
-            <value>2</value>
-            <dispValue>2</dispValue>
-        </ButtonGroup>
-        <ComboBox>
-            <define>BCHALL.PWM_FREQ</define>
-            <value>25000</value>
-            <dispValue>25000</dispValue>
-        </ComboBox>
-        <SpinBox>
             <define>BCHALL.POLE_PAIRS</define>
             <value>1</value>
             <dispValue>1</dispValue>
@@ -5934,16 +5824,6 @@
             <value>5</value>
             <dispValue>5</dispValue>
         </ComboBox>
-        <CheckBox>
-            <define>GPT12E.T2_INT_EN</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </CheckBox>
-        <CheckBox>
-            <define>SCU.GPT12IEN.T2IE</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </CheckBox>
         <LineEdit>
             <define>GPT1.T2_CALLBACK</define>
             <value>T2_Rising_Reload</value>
@@ -5964,16 +5844,6 @@
             <value>1</value>
             <dispValue>1</dispValue>
         </CheckBox>
-        <ComboBox>
-            <define>GPT12E.TEMP_T3OUT</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>PORT.P0_0_ALT[1:0]</define>
-            <value>0</value>
-            <dispValue>1</dispValue>
-        </ComboBox>
         <CheckBox>
             <define>GPT12E.T3CON.T3OE</define>
             <value>1</value>
@@ -6010,136 +5880,6 @@
             <dispValue>T4_Falling_Reload</dispValue>
         </LineEdit>
         <ComboBox>
-            <define>SSC2.CON.MS</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>SSC2.CON[6]</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>SSC2.CON[7]</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <CheckBox>
-            <define>SSC2.TEMP_BRG</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <ComboBox>
-            <define>SSC2.AUTO_BAUDRATE</define>
-            <value>3</value>
-            <dispValue>3</dispValue>
-        </ComboBox>
-        <ButtonGroup>
-            <define>SSC2.AUTO_BAUD_SEL</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ButtonGroup>
-        <CheckBox>
-            <define>SSC2.CON.TE</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <CheckBox>
-            <define>SSC2.CON.RE</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <CheckBox>
-            <define>SSC2.CON.PE</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <CheckBox>
-            <define>SSC2.CON.BE</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <ComboBox>
-            <define>SSC2.CON.BSY</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <CheckBox>
-            <define>SSC2.RX_INT_EN</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <CheckBox>
-            <define>SCU.MODIEN2.RIREN2</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <CheckBox>
-            <define>SSC2.TX_INT_EN</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <CheckBox>
-            <define>SCU.MODIEN2.TIREN2</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <CheckBox>
-            <define>SSC2.ERR_INT_EN</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <CheckBox>
-            <define>SCU.MODIEN2.EIREN2</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </CheckBox>
-        <ButtonGroup>
-            <define>SSC2.TEMP_MS</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ButtonGroup>
-        <ComboBox>
-            <define>SSC2.TEMP_MOS</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>SSC2.TEMP_MIS</define>
-            <value>4</value>
-            <dispValue>4</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>SSC2.TEMP_COS</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <CheckBox>
-            <define>SSC2.CON.EN</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </CheckBox>
-        <ComboBox>
-            <define>SSC2.CON.BC</define>
-            <value>15</value>
-            <dispValue>15</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>SSC2.CON[4]</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>SSC2.CON[5]</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>PORT.P1_DATA.P2</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
             <define>PORT.P1_OD.P3_P2</define>
             <value>0</value>
             <dispValue>0</dispValue>
@@ -6147,22 +5887,7 @@
         <ComboBox>
             <define>PORT.P1_2_ALT[1:0]</define>
             <value>0</value>
-            <dispValue>1</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>SSC2.TEMP_SOS</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>SSC2.TEMP_SIS</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>SSC2.TEMP_CIS</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
+            <dispValue>3</dispValue>
         </ComboBox>
         <ComboBox>
             <define>DMA.BASE_ADDR[31:0]</define>
@@ -6879,5 +6604,280 @@
             <value>0</value>
             <dispValue>0</dispValue>
         </ComboBox>
+        <ComboBox>
+            <define>PORT.P0_0_ALT[1:0]</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ButtonGroup>
+            <define>PORT.P0_DIR.P0</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ButtonGroup>
+        <ComboBox>
+            <define>GPT12E.TEMP_T3OUT</define>
+            <value>1</value>
+            <dispValue>1</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>SSC2.CON.MS</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>SSC2.CON.BC</define>
+            <value>15</value>
+            <dispValue>15</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>SSC2.CON[4]</define>
+            <value>1</value>
+            <dispValue>1</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>SSC2.CON[5]</define>
+            <value>1</value>
+            <dispValue>1</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>SSC2.CON[6]</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>SSC2.CON[7]</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <CheckBox>
+            <define>SSC2.TEMP_BRG</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <ComboBox>
+            <define>SSC2.AUTO_BAUDRATE</define>
+            <value>3</value>
+            <dispValue>3</dispValue>
+        </ComboBox>
+        <ButtonGroup>
+            <define>SSC2.AUTO_BAUD_SEL</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ButtonGroup>
+        <CheckBox>
+            <define>SSC2.CON.TE</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <CheckBox>
+            <define>SSC2.CON.RE</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <CheckBox>
+            <define>SSC2.CON.PE</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <CheckBox>
+            <define>SSC2.CON.BE</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <ComboBox>
+            <define>SSC2.CON.BSY</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <CheckBox>
+            <define>SSC2.RX_INT_EN</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <CheckBox>
+            <define>SCU.MODIEN2.RIREN2</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <CheckBox>
+            <define>SSC2.TX_INT_EN</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <CheckBox>
+            <define>SCU.MODIEN2.TIREN2</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <CheckBox>
+            <define>SSC2.ERR_INT_EN</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <CheckBox>
+            <define>SCU.MODIEN2.EIREN2</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <ComboBox>
+            <define>SSC2.TEMP_SOS</define>
+            <value>1</value>
+            <dispValue>1</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>SSC2.TEMP_SIS</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ButtonGroup>
+            <define>PORT.P1_DIR.P1</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ButtonGroup>
+        <ComboBox>
+            <define>SSC2.TEMP_CIS</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ButtonGroup>
+            <define>PORT.P1_DIR.P0</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ButtonGroup>
+        <ButtonGroup>
+            <define>SSC2.TEMP_MS</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ButtonGroup>
+        <ComboBox>
+            <define>SSC2.TEMP_MOS</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>SSC2.TEMP_MIS</define>
+            <value>4</value>
+            <dispValue>4</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>SSC2.TEMP_COS</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <CheckBox>
+            <define>SSC2.CON.EN</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <ComboBox>
+            <define>PORT.P1_DATA.P2</define>
+            <value>1</value>
+            <dispValue>1</dispValue>
+        </ComboBox>
+        <SpinBox>
+            <define>CCU6.T12_FREQ</define>
+            <value>20000</value>
+            <dispValue>20000</dispValue>
+        </SpinBox>
+        <ButtonGroup>
+            <define>CCU6.T12_PERIOD_SEL</define>
+            <value>2</value>
+            <dispValue>2</dispValue>
+        </ButtonGroup>
+        <ComboBox>
+            <define>BCHALL.PWM_FREQ</define>
+            <value>20000</value>
+            <dispValue>20000</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>GPT12E.T6CON.BPS2</define>
+            <value>2</value>
+            <dispValue>2</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>GPT12E.T6CON_T6I_TIMER</define>
+            <value>5</value>
+            <dispValue>5</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>GPT12E.T5CON_T5I_TIMER</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ButtonGroup>
+            <define>GPT12E.T5CON.T5M</define>
+            <value>1</value>
+            <dispValue>1</dispValue>
+        </ButtonGroup>
+        <ComboBox>
+            <define>GPT12E.T5CON_T5I_COUNTER</define>
+            <value>7</value>
+            <dispValue>7</dispValue>
+        </ComboBox>
+        <SpinBox>
+            <define>GPT12E.T5_TICK[15:0]</define>
+            <value>1</value>
+            <dispValue>1</dispValue>
+        </SpinBox>
+        <ComboBox>
+            <define>GPT12E.TEMP_T6OUT</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>PORT.P0_DATA.P3</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>PORT.P0_OD.P3</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>PORT.P0_3_ALT[1:0]</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ButtonGroup>
+            <define>PORT.P0_DIR.P3</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ButtonGroup>
+        <CheckBox>
+            <define>GPT12E.T6CON.T6OE</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <SpinBox>
+            <define>CPU.NVIC_IPR2.PRI_SSC1[7:4]</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </SpinBox>
+        <SpinBox>
+            <define>CPU.NVIC_IPR2.PRI_SSC2[7:4]</define>
+            <value>2</value>
+            <dispValue>2</dispValue>
+        </SpinBox>
+        <SpinBox>
+            <define>CPU.SHPR3[31:28]</define>
+            <value>4</value>
+            <dispValue>4</dispValue>
+        </SpinBox>
+        <CheckBox>
+            <define>SCU.GPT12IEN.T2IE</define>
+            <value>1</value>
+            <dispValue>1</dispValue>
+        </CheckBox>
+        <CheckBox>
+            <define>GPT12E.T2_INT_EN</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </CheckBox>
+        <SpinBox>
+            <define>CPU.NVIC_IPR0.PRI_GPT1[7:4]</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </SpinBox>
     </ActiveElements>
 </icwpxml>

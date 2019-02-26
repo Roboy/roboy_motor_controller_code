@@ -148,7 +148,7 @@ void Ccu6_Start(void)
   ));
 	
   /* Start timer 3 */
-  GPT12E_T3_Start();
+  GPT12E_T6_Start();
 
   /* Clear status bits, enable interrupt for Hall event only */
   CCU6_ClearIntStatus(CCU6_MASK_INT_CHE);
@@ -173,7 +173,7 @@ void Ccu6_Stop(void)
   CCU6_WriteMultichannelPatterns((uint16)(CCU6_MASK_MCMOUTS_SHADOW_OUT | CCU6_MASK_MCMOUTS_SHADOW_HALL));
   
   /* Stop timer 3 */
-  GPT12E_T3_Stop();
+  GPT12E_T6_Stop();
 
   /* Stop and reset T12 and T13 */
   CCU6_SetT12T13ControlBits((uint16)(CCU6_MASK_TCTR4_STOP_T12 | CCU6_MASK_TCTR4_RESET_T12 | CCU6_MASK_TCTR4_STOP_T13 | CCU6_MASK_TCTR4_RESET_T13));
@@ -208,7 +208,7 @@ void EmoCcu_HandleHallEvent(void)
 	ExpHallPtn = HallPtn & 0x7u;
 	CCU6_WriteMultichannelPatterns(EmoCcu_Cfg.HallOutPtns[ExpHallPtn + EmoCcu_HallStatus.DirIdx]);
 
-  Time = GPT12E_T3_Value_Get();
+  Time = GPT12E_T6_Value_Get();
 
   if(EmoCcu_HallStatus.StartCtr < 255u)
   {

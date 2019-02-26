@@ -34,6 +34,7 @@
 .\objects\main.o: .\RTE\Device\TLE9879QXA40\ssc.h
 .\objects\main.o: .\RTE\Device\TLE9879QXA40\dma.h
 .\objects\main.o: .\RTE\Device\TLE9879QXA40\dma_defines.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\main.o: app\Main.h
 .\objects\main.o: .\emo\Emo.h
 .\objects\main.o: .\RTE\Device\TLE9879QXA40\bchall_defines.h

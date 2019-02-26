@@ -52,9 +52,9 @@
 
 #define BCHALL_POLE_PAIRS (0x1u) /*decimal 1*/
 
-#define BCHALL_PWM_FREQ (0x61A8u) /*decimal 25000*/
+#define BCHALL_PWM_FREQ (0x4E20u) /*decimal 20000*/
 
-#define BCHALL_PWM_PERIOD (0x28u) /*decimal 40*/
+#define BCHALL_PWM_PERIOD (0x32u) /*decimal 50*/
 
 #define BCHALL_SPEED_IMAX (0x4Bu) /*decimal 75*/
 

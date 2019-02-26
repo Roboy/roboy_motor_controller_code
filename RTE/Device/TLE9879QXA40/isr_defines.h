@@ -360,7 +360,7 @@
 
 #define GPT12E_CAP_INT_EN (0x0u) /*decimal 0*/
 
-#define GPT12E_T2_INT_EN (0x1u) /*decimal 1*/
+#define GPT12E_T2_INT_EN (0x0u) /*decimal 0*/
 
 #define GPT12E_T3_INT_EN (0x0u) /*decimal 0*/
 

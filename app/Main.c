@@ -47,6 +47,7 @@
 **                      Includes                                              **
 *******************************************************************************/
 #include "tle_device.h"
+#include <string.h>
 #include "Main.h"
 #include "Emo.h"
 
@@ -88,8 +89,8 @@ uint8 npx_index;
 uint8 npx_current_byte;
 uint8 npx_bit_count;                                          
 
-uint16 npx_T3_high_ticks[2] = {3, 6};    //@10MHz GPTclk, 0.3 and 0.6 us
-uint16 npx_T3_low_ticks[2] = {9, 6};    //@10MHz GPTclk, 0.9 and 0.6 us																					
+uint16 npx_T3_high_ticks[2] = {2, 6};    //@10MHz GPTclk, 0.3 and 0.6 us
+uint16 npx_T3_low_ticks[2] = {9, 7};    //@10MHz GPTclk, 0.9 and 0.6 us																					
 
 /*******************************************************************************
 **                      Private Constant Definitions                          **
@@ -133,14 +134,16 @@ int main(void)
 	
 	/*Start motor*/
 	Emo_SetRefSpeed(1000);
-	Emo_StartMotor();
+	//Emo_StartMotor();
 	
-	Neopx_Write(color1);
+	
 	
   while (1)
   { 
 		/* Service watch-dog */
 		WDT1_Service();
+		Neopx_Write(color1);
+		Delay_us(1000);
 		
 //		for(i = 0; i < 100; i++)
 //		{
@@ -222,19 +225,16 @@ void Poti_Handler(void)
 
 void Neopx_Write(uint8 *color)
 {
-	uint8 i;
-  for (i = 0; i > NCOLORS; i++)
-  {
-    npx_data[i] = color[i];
-  }
+	memcpy(npx_data, color, 3);
   
   npx_index = 0;
+	npx_bit_count = 0;
+	
   npx_current_byte = color[0];
   
-  GPT12E->T3.reg = npx_T3_high_ticks[ (color[0] >> (sizeof(*color)*8 - 1)) ];
+  GPT12E->T3.reg = 1; //npx_T3_high_ticks[ (color[0] >> (sizeof(*color)*8 - 1)) ];
   GPT12E->T4.reg = npx_T3_low_ticks[ (color[0] >> (sizeof(*color)*8 - 1)) ];
-  GPT12E_T3_Output_Set();
-  GPT12E_T3_Start();
+	GPT12E->T3CON.reg |= 0x440u;			//Set output latch and start timer				**** Both done in one operation with 0x440u
 }
 
 void T2_Rising_Reload(void)
@@ -259,12 +259,14 @@ void T4_Falling_Reload(void)
 		{
 			if (npx_index >= 4)																	//*3* Also if we already executed the reset pulse then stop the timer and leave
 			{
-				GPT12E_T3_Stop();
+				GPT12E->T3CON.reg &= 0xFFFFFFBFu;		//Stop the timer
+				GPT12E->T3CON.reg &= 0xFFFFFBFFu;		//Clear output latch **** Both could be done in one operation with 0xFFFFFBBFu
 				return;
 			}
 			else
 			{
 				GPT12E->T2.reg = 6;      									//Standard high duration preceding reset pulse (maybe needs to be shorter so as to not be interpreted by the neopixel as data)
+				return;
 			}
 		}
 		else																					//*2* Else we carry on to the next data element and reset count

@@ -112,9 +112,9 @@
 
 #define GPT12E_T5 (0xFFFFu) /*decimal 65535*/
 
-#define GPT12E_T5CON (0x0u) /*decimal 0*/
+#define GPT12E_T5CON (0xFu) /*decimal 15*/
 
-#define GPT12E_T5CON_T5I_COUNTER (0x0u) /*decimal 0*/
+#define GPT12E_T5CON_T5I_COUNTER (0x7u) /*decimal 7*/
 
 #define GPT12E_T5CON_T5I_GATED_TIMER_HIGH (0x0u) /*decimal 0*/
 
@@ -128,7 +128,7 @@
 
 #define GPT12E_T6 (0xFFFFu) /*decimal 65535*/
 
-#define GPT12E_T6CON (0x800u) /*decimal 2048*/
+#define GPT12E_T6CON (0x1005u) /*decimal 4101*/
 
 #define GPT12E_T6CON_T6I_COUNTER (0x0u) /*decimal 0*/
 
@@ -136,7 +136,7 @@
 
 #define GPT12E_T6CON_T6I_GATED_TIMER_LOW (0x0u) /*decimal 0*/
 
-#define GPT12E_T6CON_T6I_TIMER (0x0u) /*decimal 0*/
+#define GPT12E_T6CON_T6I_TIMER (0x5u) /*decimal 5*/
 
 #define GPT12E_T6_TICK (0x1u) /*decimal 1*/
 
@@ -148,7 +148,7 @@
 
 #define GPT12E_TEMP_T2_SEL (0x0u) /*decimal 0*/
 
-#define GPT12E_TEMP_T3OUT (0x0u) /*decimal 0*/
+#define GPT12E_TEMP_T3OUT (0x1u) /*decimal 1*/
 
 #define GPT12E_TEMP_T3_PISEL (0x0u) /*decimal 0*/
 
@@ -174,10 +174,10 @@
 
 #define GPT1_T4_CLK (0xAu) /*decimal 10*/
 
-#define GPT2_BASE_CLK (0x14u) /*decimal 20*/
+#define GPT2_BASE_CLK (2.5)
 
-#define GPT2_T5_CLK (0x14u) /*decimal 20*/
+#define GPT2_T5_CLK (2.5)
 
-#define GPT2_T6_CLK (0x14u) /*decimal 20*/
+#define GPT2_T6_CLK (0.08)
 
 #endif /* GPT12E_DEFINES_H */

@@ -30,30 +30,30 @@ Rebuild target 'TLE9879 EvalKit'
 compiling adc2.c...
 compiling adc1.c...
 compiling bdrv.c...
-compiling EmoCcu_Cfg.c...
-compiling bootrom.c...
-compiling Emo.c...
-compiling EmoCcu.c...
 compiling Main.c...
-app\Main.c(109): warning:  #177-D: variable "i"  was declared but never referenced
+app\Main.c(110): warning:  #177-D: variable "i"  was declared but never referenced
   	int i;
 app\Main.c: 1 warning, 0 errors
+compiling EmoCcu_Cfg.c...
+compiling Emo.c...
+compiling bootrom.c...
+compiling EmoCcu.c...
 compiling ccu6.c...
 compiling dma.c...
-assembling startup_tle987x.s...
 compiling int.c...
+compiling lin.c...
+compiling pmu.c...
 compiling gpt12e.c...
+assembling startup_tle987x.s...
 compiling port.c...
 compiling scu.c...
 compiling ssc.c...
-compiling system_tle987x.c...
 compiling isr.c...
+compiling system_tle987x.c...
 compiling wdt1.c...
-compiling lin.c...
-compiling pmu.c...
 compiling tle_device.c...
 linking...
-Program Size: Code=3444 RO-data=212 RW-data=64 ZI-data=1024  
+Program Size: Code=3160 RO-data=212 RW-data=64 ZI-data=1024  
 ".\Objects\BldcBcHall.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -96,37 +96,37 @@ Package Vendor: Infineon
    * Component: ARM::CMSIS:CORE:5.1.2
 
    * Component: Infineon::Device:ConfigWizard_v2:2.1.12
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\isr_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\timer2x_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\adc1_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\uart_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\adc2_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\ccu6_defines.h
       Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\ssc_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\timer2x_defines.h
       Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\lin_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\scu_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\bdrv_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\pmu_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\csa_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\ccu6_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\uart_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\isr_defines.h
       Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\bsl_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\port_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\dma_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\timer3_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\int_defines.h
-      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\mon_defines.h
       Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\gpt12e_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\scu_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\csa_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\int_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\pmu_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\bdrv_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\mon_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\port_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\timer3_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\adc2_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\adc1_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE987x_40\v2\dma_defines.h
 
    * Component: Infineon::Device:SDK:ADC1:0.2.4
       Source file:   Device\SDK\src\adc1.c
       Include file:  Device\SDK\inc\adc1.h
 
    * Component: Infineon::Device:SDK:ADC2:0.1.9
-      Include file:  Device\SDK\inc\adc2.h
       Source file:   Device\SDK\src\adc2.c
+      Include file:  Device\SDK\inc\adc2.h
 
    * Component: Infineon::Device:SDK:BDRV:0.4.3
-      Include file:  Device\SDK\inc\bdrv.h
       Source file:   Device\SDK\src\bdrv.c
+      Include file:  Device\SDK\inc\bdrv.h
 
    * Component: Infineon::Device:SDK:BOOTROM:0.2.4
       Source file:   Device\SDK\src\bootrom.c
@@ -141,12 +141,12 @@ Package Vendor: Infineon
       Source file:   Device\SDK\src\dma.c
 
    * Component: Infineon::Device:SDK:GPT12E:0.1.8
-      Source file:   Device\SDK\src\gpt12e.c
       Include file:  Device\SDK\inc\gpt12e.h
+      Source file:   Device\SDK\src\gpt12e.c
 
    * Component: Infineon::Device:SDK:INT:0.1.8
-      Source file:   Device\SDK\src\int.c
       Include file:  Device\SDK\inc\int.h
+      Source file:   Device\SDK\src\int.c
 
    * Component: Infineon::Device:SDK:ISR:0.2.4
       Include file:  Device\SDK\inc\isr.h
@@ -161,35 +161,35 @@ Package Vendor: Infineon
       Source file:   Device\SDK\src\pmu.c
 
    * Component: Infineon::Device:SDK:PORT:0.5.5
-      Source file:   Device\SDK\src\port.c
       Include file:  Device\SDK\inc\port.h
+      Source file:   Device\SDK\src\port.c
 
    * Component: Infineon::Device:SDK:SCU:0.3.6
       Source file:   Device\SDK\src\scu.c
       Include file:  Device\SDK\inc\scu.h
 
    * Component: Infineon::Device:SDK:SSC:0.1.5
-      Source file:   Device\SDK\src\ssc.c
       Include file:  Device\SDK\inc\ssc.h
+      Source file:   Device\SDK\src\ssc.c
 
    * Component: Infineon::Device:SDK:WDT1:0.2.8
-      Source file:   Device\SDK\src\wdt1.c
       Include file:  Device\SDK\inc\wdt1.h
+      Source file:   Device\SDK\src\wdt1.c
 
    * Component: Infineon::Device:Startup:1.0.0
-      Source file:   Device\Source\system_tle987x.c
-      Include file:  Device\Include\system_tle987x.h
       Source file:   Device\Source\ARM\startup_tle987x.s
+      Include file:  Device\Include\tle987x.h
+      Source file:   Device\Source\system_tle987x.c
+      Source file:   Device\Include\sfr_access.h
       Include file:  Device\Include\tle_variants.h
+      Include file:  Device\Include\system_tle987x.h
+      Source file:   Device\Source\tle_device.c
       Include file:  Device\Include\cmsis_misra.h
       Source file:   Device\SDK\app\main.c
-      Include file:  Device\Include\eval_board.h
-      Source file:   Device\Include\sfr_access.h
-      Include file:  Device\Include\tle987x.h
-      Source file:   Device\Source\tle_device.c
       Include file:  Device\Include\types.h
+      Include file:  Device\Include\eval_board.h
       Include file:  Device\Include\tle_device.h
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

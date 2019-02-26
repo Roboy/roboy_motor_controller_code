@@ -1,5 +1,5 @@
 Dependencies for Project 'BldcBcHall', Target 'TLE9879 EvalKit': (DO NOT MODIFY !)
-F (.\app\Main.c)(0x5C74C5F4)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\app\Main.c)(0x5C74C7CF)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\RTE\Device\TLE9879QXA40\tle_device.h)(0x5C13A9C2)
 I (.\RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
 I (.\RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)

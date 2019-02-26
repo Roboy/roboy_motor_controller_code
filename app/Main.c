@@ -190,9 +190,7 @@ void DMA_complete_handler(void)
 	
 void encoder_B_pos(void)
 {
-	if 
-		
-	((PORT->P2_DATA.reg & 0x1u) == 1)				// Check P2.0, if high increment, if low decrement
+	if ((PORT->P2_DATA.reg & 0x1u) == 1)				// Check P2.0, if high increment, if low decrement
 	{
 		eticks++;
 	}
@@ -232,23 +230,24 @@ void Neopx_Write(uint8 *color)
 	
   npx_current_byte = color[0];
   
-  GPT12E->T3.reg = 1; //npx_T3_high_ticks[ (color[0] >> (sizeof(*color)*8 - 1)) ];
+  GPT12E->T3.reg = npx_T3_high_ticks[ (color[0] >> (sizeof(*color)*8 - 1)) ];
   GPT12E->T4.reg = npx_T3_low_ticks[ (color[0] >> (sizeof(*color)*8 - 1)) ];
+	GPT12E->T2.reg = npx_T3_high_ticks[ (color[0] >> (sizeof(*color)*8 - 1)) ];
 	GPT12E->T3CON.reg |= 0x440u;			//Set output latch and start timer				**** Both done in one operation with 0x440u
 }
 
-void T2_Rising_Reload(void)
-{
-  if (npx_index >= 3)
-	{
-		GPT12E->T4.reg = 800;      												//Reset Latch low pulse
-	}
-	else
-	{
-		GPT12E->T4.reg = npx_T3_low_ticks[ (npx_current_byte >> (sizeof(npx_current_byte)*8 - 1)) ];	//Reload next low time
-	}
-  
-}
+//void T2_Rising_Reload(void)
+//{
+//  if (npx_index >= 3)
+//	{
+//		GPT12E->T4.reg = 800;      												//Reset Latch low pulse
+//	}
+//	else
+//	{
+//		GPT12E->T4.reg = npx_T3_low_ticks[ (npx_current_byte >> (sizeof(npx_current_byte)*8 - 1)) ];	//Reload next low time
+//	}
+//  
+//}
 
 void T4_Falling_Reload(void)
 {
@@ -266,6 +265,7 @@ void T4_Falling_Reload(void)
 			else
 			{
 				GPT12E->T2.reg = 6;      									//Standard high duration preceding reset pulse (maybe needs to be shorter so as to not be interpreted by the neopixel as data)
+				GPT12E->T4.reg = 800;      								//Reset Latch low pulse
 				return;
 			}
 		}
@@ -282,4 +282,5 @@ void T4_Falling_Reload(void)
 	}
 		
   GPT12E->T2.reg = npx_T3_high_ticks[ (npx_current_byte >> (sizeof(npx_current_byte)*8 - 1)) ];	//Reload next high time
+	GPT12E->T4.reg = npx_T3_low_ticks[ (npx_current_byte >> (sizeof(npx_current_byte)*8 - 1)) ];	//Reload next low time
 }

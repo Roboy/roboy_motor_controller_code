@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <icwpxml version="2.1.12">
-    <checksum>48b0b36d38f8cd369405a31324cd351fbde5b6c75b10ad0627daa191d83de564</checksum>
+    <checksum>20a47ce2e0d29eb8513499f909dd98f0b284b5439552ef571b99403308618ed7</checksum>
     <XmlFile>BC_Motorcontrol.xml</XmlFile>
     <XmlVersion>V2.0.5</XmlVersion>
     <ActiveElements>
@@ -169,11 +169,6 @@
             <value>0</value>
             <dispValue>0</dispValue>
         </ComboBox>
-        <SpinBox>
-            <define>SCUPM.WDT1_PERIOD_EDIT</define>
-            <value>1008</value>
-            <dispValue>1008</dispValue>
-        </SpinBox>
         <CheckBox>
             <define>SCU.WDTCON.WDTEN</define>
             <value>0</value>
@@ -1104,11 +1099,6 @@
             <value>0</value>
             <dispValue>0</dispValue>
         </ComboBox>
-        <ButtonGroup>
-            <define>PORT.P1_DIR.P2</define>
-            <value>0</value>
-            <dispValue>1</dispValue>
-        </ButtonGroup>
         <ButtonGroup>
             <define>PORT.P1_DIR.P3</define>
             <value>0</value>
@@ -5840,11 +5830,6 @@
             <dispValue>1</dispValue>
         </ComboBox>
         <CheckBox>
-            <define>GPT12E.T3CON.T3OTL</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </CheckBox>
-        <CheckBox>
             <define>GPT12E.T3CON.T3OE</define>
             <value>1</value>
             <dispValue>1</dispValue>
@@ -5859,11 +5844,6 @@
             <value>4</value>
             <dispValue>4</dispValue>
         </ButtonGroup>
-        <ComboBox>
-            <define>GPT12E.T4CON_T4I_RELOAD</define>
-            <value>6</value>
-            <dispValue>6</dispValue>
-        </ComboBox>
         <CheckBox>
             <define>GPT12E.T4_INT_EN</define>
             <value>1</value>
@@ -5879,16 +5859,6 @@
             <value>T4_Falling_Reload</value>
             <dispValue>T4_Falling_Reload</dispValue>
         </LineEdit>
-        <ComboBox>
-            <define>PORT.P1_OD.P3_P2</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>PORT.P1_2_ALT[1:0]</define>
-            <value>0</value>
-            <dispValue>3</dispValue>
-        </ComboBox>
         <ComboBox>
             <define>DMA.BASE_ADDR[31:0]</define>
             <value>402654208</value>
@@ -6595,31 +6565,6 @@
             <dispValue>1</dispValue>
         </CheckBox>
         <ComboBox>
-            <define>PORT.P0_DATA.P0</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>PORT.P0_OD.P0</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ComboBox>
-            <define>PORT.P0_0_ALT[1:0]</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ComboBox>
-        <ButtonGroup>
-            <define>PORT.P0_DIR.P0</define>
-            <value>0</value>
-            <dispValue>0</dispValue>
-        </ButtonGroup>
-        <ComboBox>
-            <define>GPT12E.TEMP_T3OUT</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </ComboBox>
-        <ComboBox>
             <define>SSC2.CON.MS</define>
             <value>0</value>
             <dispValue>0</dispValue>
@@ -6769,11 +6714,6 @@
             <value>0</value>
             <dispValue>0</dispValue>
         </CheckBox>
-        <ComboBox>
-            <define>PORT.P1_DATA.P2</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
-        </ComboBox>
         <SpinBox>
             <define>CCU6.T12_FREQ</define>
             <value>20000</value>
@@ -6864,20 +6804,80 @@
             <value>4</value>
             <dispValue>4</dispValue>
         </SpinBox>
+        <SpinBox>
+            <define>CPU.NVIC_IPR0.PRI_GPT1[7:4]</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </SpinBox>
         <CheckBox>
             <define>SCU.GPT12IEN.T2IE</define>
-            <value>1</value>
-            <dispValue>1</dispValue>
+            <value>0</value>
+            <dispValue>0</dispValue>
         </CheckBox>
         <CheckBox>
             <define>GPT12E.T2_INT_EN</define>
             <value>0</value>
             <dispValue>0</dispValue>
         </CheckBox>
-        <SpinBox>
-            <define>CPU.NVIC_IPR0.PRI_GPT1[7:4]</define>
+        <CheckBox>
+            <define>GPT12E.T3CON.T3OTL</define>
             <value>0</value>
             <dispValue>0</dispValue>
+        </CheckBox>
+        <ComboBox>
+            <define>GPT12E.T4CON_T4I_RELOAD</define>
+            <value>6</value>
+            <dispValue>6</dispValue>
+        </ComboBox>
+        <SpinBox>
+            <define>SCUPM.WDT1_PERIOD_EDIT</define>
+            <value>1008</value>
+            <dispValue>1008</dispValue>
         </SpinBox>
+        <ButtonGroup>
+            <define>PORT.P0_DIR.P0</define>
+            <value>0</value>
+            <dispValue>1</dispValue>
+        </ButtonGroup>
+        <ComboBox>
+            <define>PORT.P0_DATA.P0</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>PORT.P0_OD.P0</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>PORT.P0_0_ALT[1:0]</define>
+            <value>0</value>
+            <dispValue>1</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>GPT12E.TEMP_T3OUT</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>PORT.P1_DATA.P2</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>PORT.P1_OD.P3_P2</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ComboBox>
+            <define>PORT.P1_2_ALT[1:0]</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ComboBox>
+        <ButtonGroup>
+            <define>PORT.P1_DIR.P2</define>
+            <value>0</value>
+            <dispValue>0</dispValue>
+        </ButtonGroup>
     </ActiveElements>
 </icwpxml>

@@ -76,7 +76,7 @@
 
 #define SCU_EXICON0 (0x24u) /*decimal 36*/
 
-#define SCU_GPT12IEN (0x5u) /*decimal 5*/
+#define SCU_GPT12IEN (0x4u) /*decimal 4*/
 
 #define SCU_MODIEN1 (0x0u) /*decimal 0*/
 

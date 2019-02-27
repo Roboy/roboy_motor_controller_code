@@ -68,7 +68,7 @@
 
 #define GPT12E_T3 (0x1u) /*decimal 1*/
 
-#define GPT12E_T3CON (0xE80u) /*decimal 3712*/
+#define GPT12E_T3CON (0xA80u) /*decimal 2688*/
 
 #define GPT12E_T3CON_T3I_COUNTER (0x0u) /*decimal 0*/
 
@@ -148,7 +148,7 @@
 
 #define GPT12E_TEMP_T2_SEL (0x0u) /*decimal 0*/
 
-#define GPT12E_TEMP_T3OUT (0x1u) /*decimal 1*/
+#define GPT12E_TEMP_T3OUT (0x0u) /*decimal 0*/
 
 #define GPT12E_TEMP_T3_PISEL (0x0u) /*decimal 0*/
 

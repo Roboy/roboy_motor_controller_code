@@ -1,488 +1,488 @@
 Dependencies for Project 'BldcBcHall', Target 'TLE9879 EvalKit': (DO NOT MODIFY !)
-F (.\app\Main.c)(0x5C74C7CF)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (.\RTE\Device\TLE9879QXA40\tle_device.h)(0x5C13A9C2)
-I (.\RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (.\RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+F (.\app\Main.c)(0x5C75D75F)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (.\RTE\Device\TLE9879QXA40\tle_device.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (.\RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (.\RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-I (.\RTE\Device\TLE9879QXA40\bootrom.h)(0x5C2E875C)
-I (.\RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (.\RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)
-I (.\RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (.\RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\pmu.h)(0x5C389318)
-I (.\RTE\Device\TLE9879QXA40\adc1.h)(0x5C3476C4)
-I (.\RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\adc2.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\bdrv.h)(0x5C13CA52)
-I (.\RTE\Device\TLE9879QXA40\int.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\ccu6.h)(0x5C418EA2)
-I (.\RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C37A996)
-I (.\RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\isr.h)(0x5C33734C)
-I (.\RTE\Device\TLE9879QXA40\lin.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\port.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-I (.\RTE\Device\TLE9879QXA40\ssc.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\dma.h)(0x5C379D9E)
-I (.\RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C74C514)
+I (.\RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\bootrom.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\pmu.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc1.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\adc2.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\bdrv.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\int.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ccu6.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\isr.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\lin.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\port.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ssc.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\dma.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C75D930)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F2F9C)
-I (app\Main.h)(0x5C73248A)
-I (.\emo\Emo.h)(0x5C73248A)
-I (.\RTE\Device\TLE9879QXA40\bchall_defines.h)(0x5C74C514)
-I (.\emo\EmoMat.h)(0x5C73248A)
-F (.\emo\Emo.c)(0x5C73248A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\emo.o --omf_browse .\objects\emo.crf --depend .\objects\emo.d)
-I (.\RTE\Device\TLE9879QXA40\tle_device.h)(0x5C13A9C2)
-I (.\RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (.\RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (app\Main.h)(0x5C754C1A)
+I (.\emo\Emo.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\bchall_defines.h)(0x5C75D930)
+I (.\emo\EmoMat.h)(0x5C754C1A)
+F (.\emo\Emo.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\emo.o --omf_browse .\objects\emo.crf --depend .\objects\emo.d)
+I (.\RTE\Device\TLE9879QXA40\tle_device.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (.\RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (.\RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-I (.\RTE\Device\TLE9879QXA40\bootrom.h)(0x5C2E875C)
-I (.\RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (.\RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)
-I (.\RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (.\RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\pmu.h)(0x5C389318)
-I (.\RTE\Device\TLE9879QXA40\adc1.h)(0x5C3476C4)
-I (.\RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\adc2.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\bdrv.h)(0x5C13CA52)
-I (.\RTE\Device\TLE9879QXA40\int.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\ccu6.h)(0x5C418EA2)
-I (.\RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C37A996)
-I (.\RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\isr.h)(0x5C33734C)
-I (.\RTE\Device\TLE9879QXA40\lin.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\port.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-I (.\RTE\Device\TLE9879QXA40\ssc.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\dma.h)(0x5C379D9E)
-I (.\RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C74C514)
-I (emo\Emo.h)(0x5C73248A)
-I (.\RTE\Device\TLE9879QXA40\bchall_defines.h)(0x5C74C514)
-I (emo\EmoMat.h)(0x5C73248A)
-I (emo\EmoCcu.h)(0x5C73248A)
-F (.\emo\EmoCcu.c)(0x5C749CC5)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\emoccu.o --omf_browse .\objects\emoccu.crf --depend .\objects\emoccu.d)
-I (emo\Emo.h)(0x5C73248A)
-I (.\RTE\Device\TLE9879QXA40\tle_device.h)(0x5C13A9C2)
-I (.\RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (.\RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (.\RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\bootrom.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\pmu.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc1.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\adc2.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\bdrv.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\int.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ccu6.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\isr.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\lin.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\port.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ssc.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\dma.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C75D930)
+I (emo\Emo.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\bchall_defines.h)(0x5C75D930)
+I (emo\EmoMat.h)(0x5C754C1A)
+I (emo\EmoCcu.h)(0x5C754C1A)
+F (.\emo\EmoCcu.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\emoccu.o --omf_browse .\objects\emoccu.crf --depend .\objects\emoccu.d)
+I (emo\Emo.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle_device.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (.\RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (.\RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-I (.\RTE\Device\TLE9879QXA40\bootrom.h)(0x5C2E875C)
-I (.\RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (.\RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)
-I (.\RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (.\RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\pmu.h)(0x5C389318)
-I (.\RTE\Device\TLE9879QXA40\adc1.h)(0x5C3476C4)
-I (.\RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\adc2.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\bdrv.h)(0x5C13CA52)
-I (.\RTE\Device\TLE9879QXA40\int.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\ccu6.h)(0x5C418EA2)
-I (.\RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C37A996)
-I (.\RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\isr.h)(0x5C33734C)
-I (.\RTE\Device\TLE9879QXA40\lin.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\port.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-I (.\RTE\Device\TLE9879QXA40\ssc.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\dma.h)(0x5C379D9E)
-I (.\RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\bchall_defines.h)(0x5C74C514)
-I (emo\EmoMat.h)(0x5C73248A)
-I (emo\EmoCcu.h)(0x5C73248A)
-F (.\emo\EmoCcu_Cfg.c)(0x5C73248A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\emoccu_cfg.o --omf_browse .\objects\emoccu_cfg.crf --depend .\objects\emoccu_cfg.d)
-I (emo\EmoCcu.h)(0x5C73248A)
-I (.\RTE\Device\TLE9879QXA40\tle_device.h)(0x5C13A9C2)
-I (.\RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (.\RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (.\RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\bootrom.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\pmu.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc1.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\adc2.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\bdrv.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\int.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ccu6.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\isr.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\lin.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\port.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ssc.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\dma.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\bchall_defines.h)(0x5C75D930)
+I (emo\EmoMat.h)(0x5C754C1A)
+I (emo\EmoCcu.h)(0x5C754C1A)
+F (.\emo\EmoCcu_Cfg.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\emoccu_cfg.o --omf_browse .\objects\emoccu_cfg.crf --depend .\objects\emoccu_cfg.d)
+I (emo\EmoCcu.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle_device.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (.\RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (.\RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-I (.\RTE\Device\TLE9879QXA40\bootrom.h)(0x5C2E875C)
-I (.\RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (.\RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)
-I (.\RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (.\RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\pmu.h)(0x5C389318)
-I (.\RTE\Device\TLE9879QXA40\adc1.h)(0x5C3476C4)
-I (.\RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\adc2.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\bdrv.h)(0x5C13CA52)
-I (.\RTE\Device\TLE9879QXA40\int.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\ccu6.h)(0x5C418EA2)
-I (.\RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C37A996)
-I (.\RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C74C514)
-I (.\RTE\Device\TLE9879QXA40\isr.h)(0x5C33734C)
-I (.\RTE\Device\TLE9879QXA40\lin.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\port.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-I (.\RTE\Device\TLE9879QXA40\ssc.h)(0x5C13B59C)
-I (.\RTE\Device\TLE9879QXA40\dma.h)(0x5C379D9E)
-I (.\RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C74C514)
-I (emo\Emo.h)(0x5C73248A)
-I (.\RTE\Device\TLE9879QXA40\bchall_defines.h)(0x5C74C514)
-I (emo\EmoMat.h)(0x5C73248A)
-F (RTE\Device\TLE9879QXA40\ICW_TLE987x.xml)(0x5C418CEA)()
-F (RTE\Device\TLE9879QXA40\TLE987x.mig)(0x5C17DBDE)()
-F (RTE\Device\TLE9879QXA40\TLE987x.svd)(0x5C2EA234)()
-F (RTE\Device\TLE9879QXA40\adc1.c)(0x5C17DCE4)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\adc1.o --omf_browse .\objects\adc1.crf --depend .\objects\adc1.d)
-I (RTE\Device\TLE9879QXA40\adc1.h)(0x5C3476C4)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (.\RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\bootrom.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\pmu.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc1.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\adc2.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\bdrv.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\int.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ccu6.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C75D930)
+I (.\RTE\Device\TLE9879QXA40\isr.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\lin.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\port.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\ssc.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\dma.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C75D930)
+I (emo\Emo.h)(0x5C754C1A)
+I (.\RTE\Device\TLE9879QXA40\bchall_defines.h)(0x5C75D930)
+I (emo\EmoMat.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\ICW_TLE987x.xml)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\TLE987x.mig)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\TLE987x.svd)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\adc1.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\adc1.o --omf_browse .\objects\adc1.crf --depend .\objects\adc1.d)
+I (RTE\Device\TLE9879QXA40\adc1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\adc2.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-F (RTE\Device\TLE9879QXA40\adc1.h)(0x5C3476C4)()
-F (RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\adc2.c)(0x5BFEC71A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\adc2.o --omf_browse .\objects\adc2.crf --depend .\objects\adc2.d)
-I (RTE\Device\TLE9879QXA40\adc2.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc2.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\adc1.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\adc2.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\adc2.o --omf_browse .\objects\adc2.crf --depend .\objects\adc2.d)
+I (RTE\Device\TLE9879QXA40\adc2.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-F (RTE\Device\TLE9879QXA40\adc2.h)(0x5C13B59C)()
-F (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\bdrv.c)(0x5C34B4C8)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\bdrv.o --omf_browse .\objects\bdrv.crf --depend .\objects\bdrv.d)
-I (RTE\Device\TLE9879QXA40\bdrv.h)(0x5C13CA52)
-I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\adc2.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\bdrv.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\bdrv.o --omf_browse .\objects\bdrv.crf --depend .\objects\bdrv.d)
+I (RTE\Device\TLE9879QXA40\bdrv.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)
-I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\int.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-I (RTE\Device\TLE9879QXA40\bdrv_defines.h)(0x5C74C514)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-F (RTE\Device\TLE9879QXA40\bdrv.h)(0x5C13CA52)()
-F (RTE\Device\TLE9879QXA40\bdrv_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\bootrom.c)(0x5C34B4C8)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\bootrom.o --omf_browse .\objects\bootrom.crf --depend .\objects\bootrom.d)
-I (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C2E875C)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\int.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\bdrv_defines.h)(0x5C75D930)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\bdrv.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\bdrv_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\bootrom.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\bootrom.o --omf_browse .\objects\bootrom.crf --depend .\objects\bootrom.d)
+I (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-F (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C2E875C)()
-F (RTE\Device\TLE9879QXA40\bsl_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\ccu6.c)(0x5C067E98)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\ccu6.o --omf_browse .\objects\ccu6.crf --depend .\objects\ccu6.d)
-I (RTE\Device\TLE9879QXA40\ccu6.h)(0x5C418EA2)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\bsl_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\ccu6.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\ccu6.o --omf_browse .\objects\ccu6.crf --depend .\objects\ccu6.d)
+I (RTE\Device\TLE9879QXA40\ccu6.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-F (RTE\Device\TLE9879QXA40\ccu6.h)(0x5C418EA2)()
-F (RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)()
-F (RTE\Device\TLE9879QXA40\config.icwp)(0x5C74C51E)()
-F (RTE\Device\TLE9879QXA40\csa_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\dma.c)(0x5C377DD0)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\dma.o --omf_browse .\objects\dma.crf --depend .\objects\dma.d)
-I (RTE\Device\TLE9879QXA40\dma.h)(0x5C379D9E)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\ccu6.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\config.icwp)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\csa_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\dma.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\dma.o --omf_browse .\objects\dma.crf --depend .\objects\dma.d)
+I (RTE\Device\TLE9879QXA40\dma.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-F (RTE\Device\TLE9879QXA40\dma.h)(0x5C379D9E)()
-F (RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\eval_board.h)(0x5C73248A)()
-F (RTE\Device\TLE9879QXA40\gpt12e.c)(0x5C37A986)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\gpt12e.o --omf_browse .\objects\gpt12e.crf --depend .\objects\gpt12e.d)
-I (RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C37A996)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\dma.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\eval_board.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\gpt12e.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\gpt12e.o --omf_browse .\objects\gpt12e.crf --depend .\objects\gpt12e.d)
+I (RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C74C514)
-F (RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C37A996)()
-F (RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\int.c)(0x5C179B2C)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\int.o --omf_browse .\objects\int.crf --depend .\objects\int.d)
-I (RTE\Device\TLE9879QXA40\int.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C75D930)
+F (RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\int.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\int.o --omf_browse .\objects\int.crf --depend .\objects\int.d)
+I (RTE\Device\TLE9879QXA40\int.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\int_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-F (RTE\Device\TLE9879QXA40\int.h)(0x5C13B59C)()
-F (RTE\Device\TLE9879QXA40\int_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\isr.c)(0x5C34B81C)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\isr.o --omf_browse .\objects\isr.crf --depend .\objects\isr.d)
-I (RTE\Device\TLE9879QXA40\tle_device.h)(0x5C13A9C2)
-I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\int_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\int.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\int_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\isr.c)(0x5C755527)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\isr.o --omf_browse .\objects\isr.crf --depend .\objects\isr.d)
+I (RTE\Device\TLE9879QXA40\tle_device.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-I (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C2E875C)
-I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\pmu.h)(0x5C389318)
-I (RTE\Device\TLE9879QXA40\adc1.h)(0x5C3476C4)
-I (RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\adc2.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\bdrv.h)(0x5C13CA52)
-I (RTE\Device\TLE9879QXA40\int.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\ccu6.h)(0x5C418EA2)
-I (RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C37A996)
-I (RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\isr.h)(0x5C33734C)
-I (RTE\Device\TLE9879QXA40\lin.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\port.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-I (RTE\Device\TLE9879QXA40\ssc.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\dma.h)(0x5C379D9E)
-I (RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\int_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\isr_defines.h)(0x5C74C514)
-F (RTE\Device\TLE9879QXA40\isr.h)(0x5C33734C)()
-F (RTE\Device\TLE9879QXA40\isr_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\lin.c)(0x5BFEC71A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\lin.o --omf_browse .\objects\lin.crf --depend .\objects\lin.d)
-I (RTE\Device\TLE9879QXA40\lin.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\pmu.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\adc2.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\bdrv.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\int.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\ccu6.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\isr.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\lin.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\port.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\ssc.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\dma.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\int_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\isr_defines.h)(0x5C75D930)
+F (RTE\Device\TLE9879QXA40\isr.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\isr_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\lin.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\lin.o --omf_browse .\objects\lin.crf --depend .\objects\lin.d)
+I (RTE\Device\TLE9879QXA40\lin.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\lin_defines.h)(0x5C74C514)
-F (RTE\Device\TLE9879QXA40\lin.h)(0x5C13B59C)()
-F (RTE\Device\TLE9879QXA40\lin_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\mon_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\pmu.c)(0x5C17DFA0)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\pmu.o --omf_browse .\objects\pmu.crf --depend .\objects\pmu.d)
-I (RTE\Device\TLE9879QXA40\pmu.h)(0x5C389318)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\lin_defines.h)(0x5C75D930)
+F (RTE\Device\TLE9879QXA40\lin.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\lin_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\mon_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\pmu.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\pmu.o --omf_browse .\objects\pmu.crf --depend .\objects\pmu.d)
+I (RTE\Device\TLE9879QXA40\pmu.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-I (RTE\Device\TLE9879QXA40\pmu_defines.h)(0x5C74C514)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-F (RTE\Device\TLE9879QXA40\pmu.h)(0x5C389318)()
-F (RTE\Device\TLE9879QXA40\pmu_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\port.c)(0x5C34B4C8)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\port.o --omf_browse .\objects\port.crf --depend .\objects\port.d)
-I (RTE\Device\TLE9879QXA40\port.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\pmu_defines.h)(0x5C75D930)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\pmu.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\pmu_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\port.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\port.o --omf_browse .\objects\port.crf --depend .\objects\port.d)
+I (RTE\Device\TLE9879QXA40\port.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\port_defines.h)(0x5C74C514)
-F (RTE\Device\TLE9879QXA40\port.h)(0x5C13B59C)()
-F (RTE\Device\TLE9879QXA40\port_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\scu.c)(0x5C37A974)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\scu.o --omf_browse .\objects\scu.crf --depend .\objects\scu.d)
-I (RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\port_defines.h)(0x5C75D930)
+F (RTE\Device\TLE9879QXA40\port.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\port_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\scu.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\scu.o --omf_browse .\objects\scu.crf --depend .\objects\scu.d)
+I (RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (RTE\Device\TLE9879QXA40\lin.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C2E875C)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-I (RTE\Device\TLE9879QXA40\pmu_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-F (RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)()
-F (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)()
-F (RTE\Device\TLE9879QXA40\ssc.c)(0x5BFEC71A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\ssc.o --omf_browse .\objects\ssc.crf --depend .\objects\ssc.d)
-I (RTE\Device\TLE9879QXA40\ssc.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\lin.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\pmu_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\ssc.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\ssc.o --omf_browse .\objects\ssc.crf --depend .\objects\ssc.d)
+I (RTE\Device\TLE9879QXA40\ssc.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\ssc_defines.h)(0x5C74C514)
-F (RTE\Device\TLE9879QXA40\ssc.h)(0x5C13B59C)()
-F (RTE\Device\TLE9879QXA40\ssc_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\startup_tle987x.s)(0x5C73248A)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include--cpreproc --pd "__UVISION_VERSION SETA 527" --pd "_RTE_ SETA 1" --pd "TLE9879QXA40 SETA 1"--list .\listings\startup_tle987x.lst --xref -o .\objects\startup_tle987x.o --depend .\objects\startup_tle987x.d)
-F (RTE\Device\TLE9879QXA40\system_tle987x.c)(0x5C18AE14)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\system_tle987x.o --omf_browse .\objects\system_tle987x.crf --depend .\objects\system_tle987x.d)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\ssc_defines.h)(0x5C75D930)
+F (RTE\Device\TLE9879QXA40\ssc.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\ssc_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\startup_tle987x.s)(0x5C754C1A)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include--cpreproc --pd "__UVISION_VERSION SETA 527" --pd "_RTE_ SETA 1" --pd "TLE9879QXA40 SETA 1"--list .\listings\startup_tle987x.lst --xref -o .\objects\startup_tle987x.o --depend .\objects\startup_tle987x.d)
+F (RTE\Device\TLE9879QXA40\system_tle987x.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\system_tle987x.o --omf_browse .\objects\system_tle987x.crf --depend .\objects\system_tle987x.d)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\bsl_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-F (RTE\Device\TLE9879QXA40\system_tle987x.h)(0x5C079880)()
-F (RTE\Device\TLE9879QXA40\timer2x_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\timer3_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)()
-F (RTE\Device\TLE9879QXA40\tle_device.c)(0x5C078D48)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\tle_device.o --omf_browse .\objects\tle_device.crf --depend .\objects\tle_device.d)
-I (RTE\Device\TLE9879QXA40\tle_device.h)(0x5C13A9C2)
-I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\bsl_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+F (RTE\Device\TLE9879QXA40\system_tle987x.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\timer2x_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\timer3_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\tle_device.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\tle_device.o --omf_browse .\objects\tle_device.crf --depend .\objects\tle_device.d)
+I (RTE\Device\TLE9879QXA40\tle_device.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C73375B)
-I (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C2E875C)
-I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (RTE\Device\TLE9879QXA40\scu.h)(0x5C37A970)
-I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C2EAC24)
-I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\pmu.h)(0x5C389318)
-I (RTE\Device\TLE9879QXA40\adc1.h)(0x5C3476C4)
-I (RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\adc2.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\bdrv.h)(0x5C13CA52)
-I (RTE\Device\TLE9879QXA40\int.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\ccu6.h)(0x5C418EA2)
-I (RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C37A996)
-I (RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C74C514)
-I (RTE\Device\TLE9879QXA40\isr.h)(0x5C33734C)
-I (RTE\Device\TLE9879QXA40\lin.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\port.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C338DFE)
-I (RTE\Device\TLE9879QXA40\ssc.h)(0x5C13B59C)
-I (RTE\Device\TLE9879QXA40\dma.h)(0x5C379D9E)
-I (RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C74C514)
-F (RTE\Device\TLE9879QXA40\tle_device.h)(0x5C13A9C2)()
-F (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C13A9DA)()
-F (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)()
-F (RTE\Device\TLE9879QXA40\uart_defines.h)(0x5C74C514)()
-F (RTE\Device\TLE9879QXA40\wdt1.c)(0x5C13B64A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\wdt1.o --omf_browse .\objects\wdt1.crf --depend .\objects\wdt1.d)
-I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)
-I (RTE\Device\TLE9879QXA40\types.h)(0x5C07990A)
-I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C1BCA48)
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (.\RTE\_TLE9879_EvalKit\RTE_Components.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\bootrom.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\scu.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\sfr_access.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\pmu.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc1_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\adc2.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\adc2_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\bdrv.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\int.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\ccu6.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\ccu6_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\gpt12e.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\gpt12e_defines.h)(0x5C75D930)
+I (RTE\Device\TLE9879QXA40\isr.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\lin.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\port.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\cmsis_misra.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\ssc.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\dma.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\dma_defines.h)(0x5C75D930)
+F (RTE\Device\TLE9879QXA40\tle_device.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\tle_variants.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)()
+F (RTE\Device\TLE9879QXA40\uart_defines.h)(0x5C75D930)()
+F (RTE\Device\TLE9879QXA40\wdt1.c)(0x5C754C1A)(-c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I .\emo -I .\app-I.\RTE\Device\TLE9879QXA40-I.\RTE\_TLE9879_EvalKit-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.4.0\Device\Include-D__UVISION_VERSION="527" -D_RTE_ -DTLE9879QXA40-o .\objects\wdt1.o --omf_browse .\objects\wdt1.crf --depend .\objects\wdt1.d)
+I (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\types.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\tle987x.h)(0x5C754C1A)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B61D2F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C079880)
-I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C74C514)
-F (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C2EA870)()
+I (RTE\Device\TLE9879QXA40\system_TLE987x.h)(0x5C754C1A)
+I (RTE\Device\TLE9879QXA40\scu_defines.h)(0x5C75D930)
+F (RTE\Device\TLE9879QXA40\wdt1.h)(0x5C754C1A)()

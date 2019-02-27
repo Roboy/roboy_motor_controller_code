@@ -588,7 +588,7 @@ void GPT1_IRQHandler(void)
     if ((uint8)SCU->GPT12IRC.bit.T4 == (uint8)1)
     {
       GPT1_T4_CALLBACK();
-      GPT12E_T4_Int_Clr();
+      SCU->GPT12ICLR.reg = 0x4u;
     }
   }
 #endif /*(GPT12E_T4_INT_EN == 1)*/
